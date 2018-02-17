@@ -30,7 +30,6 @@ html{
 body {
   font-size: 6vmin;
   margin: 0;
-  font-variant: small-caps;
   user-select: none;
   display: flex;
   justify-content: center;
@@ -75,9 +74,9 @@ button {
   background: #666;
   color: #eee;
   border: none;
-  width: 50vmin;
+  /* width: 30vmin; */
   margin: 5vmin;
-  padding: 3vmin;
+  padding: 5vmin;
   font-size: inherit;
   font-variant: small-caps;
   font-weight: bold;

@@ -1,7 +1,6 @@
 <template>
   <div id="guide">
     <img src="http://via.placeholder.com/120x120" alt="">
-
     <div class="tips">
       <h1>Wskazówka</h1>
       <p>Za chwilę zobaczysz 10 przykładów treści, które pojawiły się w internecie.</p>

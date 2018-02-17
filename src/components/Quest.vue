@@ -1,15 +1,13 @@
 <template>
   <div id="quest">
     <h1>Pytanie {{ questionNumber }}</h1>
-    <div>
-      Następne pytanie za {{ countdownSeconds }}
-    </div>
+    <pie-chart id="counter" :time="countdownSeconds"></pie-chart>
     <div>
       <img :src="question.imageUrl" width="320"/>
     </div>
     <div class="buttons">
-      <button v-on:click="answerYes">Tak</button>
-      <button v-on:click="answerNo">Nie</button>
+      <button v-on:click="answer('yes')">tak</button>
+      <button v-on:click="answer('no')">nie</button>
     </div>
   </div>
 </template>
@@ -17,9 +15,13 @@
 <script>
 import { mapMutations } from 'vuex';
 import { QUESTION_TIMEOUT } from '../consts';
+import PieChart from '@/components/PieChart'
 
 export default {
   name: 'quest',
+  components: {
+    PieChart
+  },
   beforeRouteEnter (to, from, next) {
     next((vm) => {
       vm.generateQuiz();
@@ -48,11 +50,21 @@ export default {
       'omitQuizQuestion',
       'generateQuiz',
     ]),
-    answerYes () {
-      this.answerQuestionOrEndQuiz('yes');
-    },
-    answerNo () {
-      this.answerQuestionOrEndQuiz('no');
+    answer (a) {
+      let el = document.querySelector('.anim')
+      let el2 = document.querySelector('.ouro3')
+      let cl = document.querySelector('.anim').className
+      let cl2 = document.querySelector('.ouro3').className
+
+      el.className = '';
+      el2.className = '';
+
+      setTimeout(() => {
+        el.className = cl;
+        el2.className = cl2;
+      }, 20)
+
+      this.answerQuestionOrEndQuiz(a);
     },
     answerQuestionOrEndQuiz (answer) {
       this.stopQuestionTimeout()
@@ -102,13 +114,19 @@ export default {
 <!-- It only affect current component -->
 <style scoped>
   #quest {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   #quest h1 {
     color: #2c3e50;
     font-weight: 300;
     margin: 0;
+  }
+  #counter{
+    margin: 5vmin;
   }
 
   .buttons {
