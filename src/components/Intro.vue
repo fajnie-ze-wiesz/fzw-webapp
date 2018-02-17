@@ -1,18 +1,33 @@
 <template>
   <div id="intro">
-    <h1>Hej {{userInfo.name}}!</h1>
+    <img src="http://via.placeholder.com/120x120" alt="">
     <form class="user-info-form">
-      Imię: <input v-model="userInfo.name" type="text" name="">
-      Wiek: <input v-model="userInfo.age" min="1900" max="2018" type="number" name="age">
-      Miasto: <input v-model="userInfo.city" type="text" name="">
-      <div class="gender">
-        Płeć:<br>
-        F: <input v-model="userInfo.gender" type="radio" value="female">
-        M: <input v-model="userInfo.gender" type="radio" value="male">
+      <div class="input">
+        nick
+        <input v-model="userInfo.name" type="text" name="">
+      </div>
+      <div class="input">
+        wiek
+        <input v-model="userInfo.age" min="0" max="100" type="number" name="age">
+      </div>
+      <div class="input">
+        płeć
+        <div class="gender">
+          <div class="radio">
+            <input v-model="userInfo.gender" type="radio" value="female">kobieta
+          </div>
+          <div class="radio">
+            <input v-model="userInfo.gender" type="radio" value="male">mężczyzna
+          </div>
+        </div>
+
+      </div>
+      <div class="input">
+        twoja miejscowość
+        <input v-model="userInfo.city" type="text" name="">
       </div>
     </form>
-    <router-link class="vbutton" :to="{ name: 'Guide', params: {} }">Dalej</router-link>
-    {{userInfo}}
+    <button @click="goToGuide">dalej</button>
   </div>
 </template>
 
@@ -28,7 +43,13 @@
           city: ''
         }
       }
+    },
+    methods: {
+      goToGuide () {
+        this.$router.push('/guide');
+      }
     }
+
   }
 </script>
 
@@ -52,5 +73,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .user-info-form div{
+    margin: 2vmin;
+  }
+  .input{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: #aaa;
+    font-weight: bold;
+    font-size: 80%;
+  }
+  .gender {
+    color: #777;
+    display: flex;
+    flex-direction: row;
+    width: 75vmin;
+    justify-content: space-between;
+  }
+  .radio{
+    display: flex;
+    font-size: inherit;
+  }
+  input{
+    border: none;
+    padding: 3vmin;
+    font-size: inherit;
+    color: #777;
+  }
+  input[type='text'], input[type='number']{
+    width: 75vmin;
   }
 </style>

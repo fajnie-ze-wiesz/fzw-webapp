@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <header>
+    <!-- <header>
       <span>Fajnie że wiesz</span>
-    </header>
+    </header> -->
+
     <main>
       <router-view></router-view>
     </main>
@@ -16,8 +17,13 @@ export default {
 </script>
 
 <style>
+html{
+  background: #eee;
+}
 body {
+  font-size: 6vmin;
   margin: 0;
+  font-variant: small-caps;
 }
 
 #app {
@@ -40,7 +46,7 @@ header {
   height: 56px;
   padding: 0 16px 0 24px;
   background-color: #35495E;
-  color: #ffffff;
+  color: #fff;
 }
 
 header span {
@@ -54,9 +60,15 @@ header span {
   padding-top: 16px;
 }
 
-.vbutton {
-  background: red;
-  width: 5vmin;
-  height: 5vmin;
+button {
+  background: #666;
+  color: #eee;
+  border: none;
+  width: 50vmin;
+  margin: 5vmin;
+  padding: 3vmin;
+  font-size: inherit;
+  font-variant: small-caps;
+  font-weight: bold;
 }
 </style>
