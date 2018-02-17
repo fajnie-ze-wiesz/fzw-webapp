@@ -17,6 +17,13 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
+
+h1 {
+  font-size: 100%;
+  color: #888;
+}
+
 html{
   background: #eee;
 }
@@ -24,13 +31,17 @@ body {
   font-size: 6vmin;
   margin: 0;
   font-variant: small-caps;
+  user-select: none;
+  display: flex;
+  justify-content: center;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  width: 75vmin;
 }
 
 main {
@@ -70,5 +81,26 @@ button {
   font-size: inherit;
   font-variant: small-caps;
   font-weight: bold;
+}
+.input{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #aaa;
+  font-weight: bold;
+  font-size: 80%;
+}
+.radio{
+  display: flex;
+  font-size: inherit;
+}
+input{
+  border: none;
+  padding: 3vmin;
+  font-size: inherit;
+  color: #777;
+}
+input[type='text'], input[type='number']{
+  width: 75vmin;
 }
 </style>

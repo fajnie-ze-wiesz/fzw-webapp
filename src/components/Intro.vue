@@ -14,20 +14,21 @@
         płeć
         <div class="gender">
           <div class="radio">
-            <input v-model="userInfo.gender" type="radio" value="female">kobieta
+            <label for="gf"><input v-model="userInfo.gender" id="gf" type="radio" value="female">
+            kobieta</label>
           </div>
           <div class="radio">
-            <input v-model="userInfo.gender" type="radio" value="male">mężczyzna
+            <label for="gm"><input v-model="userInfo.gender" id="gm" type="radio" value="male"></input>
+            mężczyzna</label>
           </div>
         </div>
-
       </div>
       <div class="input">
         twoja miejscowość
         <input v-model="userInfo.city" type="text" name="">
       </div>
     </form>
-    <button @click="goToGuide">dalej</button>
+    <button :class="{error: validationError}" @click="goToCategories">dalej</button>
   </div>
 </template>
 
@@ -40,14 +41,24 @@
           name: '',
           age: null,
           gender: null,
-          city: ''
-        }
+          city: '',
+          category: '',
+        },
+        validationError: false
       }
     },
+    computed: {
+
+    },
     methods: {
-      goToGuide () {
-        this.$router.push('/guide');
-      }
+      goToCategories () {
+        if (this.userInfo.name !== '') {
+          this.$store.commit('setUserInfo', this.userInfo)
+          this.$router.push('/category-selection');
+        } else {
+          this.validationError = true;
+        }
+      },
     }
 
   }
@@ -68,7 +79,6 @@
   }
 
   .user-info-form {
-    width: 100vmin;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,14 +87,7 @@
   .user-info-form div{
     margin: 2vmin;
   }
-  .input{
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    color: #aaa;
-    font-weight: bold;
-    font-size: 80%;
-  }
+
   .gender {
     color: #777;
     display: flex;
@@ -92,17 +95,8 @@
     width: 75vmin;
     justify-content: space-between;
   }
-  .radio{
-    display: flex;
-    font-size: inherit;
-  }
-  input{
-    border: none;
-    padding: 3vmin;
-    font-size: inherit;
-    color: #777;
-  }
-  input[type='text'], input[type='number']{
-    width: 75vmin;
+
+  .error{
+    background: red;
   }
 </style>

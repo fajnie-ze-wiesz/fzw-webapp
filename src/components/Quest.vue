@@ -4,7 +4,7 @@
     <div>
       <img :src="question.imageUrl" width="320"/>
     </div>
-    <div>
+    <div class="buttons">
       <button v-on:click="answerYes">Tak</button>
       <button v-on:click="answerNo">Nie</button>
     </div>
@@ -55,5 +55,10 @@ export default {
     color: #2c3e50;
     font-weight: 300;
     margin: 0;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
   }
 </style>

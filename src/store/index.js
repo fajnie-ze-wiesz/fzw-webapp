@@ -11,6 +11,7 @@ export default new Vuex.Store({
       questionIndex: 0,
       questions: [],
     },
+    userInfo: {},
   },
   mutations: {
     generateQuiz (state) {
@@ -47,6 +48,12 @@ export default new Vuex.Store({
       }
       quiz.questionIndex++;
     },
+    setUserInfo (state, userInfo) {
+      state.userInfo = userInfo;
+    },
+    setUserCategory (state, category) {
+      state.userInfo.category = category;
+    }
   },
   getters: {
     currentQuizQuestion (state) {
