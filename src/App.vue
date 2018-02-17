@@ -29,6 +29,9 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-top: 40px;
 }
@@ -50,5 +53,11 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
+}
+
+.vbutton {
+  background: red;
+  width: 5vmin;
+  height: 5vmin;
 }
 </style>
