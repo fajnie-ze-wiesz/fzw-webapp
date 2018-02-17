@@ -1,12 +1,27 @@
 <template>
   <div id="results">
-    <h1>TODO: results</h1>
+    <h1>Wyniki</h1>
+    <p>
+      Odpowiedziałeś poprawne na {{ numOfCorrectAnswers }} pytań z {{ numOfAnswers }}.
+      Na {{ numOfOmmitedQuestions }} nie udzieliłeś odpowiedzi.
+    </p>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'results'
+    name: 'results',
+    computed: {
+      numOfAnswers () {
+        return this.$store.getters.numOfQuizAnswers;
+      },
+      numOfCorrectAnswers () {
+        return this.$store.getters.numOfCorrectQuizAnswers;
+      },
+      numOfOmmitedQuestions () {
+        return this.$store.getters.numOfOmmitedQuizQuestions;
+      }
+    },
   }
 </script>
 

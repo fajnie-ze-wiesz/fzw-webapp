@@ -7,16 +7,11 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
 
 export default {
   name: 'guide',
   methods: {
-    ...mapMutations([
-      'generateQuiz',
-    ]),
     startQuiz () {
-      this.generateQuiz();
       this.$router.push('/quest')
     }
   }

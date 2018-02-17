@@ -5,6 +5,8 @@ import newsdb from '../newsdb.json'
 
 Vue.use(Vuex)
 
+const NUM_OF_QUIZ_QUESTIONS = 10;
+
 export default new Vuex.Store({
   state: {
     quiz: {
@@ -15,7 +17,7 @@ export default new Vuex.Store({
   mutations: {
     generateQuiz (state) {
       let questions = [];
-      for (let i = 0; i < 3; ++i) {
+      for (let i = 0; i < NUM_OF_QUIZ_QUESTIONS; ++i) {
         const index = Math.floor(Math.random() * newsdb.length);
         const news = newsdb[index];
         questions.push({
@@ -29,7 +31,6 @@ export default new Vuex.Store({
         questionIndex: 0,
         questions,
       }
-      console.log(quiz);
       state.quiz = quiz;
     },
     answerQuizQuestion (state, { answer }) {
@@ -59,6 +60,18 @@ export default new Vuex.Store({
     isQuizFinished (state) {
       let quiz = state.quiz;
       return quiz.questionIndex >= quiz.questions.length;
+    },
+    numOfQuizAnswers (state) {
+      let quiz = state.quiz;
+      return quiz.questions.filter((q) => q.answer).length;
+    },
+    numOfCorrectQuizAnswers (state) {
+      let quiz = state.quiz;
+      return quiz.questions.filter((q) => q.answer && q.answer === q.expectedAnswer).length;
+    },
+    numOfOmmitedQuizQuestions (state) {
+      let quiz = state.quiz;
+      return quiz.questions.filter((q) => !q.answer).length;
     }
   }
 })
