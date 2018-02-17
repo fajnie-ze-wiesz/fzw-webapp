@@ -2,10 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import newsdb from '../newsdb.json'
+import { NUM_OF_QUIZ_QUESTIONS } from '../consts';
 
 Vue.use(Vuex)
-
-const NUM_OF_QUIZ_QUESTIONS = 10;
 
 export default new Vuex.Store({
   state: {

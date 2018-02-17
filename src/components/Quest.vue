@@ -16,8 +16,7 @@
 
 <script>
 import { mapMutations } from 'vuex';
-
-const QUESTION_TIMEOUT = 5 * 1000;
+import { QUESTION_TIMEOUT } from '../consts';
 
 export default {
   name: 'quest',
