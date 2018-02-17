@@ -1,13 +1,47 @@
 <template>
   <div id="quest">
-    <h1>TODO: Quest</h1>
+    <h1>Pytanie {{ questionNumber }}</h1>
+    <div>
+      <img :src="question.imageUrl" width="320"/>
+    </div>
+    <div>
+      <button v-on:click="answerYes">Tak</button>
+      <button v-on:click="answerNo">Nie</button>
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'quest'
+import { mapMutations } from 'vuex';
+
+export default {
+  name: 'quest',
+  computed: {
+    question () {
+      return this.$store.getters.currentQuizQuestion;
+    },
+    questionNumber () {
+      return this.$store.getters.quizQuestionIndex + 1;
+    },
+  },
+  methods: {
+    ...mapMutations([
+      'answerQuizQuestion',
+    ]),
+    answerYes () {
+      this.answerQuestionOrEndQuiz('yes');
+    },
+    answerNo () {
+      this.answerQuestionOrEndQuiz('no');
+    },
+    answerQuestionOrEndQuiz (answer) {
+      this.answerQuizQuestion({ answer });
+      if (this.$store.getters.isQuizFinished) {
+        this.$router.push('/results');
+      }
+    },
   }
+}
 </script>
 
 <!-- Scoped component css -->

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": "clickbait"
+  },
+  {
+    "id": 2,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": null
+  },
+  {
+    "id": 3,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": "clickbait"
+  },
+  {
+    "id": 4,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": "clickbait"
+  },
+  {
+    "id": 5,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": null
+  },
+  {
+    "id": 6,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": "clickbait"
+  },
+  {
+    "id": 7,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": "clickbait"
+  },
+  {
+    "id": 8,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": "clickbait"
+  },
+  {
+    "id": 9,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": "clickbait"
+  },
+  {
+    "id": 10,
+    "imageUrl": "http://via.placeholder.com/400x500",
+    "category": "lifestyle",
+    "negativeType": "clickbait"
+  }
+]

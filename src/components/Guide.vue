@@ -1,16 +1,26 @@
 <template>
   <div id="guide">
-    <h1>TODO: Guide</h1>
-    <p>Wskazówki</p>
+    <h1>Instrukcja</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <router-link class="vbutton" :to="{ name: 'Quest', params: {} }">Kontynuuj</router-link>
+    <button v-on:click="startQuiz">Rozpocznij</button>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'guide'
+import { mapMutations } from 'vuex';
+
+export default {
+  name: 'guide',
+  methods: {
+    ...mapMutations([
+      'generateQuiz',
+    ]),
+    startQuiz () {
+      this.generateQuiz();
+      this.$router.push('/quest')
+    }
   }
+}
 </script>
 
 <!-- Global CSS -->
