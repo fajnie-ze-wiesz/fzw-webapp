@@ -1,8 +1,17 @@
 <template>
   <div id="guide">
-    <h1>Instrukcja</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <button v-on:click="startQuiz">Rozpocznij</button>
+    <h1>Wskazówka</h1>
+    <p>
+      Za chwilę zobaczysz
+      10 przykładów treści,
+      które pojawiły się w internecie.
+
+      Sprawdź, czy kliknąłbyś,
+      aby przeczytać więcej.
+
+      Masz 5 sekund na decyzję.
+    </p>
+    <button v-on:click="startQuiz">OK, zaczynamy!</button>
   </div>
 </template>
 

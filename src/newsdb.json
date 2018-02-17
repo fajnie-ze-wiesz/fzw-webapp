@@ -15,7 +15,7 @@
     "id": 3,
     "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
     "category": "lifestyle",
-    "negativeType": "clickbait"
+    "negativeType": "fake-news"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "id": 6,
     "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
     "category": "lifestyle",
-    "negativeType": "clickbait"
+    "negativeType": "fake-news"
   },
   {
     "id": 7,
@@ -45,7 +45,7 @@
     "id": 8,
     "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
     "category": "lifestyle",
-    "negativeType": "clickbait"
+    "negativeType": "manipulation"
   },
   {
     "id": 9,
