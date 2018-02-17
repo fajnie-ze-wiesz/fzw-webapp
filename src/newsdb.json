@@ -45,7 +45,7 @@
     "id": 8,
     "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
     "category": "lifestyle",
-    "negativeType": "manipulation"
+    "negativeType": "image-manipulation"
   },
   {
     "id": 9,
@@ -57,6 +57,6 @@
     "id": 10,
     "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
     "category": "lifestyle",
-    "negativeType": "clickbait"
+    "negativeType": "emotional-language"
   }
 ]
