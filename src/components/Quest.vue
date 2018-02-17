@@ -8,8 +8,8 @@
       <img :src="question.imageUrl" width="320"/>
     </div>
     <div class="buttons">
-      <button v-on:click="answerYes">Tak</button>
-      <button v-on:click="answerNo">Nie</button>
+      <button class="answer" v-on:click="answerYes">Klikam</button>
+      <button class="answer" v-on:click="answerNo">Nie klikam</button>
     </div>
   </div>
 </template>
@@ -115,4 +115,11 @@ export default {
     display: flex;
     flex-direction: row;
   }
+
+button.answer {
+  width: 40vmin;
+  border: #666 1vmin solid;
+  color: #666;
+  background: #eee;
+}
 </style>

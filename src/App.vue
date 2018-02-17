@@ -19,18 +19,12 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
 
-h1 {
-  font-size: 100%;
-  color: #888;
-}
-
 html{
   background: #eee;
 }
 body {
   font-size: 6vmin;
   margin: 0;
-  font-variant: small-caps;
   user-select: none;
   display: flex;
   justify-content: center;
@@ -42,6 +36,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   width: 75vmin;
+}
+
+h1 {
+  font-variant: small-caps;
+  font-size: 100%;
+  color: #888;
 }
 
 main {
@@ -102,5 +102,8 @@ input{
 }
 input[type='text'], input[type='number']{
   width: 75vmin;
+}
+.input, label {
+  font-variant: small-caps;
 }
 </style>

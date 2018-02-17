@@ -31,6 +31,7 @@ export default {
 <style scoped>
   .tips{
     background: white;
+    width: 80vmin;
     padding: 5vmin;
   }
 </style>
