@@ -1,6 +1,6 @@
 <template>
   <div id="guide">
-    <img src="http://via.placeholder.com/120x120" alt="">
+    <img id="logo" src="static/img/icons/fzw_logo.svg" alt="">
     <div class="card">
       <h1>Wskazówka</h1>
       <p>Za chwilę zobaczysz {{ numOfQuestions }} przykładów treści, które pojawiły się w internecie.</p>

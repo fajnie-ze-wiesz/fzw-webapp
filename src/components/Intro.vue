@@ -1,6 +1,6 @@
 <template>
   <div id="intro">
-    <img src="http://via.placeholder.com/120x120" alt="">
+    <img id="logo" src="static/img/icons/fzw_logo.svg" alt="">
     <!-- <transition name="fade"> -->
       <div v-if="page === 0" class="">
         <h1>Cześć!</h1>
