@@ -5,20 +5,20 @@
       Wybierz obszar, który Cię najbardziej interesuje
       <div class="category-selection">
         <div class="radio">
-          <label for="rozrywka"><input v-model="category" id="rozrywka" type="radio" value="rozrywka"></input>
-          rozrywka</label>
+          <input v-model="category" id="rozrywka" type="radio" value="rozrywka"></input>
+          <label for="rozrywka">rozrywka</label>
         </div>
         <div class="radio">
-          <label for="sport"><input v-model="category" id="sport" type="radio" value="sport">
-          sport</label>
+          <input v-model="category" id="sport" type="radio" value="sport">
+          <label for="sport">sport</label>
         </div>
         <div class="radio">
-          <label for="nauka"><input v-model="category" id="nauka" type="radio" value="nauka"></input>
-          nauka</label>
+          <input v-model="category" id="nauka" type="radio" value="nauka"></input>
+          <label for="nauka">nauka</label>
         </div>
         <div class="radio">
-          <label for="polityka"><input v-model="category" id="polityka" type="radio" value="polityka"></input>
-          polityka</label>
+          <input v-model="category" id="polityka" type="radio" value="polityka"></input>
+          <label for="polityka">polityka</label>
         </div>
       </div>
     </div>
@@ -51,9 +51,34 @@
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
-  /* input[type="radio"] {
+  .category-selection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: normal;
+  }
+  input[type="radio"] {
   	opacity: 0;
   	width: 0;
     height: 0;
-  } */
+  }
+  input[type="radio"]:checked + label {
+    background: #666;
+    color: white;
+  }
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vmin;
+    height: 30vmin;
+    background: white;
+    margin: 2vmin;
+    transition: .2s;
+    cursor: pointer;
+  }
+  input {
+    margin: 0;
+    display: none;
+  }
 </style>
