@@ -65,14 +65,14 @@
   {
     "id": 10,
     "imageUrl": "https://i.imgur.com/PJNCNSJ.jpg",
-    "category": "entertainment",
+    "category": "science",
     "negativeType": "fake-news",
     "expectedAnswer": "no"
   },
   {
     "id": 11,
     "imageUrl": "https://i.imgur.com/xNowsK5.jpg",
-    "category": "entertainment",
+    "category": "science",
     "negativeType": "fake-news",
     "expectedAnswer": "no"
   },
