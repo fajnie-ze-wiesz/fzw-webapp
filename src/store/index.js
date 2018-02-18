@@ -12,7 +12,9 @@ export default new Vuex.Store({
       questionIndex: 0,
       questions: [],
     },
-    userInfo: {},
+    userInfo: {
+      name: 'test',
+    },
   },
   mutations: {
     generateQuiz (state) {

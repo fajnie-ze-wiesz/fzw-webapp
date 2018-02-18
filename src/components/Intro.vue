@@ -25,8 +25,15 @@
       </div>
       <div class="input">
         twoja miejscowość
-        <input v-model="userInfo.city" type="text" name="">
+        <select class="input" v-model="userInfo.city">
+          <option value="1">Poniżej 10 000</option>
+          <option value="2">10 000 - 20 000</option>
+          <option value="3">20 000 - 100 000</option>
+          <option value="4">100 000 - 250 000</option>
+          <option value="5">Powyżej 250 000</option>
+        </select>
       </div>
+
     </form>
     <button :class="{error: validationError}" @click="goToCategories">dalej</button>
   </div>
@@ -86,6 +93,9 @@
   }
   .user-info-form div{
     margin: 2vmin;
+  }
+  select {
+
   }
 
   .gender {

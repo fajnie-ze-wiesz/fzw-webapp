@@ -38,6 +38,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 h1 {
@@ -76,7 +77,7 @@ button {
   border: none;
   /* width: 30vmin; */
   margin: 4vmin;
-  padding: 3vmin 0;
+  padding: 2vmin 3vmin;
   font-size: inherit;
   font-variant: small-caps;
   font-weight: bold;
