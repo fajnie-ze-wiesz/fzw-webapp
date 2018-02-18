@@ -127,7 +127,11 @@ export default {
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
-  #quest, .question {
+  #quest {
+    position: relative;
+  }
+  .question {
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,20 +164,35 @@ export default {
     border-radius: 0;
   }
 
-  .slide-fade-enter-active {
-    transition: all .3s ease;
-  }
-  .slide-fade-leave-active {
-    transition: all .10s ease;
-  }
-  .slide-fade-leave-to {
-    transform: translateY(30vmin);
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     opacity: 0;
+    background: #00f;
+  }
+
+  .overlay-error {
+    background: #f00;
   }
 
   .slide-fade-enter {
     transform: translateY(-30vmin);
     opacity: 0;
   }
+  .slide-fade-enter-active {
+    transition: all 2s ease;
+  }
+
+  .slide-fade-leave-active {
+    transition: all 1s ease;
+  }
+  .slide-fade-leave-to {
+    transform: translateY(50vmin);
+    opacity: 0;
+  }
+
 
 </style>

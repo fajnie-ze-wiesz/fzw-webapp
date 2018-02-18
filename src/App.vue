@@ -113,6 +113,7 @@ input[type='text'], input[type='number']{
 }
 
 .card{
+  position: relative;
   background: white;
   padding: 5vmin;
   height: 80vmin;
