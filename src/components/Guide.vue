@@ -3,9 +3,9 @@
     <img id="logo" src="static/img/icons/fzw_logo.svg" alt="">
     <div class="card">
       <h1>Wskazówka</h1>
-      <p>Za chwilę zobaczysz {{ numOfQuestions }} przykładów treści, które pojawiły się w internecie.</p>
-      <p>Sprawdź, czy kliknąłbyś, aby przeczytać więcej.</p>
-      <p>Masz {{ questionTimeSeconds }} sekund na decyzję.</p>
+      <p>Za chwilę zobaczysz {{ numOfQuestions }} przykładów treści, które pojawiły się w sieci.</p>
+      <p>Decyzja należy do Ciebie – klikasz czy nie?</p>
+      <p>Pamiętaj: na otwarcie lub odrzucenie treści masz tylko {{ questionTimeSeconds }} sekund!</p>
       <button v-on:click="startQuiz">ok, zaczynamy!</button>
     </div>
   </div>

@@ -1,9 +1,7 @@
 <template>
   <div id="results">
-    <h1>{{this.userInfo.name}}</h1>
-    <h2>Twoja ochrona jest na poziomie</h2>
-
-    <h2>Twoja odporność na:</h2>
+    <h1>{{this.userInfo.name}}...</h1>
+    <h2>jesteś chroniony na poziomie:</h2>
     <pie-chart2 :score="numOfCorrectAnswers" :total="numOfAnswers"></pie-chart2>
     <p>
       Udzielono {{ numOfCorrectAnswers }} poprawnych odpowiedzi na {{ numOfAnswers }} pytań.
