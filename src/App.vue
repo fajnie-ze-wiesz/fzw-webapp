@@ -109,5 +109,7 @@ input[type='text'], input[type='number']{
 .card{
   background: white;
   padding: 5vmin;
+  height: 80vmin;
+  box-shadow: 0 2vmin #ddd;
 }
 </style>

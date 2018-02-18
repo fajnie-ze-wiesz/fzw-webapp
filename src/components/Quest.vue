@@ -1,7 +1,7 @@
 <template>
   <div id="quest">
     <pie-chart id="counter" :time="countdownSeconds"></pie-chart>
-    <div class="news-window">
+    <div class="card">
       <img :src="question.imageUrl"/>
     </div>
     <div class="buttons">
@@ -118,12 +118,6 @@ export default {
     align-items: center;
     justify-content: center;
   }
-  .news-window{
-    background: white;
-    box-shadow: 0 2vmin #777;
-    width: 100%;
-  }
-
   #quest h1 {
     color: #2c3e50;
     font-weight: 300;
