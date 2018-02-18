@@ -7,34 +7,42 @@
       Udzielono {{ numOfCorrectAnswers }} poprawnych odpowiedzi na {{ numOfAnswers }} pytań.
       Na {{ numOfOmmitedQuestions }} nie udzielono odpowiedzi.
     </p>
+    <div class="results">
+      <h1>Twoja odporność na:</h1>
+      <div class="">
+        <pie-chart2
+          :score="numOfCorrectEmotionalLanguageAnswers"
+          :total="numOfEmotionalLanguageAnswers"
+        />
+        <h5>Emocjonalny język</h5>
 
-    <h2>Twoja odporność na emocjonalny język:</h2>
-    <pie-chart2
-      :score="numOfCorrectEmotionalLanguageAnswers"
-      :total="numOfEmotionalLanguageAnswers"
-    />
+      </div>
 
-    <h2>Twoja odporność na clickbait:</h2>
-    <pie-chart2
-      :score="numOfCorrectClickbaitAnswers"
-      :total="numOfClickbaitAnswers"
-    />
+      <div class="">
+        <pie-chart2
+          :score="numOfCorrectClickbaitAnswers"
+          :total="numOfClickbaitAnswers"
+        />
+        <h5>Clickbait</h5>
+      </div>
 
-    <h2>Twoja odporność na fałszywe treści:</h2>
-    <pie-chart2
-      :score="numOfCorrectFakeNewsAnswers"
-      :total="numOfFakeNewsAnswers"
-    />
+      <div class="">
+        <pie-chart2
+          :score="numOfCorrectFakeNewsAnswers"
+          :total="numOfFakeNewsAnswers"
+        />
+        <h5>Fałszywe treści</h5>
+      </div>
 
-    <h2>Twoja odporność na manipulację obrazem:</h2>
-    <pie-chart2
-      :score="numOfCorrectImageManipulationAnswers"
-      :total="numOfImageManipulationAnswers"
-    />
-
-    <h3>Chcesz wiedzieć więcej?</h3>
-    <h2>Odwiedź Akademię Fact-Checkingu!</h2>
-    <a class="button" href="https://www.facebook.com/akademiafactcheckingu/">przejdź</a>
+      <div class="">
+        <pie-chart2
+          :score="numOfCorrectImageManipulationAnswers"
+          :total="numOfImageManipulationAnswers"
+        />
+        <h5>Manipulację obrazem</h5>
+      </div>
+    </div>
+    <button type="button" name="button">sprawdź swoje odpowiedzi</button>
   </div>
 </template>
 
@@ -98,13 +106,24 @@
 <!-- It only affect current component -->
 <style scoped>
   #results {
-    text-align: center;
+    /* text-align: center; */
   }
 
   #results h1 {
     color: #2c3e50;
     font-weight: 300;
-    margin: 0;
   }
 
+  .results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .results > div {
+    width: 50%;
+
+  }
+  .results svg{
+
+  }
 </style>

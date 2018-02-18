@@ -31,7 +31,7 @@ body {
   display: flex;
   justify-content: center;
 }
-h1, h2, h3 {
+h2, h3, h4, h5 {
   margin-top: 0;
 }
 #logo{
@@ -49,7 +49,6 @@ h1, h2, h3 {
 }
 
 main {
-  margin-top: 40px;
   width: 80vmin;
 }
 
@@ -78,7 +77,7 @@ button {
   border: none;
   /* width: 30vmin; */
   margin: 4vmin;
-  padding: 2vmin 3vmin;
+  padding: 2vmin 5vmin;
   font-size: inherit;
   font-variant: small-caps;
   font-weight: bold;

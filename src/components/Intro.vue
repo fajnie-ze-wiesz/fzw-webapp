@@ -11,28 +11,28 @@
 
     <!-- <transition name="fade"> -->
       <div v-show="page === 1" class="">
-        <h1>Jak mamy się do Ciebie zwracać?</h1>
+        <h3>Jak mamy się do Ciebie zwracać?</h3>
         <div class="input">
           <input v-model="userInfo.name" type="text" name="">
         </div>
-        <button @click="page++">zaczynamy</button>
+        <button @click="page++">dalej</button>
       </div>
     <!-- </transition> -->
 
     <div v-show="page === 2" class="">
-      <h1>Na ile oceniasz swoją odporność na manipulacje?</h1>
+      <h3>Na ile oceniasz swoją odporność na manipulacje?</h3>
       <div class="input">
         <select class="input" name="">
           <option v-for="(item, value) in [0,10,20,30,40,50,60,70,80,90,100]" value="">{{item}}%</option>
         </select>
       </div>
-      <button @click="page++">zaczynamy</button>
+      <button @click="page++">dalej</button>
     </div>
 
     <!-- <transition name="fade"> -->
       <div v-show="page === 3" class="">
         <div id="category-selection">
-          <h2>Wybierz obszar, który Cię najbardziej interesuje</h2>
+          <h3>Wybierz obszar, który Cię najbardziej interesuje</h3>
           <div class="input">
             <div class="category-selection">
               <div class="radio">
