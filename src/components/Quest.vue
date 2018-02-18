@@ -143,5 +143,8 @@ export default {
     border: #666 .75vmin solid;
     color: #666;
     background: #eee;
+    padding: 2vmin 3vmin;
+    box-shadow: none;
+    border-radius: 0;
   }
 </style>

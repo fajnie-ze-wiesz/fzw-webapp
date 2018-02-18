@@ -72,15 +72,18 @@ header span {
 }
 
 button {
-  background: #666;
+  background: #EF420C;
+  border-radius: 2vmin;
   color: #eee;
   border: none;
   /* width: 30vmin; */
   margin: 4vmin;
-  padding: 2vmin 5vmin;
-  font-size: inherit;
-  font-variant: small-caps;
+  padding: 4vmin 12vmin;
+  box-shadow: 0 1vh 5vh 0 rgba(239, 66, 12, 0.5);
+  font-size: 80%;
+  text-transform: uppercase;
   font-weight: bold;
+
 }
 .input{
   display: flex;
