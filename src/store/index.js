@@ -43,6 +43,7 @@ export default new Vuex.Store({
         questions.push({
           newsId: news.id,
           imageUrl: news.imageUrl,
+          type: news.negativeType,
           answer: null,
           expectedAnswer: expectedAnswer,
         })
@@ -77,6 +78,9 @@ export default new Vuex.Store({
       let quiz = state.quiz;
       return quiz.questions[quiz.questionIndex];
     },
+    quizQuestions (state) {
+      return state.quiz.questions;
+    },
     quizQuestionIndex (state) {
       return state.quiz.questionIndex;
     },
@@ -95,6 +99,18 @@ export default new Vuex.Store({
     numOfOmmitedQuizQuestions (state) {
       let quiz = state.quiz;
       return quiz.questions.filter((q) => !q.answer).length;
+    },
+    numOfQuizAnswersByType (state) {
+      return (type) => {
+        let quiz = state.quiz;
+        return quiz.questions.filter((q) => q.type === type && q.answer).length;
+      };
+    },
+    numOfCorrectQuizAnswersByType (state) {
+      return (type) => {
+        let quiz = state.quiz;
+        return quiz.questions.filter((q) => q.type === type && q.answer === q.expectedAnswer).length;
+      };
     }
   }
 })

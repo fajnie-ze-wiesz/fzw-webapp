@@ -28,6 +28,11 @@ export default {
       vm.startTicker();
     });
   },
+  beforeRouteLeave (to, from, next) {
+    this.stopQuestionTimeout();
+    this.stopTicker();
+    next();
+  },
   data: () => ({
     tick: Date.now(),
   }),
@@ -83,8 +88,6 @@ export default {
       }
     },
     goToResults () {
-      this.stopQuestionTimeout();
-      this.stopTicker();
       this.$router.push('/results');
     },
     stopQuestionTimeout () {

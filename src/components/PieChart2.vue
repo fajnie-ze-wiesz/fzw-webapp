@@ -3,7 +3,7 @@
     <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
       <g>
         <!-- <path :d="path" stroke="black" fill="transparent"/> -->
-        <text x="25" y="28" font-size="10" text-anchor="middle" dominant-baseline="center">{{Math.floor(this.score/this.total*100)}}%</text>
+        <text x="25" y="28" font-size="10" text-anchor="middle" dominant-baseline="center">{{ percentString }}</text>
         <polyline :points="points" style="fill:none;stroke:white;stroke-width:2" />
         <polyline :points="points2" style="fill:none;stroke:gray;stroke-width:2" />
       </g>
@@ -24,6 +24,16 @@
     },
     created () {
       this.generateCircle(this.score, this.total)
+    },
+    computed: {
+      percentString () {
+        if (this.total > 0) {
+          const percent = Math.floor(this.score / this.total * 100);
+          return `${percent}%`;
+        } else {
+          return 'N/A';
+        }
+      }
     },
     methods: {
       generateCircle (s, n) {
