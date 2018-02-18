@@ -68,9 +68,6 @@ export default new Vuex.Store({
     setUserInfo (state, userInfo) {
       state.userInfo = userInfo;
     },
-    setUserCategory (state, category) {
-      state.userInfo.category = category;
-    }
   },
   getters: {
     currentQuizQuestion (state) {

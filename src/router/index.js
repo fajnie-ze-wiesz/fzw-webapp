@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Intro from '@/components/Intro'
-import CategorySelection from '@/components/CategorySelection'
 import Guide from '@/components/Guide'
 import Quest from '@/components/Quest'
 import Results from '@/components/Results'
@@ -14,11 +13,6 @@ export default new Router({
       path: '/',
       name: 'Intro',
       component: Intro
-    },
-    {
-      path: '/category-selection',
-      name: 'Category selection',
-      component: CategorySelection
     },
     {
       path: '/guide',

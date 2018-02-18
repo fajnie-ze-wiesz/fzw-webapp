@@ -5,7 +5,9 @@
     </header> -->
 
     <main>
-      <router-view></router-view>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
     </main>
   </div>
 </template>
@@ -85,6 +87,8 @@ button {
 .input{
   display: flex;
   align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   color: #aaa;
   font-weight: bold;
@@ -112,5 +116,6 @@ input[type='text'], input[type='number']{
   padding: 5vmin;
   height: 80vmin;
   box-shadow: 0 2vmin #ddd;
+  overflow-y: scroll;
 }
 </style>
