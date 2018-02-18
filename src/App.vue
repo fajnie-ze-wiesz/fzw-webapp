@@ -25,11 +25,14 @@ html{
   background: #eee;
 }
 body {
-  font-size: 4vmin;
+  font-size: 5vmin;
   margin: 0;
   user-select: none;
   display: flex;
   justify-content: center;
+}
+h1, h2, h3 {
+  margin-top: 0;
 }
 #logo{
   width: 30vmin;

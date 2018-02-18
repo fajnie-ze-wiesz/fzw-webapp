@@ -1,7 +1,7 @@
 <template>
   <div id="guide">
     <img id="logo" src="static/img/icons/fzw_logo.svg" alt="">
-    <div class="card">
+    <div class="card guide">
       <h1>Wskazówka</h1>
       <p>Za chwilę zobaczysz {{ numOfQuestions }} przykładów treści, które pojawiły się w sieci.</p>
       <p>Decyzja należy do Ciebie – klikasz czy nie?</p>
@@ -39,5 +39,8 @@ export default {
 <style scoped>
 #guide {
   text-align: center;
+}
+.guide {
+  height: auto;
 }
 </style>

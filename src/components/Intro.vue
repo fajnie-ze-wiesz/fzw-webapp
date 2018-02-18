@@ -32,8 +32,8 @@
     <!-- <transition name="fade"> -->
       <div v-show="page === 3" class="">
         <div id="category-selection">
+          <h2>Wybierz obszar, który Cię najbardziej interesuje</h2>
           <div class="input">
-            Wybierz obszar, który Cię najbardziej interesuje
             <div class="category-selection">
               <div class="radio">
                 <input v-model="userInfo.category" id="rozrywka" type="radio" value="entertainment"></input>
@@ -152,7 +152,12 @@
     margin: 2vmin;
   }
   select {
-
+    background: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 200%;
   }
 
   .gender {
