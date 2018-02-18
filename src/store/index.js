@@ -25,6 +25,9 @@ export default new Vuex.Store({
       });
       for (let i = 0; i < NUM_OF_QUIZ_QUESTIONS; ++i) {
         let unusedNewsKeys = Object.keys(unusedNewsMap);
+        if (unusedNewsKeys.length === 0) {
+          break;
+        }
         const index = Math.floor(Math.random() * unusedNewsKeys.length);
         const key = unusedNewsKeys[index];
         const news = unusedNewsMap[key];

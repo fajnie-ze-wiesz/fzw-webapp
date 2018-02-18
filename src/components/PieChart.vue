@@ -76,7 +76,7 @@
     border-radius: 999px;
     background: none repeat scroll 0 0 #508EC3;
     opacity: 0.8;
-    animation: ui-spinner-rotate-left 10s infinite;
+    animation: ui-spinner-rotate-left 14s infinite;
     transform-origin: 0 50% 0;
   }
   .resetAnimation{
@@ -96,7 +96,7 @@
   /* v3 */
   .ouro3 .anim {
    animation-delay: 0s;
-   animation-duration:10s;
+   animation-duration:14s;
    animation-timing-function: linear;
   }
   .ouro3 .right .anim{
