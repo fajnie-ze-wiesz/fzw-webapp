@@ -19,16 +19,11 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
 
-h1 {
-  font-size: 100%;
-  color: #888;
-}
-
 html{
   background: #eee;
 }
 body {
-  font-size: 6vmin;
+  font-size: 5vmin;
   margin: 0;
   user-select: none;
   display: flex;
@@ -37,18 +32,23 @@ body {
 
 #app {
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  width: 75vmin;
-}
-
-main {
+  width: 100vmin;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+  font-variant: small-caps;
+  font-size: 100%;
+  color: #888;
+}
+
+main {
   margin-top: 40px;
+  width: 80vmin;
 }
 
 header {
@@ -75,8 +75,8 @@ button {
   color: #eee;
   border: none;
   /* width: 30vmin; */
-  margin: 5vmin;
-  padding: 5vmin;
+  margin: 4vmin;
+  padding: 3vmin 0;
   font-size: inherit;
   font-variant: small-caps;
   font-weight: bold;
@@ -101,5 +101,7 @@ input{
 }
 input[type='text'], input[type='number']{
   width: 75vmin;
+}
+.input, label {
 }
 </style>

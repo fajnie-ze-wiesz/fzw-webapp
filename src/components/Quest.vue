@@ -1,13 +1,12 @@
 <template>
   <div id="quest">
-    <h1>Pytanie {{ questionNumber }}</h1>
     <pie-chart id="counter" :time="countdownSeconds"></pie-chart>
-    <div>
-      <img :src="question.imageUrl" width="320"/>
+    <div class="news-window">
+      <img :src="question.imageUrl"/>
     </div>
     <div class="buttons">
-      <button v-on:click="answer('yes')">tak</button>
-      <button v-on:click="answer('no')">nie</button>
+      <button class="answer" v-on:click="answer('yes')">klikam</button>
+      <button class="answer" v-on:click="answer('no')">nie klikam</button>
     </div>
   </div>
 </template>
@@ -119,6 +118,11 @@ export default {
     align-items: center;
     justify-content: center;
   }
+  .news-window{
+    background: white;
+    box-shadow: 0 2vmin #777;
+    width: 100%;
+  }
 
   #quest h1 {
     color: #2c3e50;
@@ -128,9 +132,19 @@ export default {
   #counter{
     margin: 5vmin;
   }
+  img{
+    width: 70vmin;
+  }
 
   .buttons {
     display: flex;
     flex-direction: row;
+  }
+
+  button.answer {
+    width: 35vmin;
+    border: #666 .75vmin solid;
+    color: #666;
+    background: #eee;
   }
 </style>
