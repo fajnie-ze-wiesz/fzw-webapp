@@ -19,21 +19,23 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&subset=latin-ext');
 
 html{
   background: #eee;
 }
 body {
-  font-size: 5vmin;
+  font-size: 4vmin;
   margin: 0;
   user-select: none;
   display: flex;
   justify-content: center;
 }
-
+#logo{
+  width: 30vmin;
+}
 #app {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #2c3e50;
   width: 100vmin;
   display: flex;
@@ -41,12 +43,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-h1 {
-  font-variant: small-caps;
-  font-size: 100%;
-  color: #888;
 }
 
 main {
