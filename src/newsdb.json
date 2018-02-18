@@ -2,6 +2,7 @@
   {
     "id": 1,
     "imageUrl": "https://i.imgur.com/1PX1lep.jpg",
+    "lead": "SZCZYT HAŃBY! Rydzyk skarży się na PiS i żąda więcej!",
     "category": "politics",
     "negativeType": "emotional-language",
     "expectedAnswer": "no"
@@ -9,6 +10,7 @@
   {
     "id": 2,
     "imageUrl": "https://i.imgur.com/JYS5mW2.jpg",
+    "lead": "Macierewicz wpadł w furię. Chce rozszarpać PiS",
     "category": "politics",
     "negativeType": "emotional-language",
     "expectedAnswer": "no"
@@ -16,6 +18,7 @@
   {
     "id": 3,
     "imageUrl": "https://i.imgur.com/kxJ5tnf.jpg",
+    "lead": "Zlikwidowano trzy plantacje marihuany",
     "category": "entertainment",
     "negativeType": "emotional-language",
     "expectedAnswer": "yes"
@@ -23,6 +26,7 @@
   {
     "id": 4,
     "imageUrl": "https://i.imgur.com/6Ou2avE.jpg",
+    "lead": "SZOK: W TRAKCIE KOLEJNYCH SERII Z KARABINU, AMERYKANIN STOI I POKAZUJE ZABÓJCY Z LAS VEGAS ŚRODKOWY PALEC",
     "category": "politics",
     "negativeType": "emotional-language",
     "expectedAnswer": "no"
@@ -30,6 +34,7 @@
   {
     "id": 5,
     "imageUrl": "https://i.imgur.com/YjVFl9P.jpg",
+    "lead": "Wardęga NIE ŻYJE?! Co sę stało ze słynnym Youtuberem?",
     "category": "entertainment",
     "negativeType": "clickbait",
     "expectedAnswer": "no"
@@ -37,6 +42,7 @@
   {
     "id": 6,
     "imageUrl": "https://i.imgur.com/1yrrTAT.jpg",
+    "lead": "MASAKRA! Znany performer spadł z 62 piętra! ZOBACZ!",
     "category": "entertainment",
     "negativeType": "clickbait",
     "expectedAnswer": "no"
@@ -44,6 +50,7 @@
   {
     "id": 7,
     "imageUrl": "https://i.imgur.com/YLK8ifX.jpg",
+    "lead": "Kamil Stoch odebrał olimpijskie złoto",
     "category": "sport",
     "negativeType": "clickbait",
     "expectedAnswer": "yes"
@@ -51,6 +58,7 @@
   {
     "id": 8,
     "imageUrl": "https://i.imgur.com/bJ250AP.jpg",
+    "lead": "Tym znakiem zawiesisz komuś iPhone'a. Wystarczy jedna wiadomość",
     "category": "entertainment",
     "negativeType": "clickbait",
     "expectedAnswer": "no"
@@ -58,6 +66,7 @@
   {
     "id": 9,
     "imageUrl": "https://i.imgur.com/8UEKMD6.jpg",
+    "lead": "Magda Gessler POBITA !? Cały TVN ciężkim szoku! Właścicielka knajpy w areszcie.",
     "category": "entertainment",
     "negativeType": "fake-news",
     "expectedAnswer": "no"
@@ -65,6 +74,7 @@
   {
     "id": 10,
     "imageUrl": "https://i.imgur.com/PJNCNSJ.jpg",
+    "lead": "W Warszawie, na brzegu Wisły przy "Poniatówce" leży wieloryb (prawdopodobnie kaszalot).",
     "category": "science",
     "negativeType": "fake-news",
     "expectedAnswer": "no"
@@ -72,6 +82,7 @@
   {
     "id": 11,
     "imageUrl": "https://i.imgur.com/xNowsK5.jpg",
+    "lead": "RAKOTWÓRCZE CIASTKA TRAFIŁY DO SPRZEDAŻY W POLSKICH SKLEPACH",
     "category": "science",
     "negativeType": "fake-news",
     "expectedAnswer": "no"
@@ -79,6 +90,7 @@
   {
     "id": 12,
     "imageUrl": "https://i.imgur.com/Em8iV5V.jpg",
+    "lead": "Znany streamer zmarł podczas 24-godzinej transmisji. Grał charytatywnie w World of Tanks",
     "category": "entertainment",
     "negativeType": "fake-news",
     "expectedAnswer": "yes"
@@ -86,6 +98,7 @@
   {
     "id": 13,
     "imageUrl": "https://i.imgur.com/04jKSoZ.jpg",
+    "lead": "Tusk jak Jaruzelski... Internet wyśmiał premiera",
     "category": "entertainment",
     "negativeType": "image-manipulation",
     "expectedAnswer": "no"
@@ -93,6 +106,7 @@
   {
     "id": 14,
     "imageUrl": "https://i.imgur.com/SV4LUFr.jpg",
+    "lead": "Girl running to survive and All her family have been killed. This real in syria",
     "category": "entertainment",
     "negativeType": "image-manipulation",
     "expectedAnswer": "no"
@@ -100,6 +114,7 @@
   {
     "id": 15,
     "imageUrl": "https://i.imgur.com/SdLBDo4.jpg",
+    "lead": "Wiosenna kampania CROPP: Na WF-ie też można wyglądać stylowo",
     "category": "entertainment",
     "negativeType": "image-manipulation",
     "expectedAnswer": "yes"
@@ -107,6 +122,7 @@
   {
     "id": 16,
     "imageUrl": "https://i.imgur.com/ZonWLHe.jpg",
+    "lead": "Adam Bielecki i Denis Urubko dokonali wielkiego czynu. Wchodzili w środku zimy, w środku nocy, przy minus 40 stopniach po CZYMŚ TAKIM!",
     "category": "sport",
     "negativeType": "image-manipulation",
     "expectedAnswer": "no"
@@ -115,6 +131,7 @@
   {
     "id": 17,
     "imageUrl": "https://i.imgur.com/YwhnNbn.jpg",
+    "lead": "KAROLINA SZOSTAK: Żałuję tylko jednego",
     "category": "entertainment",
     "negativeType": "image-manipulation",
     "expectedAnswer": "yes"
