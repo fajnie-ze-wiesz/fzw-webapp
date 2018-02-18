@@ -24,7 +24,7 @@
     },
     methods: {
       generateCircle (n) {
-        let x, y
+        // let x, y
         for (var i = 0; i < n; i++) {
 
         }
