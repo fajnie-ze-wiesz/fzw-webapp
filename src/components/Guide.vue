@@ -1,7 +1,7 @@
 <template>
   <div id="guide">
     <img src="http://via.placeholder.com/120x120" alt="">
-    <div class="tips">
+    <div class="card">
       <h1>Wskazówka</h1>
       <p>Za chwilę zobaczysz 10 przykładów treści, które pojawiły się w internecie.</p>
       <p>Sprawdź, czy kliknąłbyś, aby przeczytać więcej.</p>
@@ -28,9 +28,7 @@ export default {
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
-  .tips{
-    background: white;
-    width: 80vmin;
-    padding: 5vmin;
-  }
+#guide {
+  text-align: center;
+}
 </style>

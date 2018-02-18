@@ -103,5 +103,11 @@ input[type='text'], input[type='number']{
   width: 75vmin;
 }
 .input, label {
+  font-variant: small-caps;
+}
+
+.card{
+  background: white;
+  padding: 5vmin;
 }
 </style>
