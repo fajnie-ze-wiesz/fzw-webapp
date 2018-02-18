@@ -1,12 +1,18 @@
 <template>
   <div id="quest">
-    <pie-chart id="counter" :time="countdownSeconds"></pie-chart>
-    <div class="card">
-      <img :src="question.imageUrl"/>
-    </div>
-    <div class="buttons">
-      <button class="answer" v-on:click="answer('yes')">klikam</button>
-      <button class="answer" v-on:click="answer('no')">nie klikam</button>
+    <div v-for="(q, index) in questions" :key="q.newsId">
+      <transition name="slide-fade">
+        <div class="question" v-if="index === questionIndex">
+          <pie-chart id="counter" :time="countdownSeconds"></pie-chart>
+          <div class="card">
+            <img :src="q.imageUrl"/>
+          </div>
+          <div class="buttons">
+            <button class="answer" v-on:click="answer('yes')">klikam</button>
+            <button class="answer" v-on:click="answer('no')">nie klikam</button>
+          </div>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -39,6 +45,12 @@ export default {
   computed: {
     question () {
       return this.$store.getters.currentQuizQuestion;
+    },
+    questions () {
+      return this.$store.getters.quizQuestions;
+    },
+    questionIndex () {
+      return this.$store.getters.quizQuestionIndex;
     },
     questionNumber () {
       return this.$store.getters.quizQuestionIndex + 1;
@@ -115,7 +127,7 @@ export default {
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
-  #quest {
+  #quest, .question {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -147,4 +159,21 @@ export default {
     box-shadow: none;
     border-radius: 0;
   }
+
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .10s ease;
+  }
+  .slide-fade-leave-to {
+    transform: translateY(30vmin);
+    opacity: 0;
+  }
+
+  .slide-fade-enter {
+    transform: translateY(-30vmin);
+    opacity: 0;
+  }
+
 </style>
