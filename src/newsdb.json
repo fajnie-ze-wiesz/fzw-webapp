@@ -74,7 +74,7 @@
   {
     "id": 10,
     "imageUrl": "https://i.imgur.com/PJNCNSJ.jpg",
-    "lead": "W Warszawie, na brzegu Wisły przy "Poniatówce" leży wieloryb (prawdopodobnie kaszalot).",
+    "lead": "W Warszawie, na brzegu Wisły przy 'Poniatówce' leży wieloryb (prawdopodobnie kaszalot).",
     "category": "science",
     "negativeType": "fake-news",
     "expectedAnswer": "no"
