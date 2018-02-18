@@ -85,6 +85,35 @@
   },
   {
     "id": 13,
+    "imageUrl": "https://i.imgur.com/04jKSoZ.jpg",
+    "category": "entertainment",
+    "negativeType": "image-manipulation",
+    "expectedAnswer": "no"
+  },
+  {
+    "id": 14,
+    "imageUrl": "https://i.imgur.com/SV4LUFr.jpg",
+    "category": "entertainment",
+    "negativeType": "image-manipulation",
+    "expectedAnswer": "no"
+  },
+  {
+    "id": 15,
+    "imageUrl": "https://i.imgur.com/SdLBDo4.jpg",
+    "category": "entertainment",
+    "negativeType": "image-manipulation",
+    "expectedAnswer": "yes"
+  },
+  {
+    "id": 16,
+    "imageUrl": "https://i.imgur.com/ZonWLHe.jpg",
+    "category": "sport",
+    "negativeType": "image-manipulation",
+    "expectedAnswer": "no"
+  },
+
+  {
+    "id": 17,
     "imageUrl": "https://i.imgur.com/YwhnNbn.jpg",
     "category": "entertainment",
     "negativeType": "image-manipulation",
