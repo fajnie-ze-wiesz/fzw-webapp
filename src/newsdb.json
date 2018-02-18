@@ -1,62 +1,93 @@
 [
   {
     "id": 1,
-    "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
-    "category": "lifestyle",
-    "negativeType": "clickbait"
+    "imageUrl": "https://i.imgur.com/1PX1lep.jpg",
+    "category": "politics",
+    "negativeType": "emotional-language",
+    "expectedAnswer": "no"
   },
   {
     "id": 2,
-    "imageUrl": "https://cdn.xl.thumbs.canstockphoto.com/green-3d-yes-text-with-exclamation-mark-on-white-3d-yes-text-with-exclamation-mark-on-white-drawing_csp8702064.jpg",
-    "category": "lifestyle",
-    "negativeType": null
+    "imageUrl": "https://i.imgur.com/JYS5mW2.jpg",
+    "category": "politics",
+    "negativeType": "emotional-language",
+    "expectedAnswer": "no"
   },
   {
     "id": 3,
-    "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
-    "category": "lifestyle",
-    "negativeType": "fake-news"
+    "imageUrl": "https://i.imgur.com/kxJ5tnf.jpg",
+    "category": "entertainment",
+    "negativeType": "emotional-language",
+    "expectedAnswer": "yes"
   },
   {
     "id": 4,
-    "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
-    "category": "lifestyle",
-    "negativeType": "clickbait"
+    "imageUrl": "https://i.imgur.com/6Ou2avE.jpg",
+    "category": "politics",
+    "negativeType": "emotional-language",
+    "expectedAnswer": "no"
   },
   {
     "id": 5,
-    "imageUrl": "https://cdn.xl.thumbs.canstockphoto.com/green-3d-yes-text-with-exclamation-mark-on-white-3d-yes-text-with-exclamation-mark-on-white-drawing_csp8702064.jpg",
-    "category": "lifestyle",
-    "negativeType": null
+    "imageUrl": "https://i.imgur.com/YjVFl9P.jpg",
+    "category": "entertainment",
+    "negativeType": "clickbait",
+    "expectedAnswer": "no"
   },
   {
     "id": 6,
-    "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
-    "category": "lifestyle",
-    "negativeType": "fake-news"
+    "imageUrl": "https://i.imgur.com/1yrrTAT.jpg",
+    "category": "entertainment",
+    "negativeType": "clickbait",
+    "expectedAnswer": "no"
   },
   {
     "id": 7,
-    "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
-    "category": "lifestyle",
-    "negativeType": "clickbait"
+    "imageUrl": "https://i.imgur.com/YLK8ifX.jpg",
+    "category": "sport",
+    "negativeType": "clickbait",
+    "expectedAnswer": "yes"
   },
   {
     "id": 8,
-    "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
-    "category": "lifestyle",
-    "negativeType": "image-manipulation"
+    "imageUrl": "https://i.imgur.com/bJ250AP.jpg",
+    "category": "entertainment",
+    "negativeType": "clickbait",
+    "expectedAnswer": "no"
   },
   {
     "id": 9,
-    "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
-    "category": "lifestyle",
-    "negativeType": "clickbait"
+    "imageUrl": "https://i.imgur.com/8UEKMD6.jpg",
+    "category": "entertainment",
+    "negativeType": "fake-news",
+    "expectedAnswer": "no"
   },
   {
     "id": 10,
-    "imageUrl": "https://smalltalkbigresults.files.wordpress.com/2011/07/no.jpg",
-    "category": "lifestyle",
-    "negativeType": "emotional-language"
+    "imageUrl": "https://i.imgur.com/PJNCNSJ.jpg",
+    "category": "entertainment",
+    "negativeType": "fake-news",
+    "expectedAnswer": "no"
+  },
+  {
+    "id": 11,
+    "imageUrl": "https://i.imgur.com/xNowsK5.jpg",
+    "category": "entertainment",
+    "negativeType": "fake-news",
+    "expectedAnswer": "no"
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://i.imgur.com/Em8iV5V.jpg",
+    "category": "entertainment",
+    "negativeType": "fake-news",
+    "expectedAnswer": "yes"
+  },
+  {
+    "id": 13,
+    "imageUrl": "https://i.imgur.com/YwhnNbn.jpg",
+    "category": "entertainment",
+    "negativeType": "image-manipulation",
+    "expectedAnswer": "yes"
   }
 ]

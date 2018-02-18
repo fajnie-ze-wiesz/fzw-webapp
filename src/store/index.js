@@ -19,14 +19,29 @@ export default new Vuex.Store({
   mutations: {
     generateQuiz (state) {
       let questions = [];
+      let unusedNewsMap = {};
+      newsdb.forEach((news) => {
+        unusedNewsMap[`${news.id}`] = news;
+      });
       for (let i = 0; i < NUM_OF_QUIZ_QUESTIONS; ++i) {
-        const index = Math.floor(Math.random() * newsdb.length);
-        const news = newsdb[index];
+        let unusedNewsKeys = Object.keys(unusedNewsMap);
+        const index = Math.floor(Math.random() * unusedNewsKeys.length);
+        const key = unusedNewsKeys[index];
+        const news = unusedNewsMap[key];
+        delete unusedNewsMap[key];
+        let expectedAnswer;
+        if (news.expectedAnswer) {
+          expectedAnswer = news.expectedAnswer;
+        } else if (news.negativeType) {
+          expectedAnswer = 'no';
+        } else {
+          expectedAnswer = 'yes';
+        }
         questions.push({
           newsId: news.id,
           imageUrl: news.imageUrl,
           answer: null,
-          expectedAnswer: !news.negativeType ? 'yes' : 'no',
+          expectedAnswer: expectedAnswer,
         })
       }
       const quiz = {
