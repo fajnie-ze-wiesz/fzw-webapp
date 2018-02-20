@@ -3,7 +3,7 @@
     <div v-for="(q, index) in questions" :key="q.newsId">
       <transition name="slide-fade">
         <div class="question" v-if="index === questionIndex">
-          <pie-chart id="counter" :time="countdownSeconds"></pie-chart>
+          <pie-chart2 id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds"></pie-chart2>
           <div class="card">
             <img :src="q.imageUrl"/>
           </div>
@@ -20,12 +20,12 @@
 <script>
 import { mapMutations } from 'vuex';
 import { QUESTION_TIMEOUT } from '../consts';
-import PieChart from '@/components/PieChart'
+import PieChart2 from '@/components/PieChart2'
 
 export default {
   name: 'quest',
   components: {
-    PieChart
+    PieChart2
   },
   beforeRouteEnter (to, from, next) {
     next((vm) => {
@@ -58,6 +58,9 @@ export default {
     countdownSeconds () {
       const delta = this.tick - this.questionStartTime;
       return Math.ceil((QUESTION_TIMEOUT - delta) / 1000);
+    },
+    questionTimeoutSeconds () {
+      return QUESTION_TIMEOUT / 1000
     }
   },
   methods: {
@@ -67,19 +70,6 @@ export default {
       'generateQuiz',
     ]),
     answer (a) {
-      let el = document.querySelector('.anim')
-      let el2 = document.querySelector('.ouro3')
-      let cl = document.querySelector('.anim').className
-      let cl2 = document.querySelector('.ouro3').className
-
-      el.className = '';
-      el2.className = '';
-
-      setTimeout(() => {
-        el.className = cl;
-        el2.className = cl2;
-      }, 20)
-
       this.answerQuestionOrEndQuiz(a);
     },
     answerQuestionOrEndQuiz (answer) {
@@ -124,8 +114,6 @@ export default {
 }
 </script>
 
-<!-- Scoped component css -->
-<!-- It only affect current component -->
 <style scoped>
   #quest {
     position: relative;
