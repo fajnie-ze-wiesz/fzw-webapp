@@ -131,7 +131,8 @@ export default {
     margin: 0;
   }
   #counter{
-    margin: 5vmin;
+    width: 30vmin;
+    /* margin: 5vmin; */
   }
   img{
     width: 70vmin;
