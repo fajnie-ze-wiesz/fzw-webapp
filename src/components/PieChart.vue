@@ -15,7 +15,7 @@
 <script>
   export default {
     name: 'pie-chart2',
-    props: ['numerator', 'denominator'],
+    props: ['numerator', 'denominator', 'textPercent'],
     data () {
       return {
         r: 100 / this.denominator,

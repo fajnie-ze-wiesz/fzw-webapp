@@ -2,14 +2,14 @@
 <div id="results">
   <h1>{{this.userInfo.name}}...</h1>
   <h2>jesteś chroniony na poziomie:</h2>
-  <pie-chart2 :score="numOfCorrectAnswers" :total="numOfAnswers"></pie-chart2>
+  <pie-chart :textPercent="true" :numerator="numOfCorrectAnswers" :denominator="numOfAnswers"/>
   <p>
     Udzielono {{ numOfCorrectAnswers }} poprawnych odpowiedzi na {{ numOfAnswers }} pytań. Na {{ numOfOmmitedQuestions }} nie udzielono odpowiedzi.
   </p>
   <div class="results">
     <h1>Twoja odporność na:</h1>
     <div @click="emo=!emo" class="vulnerability">
-      <pie-chart2 :score="numOfCorrectEmotionalLanguageAnswers" :total="numOfEmotionalLanguageAnswers" />
+      <pie-chart :textPercent="true" :numerator="numOfCorrectEmotionalLanguageAnswers" :denominator="numOfEmotionalLanguageAnswers" />
       <h5>Emocjonalny język</h5>
       <modal v-show="emo">
         <h2>Emocjonalny język</h2>
@@ -25,7 +25,7 @@
     </div>
 
     <div @click="bait=!bait" class="vulnerability">
-      <pie-chart2 :score="numOfCorrectClickbaitAnswers" :total="numOfClickbaitAnswers" />
+      <pie-chart :textPercent="true" :numerator="numOfCorrectClickbaitAnswers" :denominator="numOfClickbaitAnswers" />
       <h5>Clickbait</h5>
       <transition name="fade">
         <modal v-show="bait" @close="bait=false">
@@ -49,7 +49,7 @@
     </div>
 
     <div @click="lie=!lie" class="vulnerability">
-      <pie-chart2 :score="numOfCorrectFakeNewsAnswers" :total="numOfFakeNewsAnswers" />
+      <pie-chart :textPercent="true" :numerator="numOfCorrectFakeNewsAnswers" :denominator="numOfFakeNewsAnswers" />
       <h5>Fałszywe treści</h5>
       <modal v-show="lie" @close="lie=false">
         <h2>Fałszywe treści</h2>
@@ -71,7 +71,7 @@
     </div>
 
     <div @click="manipulation=!manipulation" class="vulnerability">
-      <pie-chart2 :score="numOfCorrectImageManipulationAnswers" :total="numOfImageManipulationAnswers" />
+      <pie-chart :textPercent="true" :numerator="numOfCorrectImageManipulationAnswers" :denominator="numOfImageManipulationAnswers" />
       <h5>Manipulację obrazem</h5>
       <modal v-show="manipulation" @close="manipulation=false">
         <h2>Manipulacja obrazem</h2>
@@ -108,13 +108,13 @@
 </template>
 
 <script>
-  import PieChart2 from '@/components/PieChart2'
+  import PieChart from '@/components/PieChart'
   import Modal from '@/components/Modal'
 
   export default {
     name: 'results',
     components: {
-      PieChart2,
+      PieChart,
       Modal,
     },
     data () {

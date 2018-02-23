@@ -3,7 +3,7 @@
     <div v-for="(q, index) in questions" :key="q.newsId">
       <transition name="slide-fade">
         <div class="question" v-if="index === questionIndex">
-          <pie-chart2 id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds"></pie-chart2>
+          <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
           <div class="card">
             <img :src="q.imageUrl"/>
           </div>
@@ -20,12 +20,12 @@
 <script>
 import { mapMutations } from 'vuex';
 import { QUESTION_TIMEOUT } from '../consts';
-import PieChart2 from '@/components/PieChart2'
+import PieChart from '@/components/PieChart'
 
 export default {
   name: 'quest',
   components: {
-    PieChart2
+    PieChart
   },
   beforeRouteEnter (to, from, next) {
     next((vm) => {
