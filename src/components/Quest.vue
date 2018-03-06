@@ -1,7 +1,20 @@
 <template>
   <div id="quest">
+    <svg class="defs-only">
+      <filter id="colorize-card" color-interpolation-filters="sRGB"
+              x="0" y="0" height="100%" width="100%">
+        <feColorMatrix type="matrix"
+          values="1.0 0.0 0.0 0.0  0
+                  0.0 1.0 0.0 0.0  0
+                  0.0 0.0 1.0 0.0  0
+                  0.0 0.0 0.0 1.0  0" />
+      </filter>
+    </svg>
     <div v-for="(q, index) in questions" :key="q.newsId">
-      <transition name="slide-fade">
+      <transition
+        name="question-transition"
+        v-on:leave="leaveQuestion"
+      >
         <div class="question" v-if="index === questionIndex">
           <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
           <div class="card">
@@ -18,6 +31,7 @@
 </template>
 
 <script>
+import Velocity from 'velocity-animate';
 import { mapMutations } from 'vuex';
 import { QUESTION_TIMEOUT } from '../consts';
 import PieChart from '@/components/PieChart'
@@ -69,6 +83,46 @@ export default {
       'omitQuizQuestion',
       'generateQuiz',
     ]),
+    leaveQuestion (el, done) {
+      // we already switched to new question, so get the previous one
+      const q = this.questions[this.questionIndex - 1];
+      const cardEl = el.querySelector('.card');
+      const translateVal = document.body.clientWidth;
+      const translateX = q.expectedAnswer === 'yes' ? -translateVal : translateVal;
+      // const filterId = q.answer === q.expectedAnswer ? 'colorize-green' : 'colorize-red'
+      const colorChannel = q.answer === q.expectedAnswer ? 1 : 0;
+      const filterEl = document.getElementById('colorize-card');
+      const matrixEl = filterEl.querySelector('feColorMatrix');
+      matrixEl.setAttribute('values', this.colorizeMatrixString(colorChannel, 0));
+      cardEl.style.filter = 'url(#colorize-card)';
+      Velocity(cardEl, {
+        translateX,
+      }, {
+        duration: 1000,
+        progress: (elements, complete) => {
+          matrixEl.setAttribute('values', this.colorizeMatrixString(colorChannel, complete));
+        },
+      });
+    },
+    colorizeMatrixString (channel, t) {
+      const A = [
+        [1 - t, 0, 0, 0],
+        [0, 1 - t, 0, 0],
+        [0, 0, 1 - t, 0],
+        [0, 0, 0, 1],
+      ];
+      for (let j = 0; j < 3; ++j) {
+        A[channel][j] += t / 3;
+      }
+      const values = [];
+      for (let i = 0; i < 4; ++i) {
+        for (let j = 0; j < 4; ++j) {
+          values.push(A[i][j]);
+        }
+        values.push(0);
+      }
+      return values.join(' ');
+    },
     answer (a) {
       this.answerQuestionOrEndQuiz(a);
     },
@@ -167,21 +221,20 @@ export default {
     background: #f00;
   }
 
-  .slide-fade-enter {
-    transform: translateY(-30vmin);
-    opacity: 0;
+  .question-transition-enter {
+    transform: translateY(100vmax);
   }
-  .slide-fade-enter-active {
+
+  .question-transition-enter-active {
     transition: all 2s ease;
   }
 
-  .slide-fade-leave-active {
+  .question-transition-leave-active {
     transition: all 1s ease;
   }
-  .slide-fade-leave-to {
-    transform: translateY(50vmin);
+
+  .question-transition-leave-to {
     opacity: 0;
   }
-
 
 </style>
