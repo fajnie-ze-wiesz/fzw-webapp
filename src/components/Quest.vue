@@ -207,18 +207,9 @@ export default {
     border-radius: 0;
   }
 
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    background: #00f;
-  }
-
-  .overlay-error {
-    background: #f00;
+  .defs-only {
+    height: 0;
+    width: 0;
   }
 
   .question-transition-enter {
