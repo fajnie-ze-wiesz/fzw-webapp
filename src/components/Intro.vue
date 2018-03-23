@@ -1,15 +1,12 @@
 <template>
   <div id="intro">
     <img id="logo" src="static/img/icons/fzw_logo.svg" alt="">
-    <!-- <transition name="fade"> -->
       <div v-if="page === 0" class="">
         <h1>Cześć!</h1>
         <p>Jesteśmy tu po to, aby sprawdzić Twoją odporność na manipulacje w internecie.</p>
         <button @click="page++">zaczynamy</button>
       </div>
-    <!-- </transition> -->
 
-    <!-- <transition name="fade"> -->
       <div v-show="page === 1" class="">
         <h3>Jak mamy się do Ciebie zwracać?</h3>
         <div class="input">
@@ -17,7 +14,6 @@
         </div>
         <button @click="page++">dalej</button>
       </div>
-    <!-- </transition> -->
 
     <div v-show="page === 2" class="">
       <h3>Na ile oceniasz swoją odporność na manipulacje?</h3>
@@ -29,7 +25,6 @@
       <button @click="page++">dalej</button>
     </div>
 
-    <!-- <transition name="fade"> -->
       <div v-show="page === 3" class="">
         <div id="category-selection">
           <h3>Wybierz obszar, który Cię najbardziej interesuje</h3>
@@ -56,43 +51,6 @@
           <button @click="goToGuide">dalej</button>
         </div>
       </div>
-    <!-- </transition> -->
-
-
-    <!-- <form class="user-info-form">
-      <div class="input">
-        nick
-        <input v-model="userInfo.name" type="text" name="">
-      </div>
-      <div class="input">
-        wiek
-        <input v-model="userInfo.age" min="0" max="100" type="number" name="age">
-      </div>
-      <div class="input">
-        płeć
-        <div class="gender">
-          <div class="radio">
-            <label for="gf"><input v-model="userInfo.gender" id="gf" type="radio" value="female">
-            kobieta</label>
-          </div>
-          <div class="radio">
-            <label for="gm"><input v-model="userInfo.gender" id="gm" type="radio" value="male"></input>
-            mężczyzna</label>
-          </div>
-        </div>
-      </div>
-      <div class="input">
-        twoja miejscowość
-        <select class="input" v-model="userInfo.city">
-          <option value="1">Poniżej 10 000</option>
-          <option value="2">10 000 - 20 000</option>
-          <option value="3">20 000 - 100 000</option>
-          <option value="4">100 000 - 250 000</option>
-          <option value="5">Powyżej 250 000</option>
-        </select>
-      </div>
-
-    </form> -->
 
   </div>
 </template>
@@ -128,9 +86,6 @@
   }
 </script>
 
-
-<!-- Scoped component css -->
-<!-- It only affect current component -->
 <style scoped>
   #intro {
     text-align: center;
@@ -139,7 +94,6 @@
   #intro h1 {
     color: #2c3e50;
     font-weight: 300;
-    /* margin: 0; */
   }
 
   .user-info-form {
@@ -154,6 +108,11 @@
   select {
     background: white;
     border: none;
+  }
+  option{
+    font-size: 20%;
+  }
+  label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -183,28 +142,27 @@
 
   .category-selection{
     display: flex;
+    height: 40vh;
     flex-wrap: wrap;
     justify-content: center;
     font-weight: normal;
-  }
-  #category-selection input[type="radio"] {
-    opacity: 0;
-    width: 0;
-    height: 0;
+    width: 100%;
   }
   #category-selection input[type="radio"]:checked + label {
     background: #666;
     color: white;
   }
+  .radio {
+    width: 40%;
+    height: 40%;
+    margin: 2%;
+  }
   #category-selection label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30vmin;
-    height: 30vmin;
-    background: white;
-    margin: 2vmin;
+    width: 100%;
+    /* height: 90%; */
+    border-radius: 2vh;
     transition: .2s;
+    font-size: 65%;
     cursor: pointer;
   }
   #category-selection input {

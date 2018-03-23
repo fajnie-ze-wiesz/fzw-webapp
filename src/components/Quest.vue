@@ -10,7 +10,7 @@
                   0.0 0.0 0.0 1.0  0" />
       </filter>
     </svg>
-    <div v-for="(q, index) in questions" :key="q.newsId">
+    <div class="container" v-for="(q, index) in questions" :key="q.newsId">
       <transition
         name="question-transition"
         v-on:leave="leaveQuestion"
@@ -169,11 +169,12 @@ export default {
 </script>
 
 <style scoped>
-  #quest {
-    position: relative;
+  .container{
+    position: absolute;
+    width: 80%;
+    /* top: 0; */
   }
   .question {
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -185,11 +186,10 @@ export default {
     margin: 0;
   }
   #counter{
-    width: 30vmin;
-    /* margin: 5vmin; */
+    width: 18vh;
   }
   img{
-    width: 70vmin;
+    width: 100%;
   }
 
   .buttons {

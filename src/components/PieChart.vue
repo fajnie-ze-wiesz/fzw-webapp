@@ -2,8 +2,8 @@
   <div>
     <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
       <g>
-        <text x="25" :y="25" :font-size="this.textPercent ? 13 : 20" v-bind:style="{ fill: '#EF420C', opacity: (1.5-(this.percent-30)/30) }">{{ this.counterText }}</text>
-        <text x="25" :y="25" :font-size="this.textPercent ? 13 : 20" v-bind:style="{ fill: '#0A264F', opacity: ((this.percent-30)/30) }">{{ this.counterText }}</text>
+        <text x="25" :y="25" :font-size="this.textPercent ? 13 : 17" v-bind:style="{ fill: '#EF420C', opacity: (1.5-(this.percent-30)/30) }">{{ this.counterText }}</text>
+        <text x="25" :y="25" :font-size="this.textPercent ? 13 : 17" v-bind:style="{ fill: '#0A264F', opacity: ((this.percent-30)/30) }">{{ this.counterText }}</text>
         <polyline :points="this.points.t" v-bind:style="{ stroke: '#ddd' }" />
         <polyline :points="this.points.s" v-bind:style="{ stroke: '#EF420C', opacity: (1.5-(this.percent-30)/30) }" />
         <polyline :points="this.points.s" v-bind:style="{ stroke: '#0A264F', opacity: ((this.percent-30)/30) }" />

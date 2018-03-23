@@ -1,89 +1,106 @@
 <template>
   <div id="app">
-    <!-- <header>
-      <span>Fajnie że wiesz</span>
-    </header> -->
-
-    <main>
-      <transition name="fade">
-        <router-view></router-view>
-      </transition>
-    </main>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  mounted () {
+    if (navigator.userAgent.indexOf('Chrome') !== -1) {
+      this.calcVH()
+      window.addEventListener('onorientationchange', this.calcVH);
+    }
+    document.querySelector('body').setAttribute('style', 'font-size:' + document.documentElement.clientHeight * 0.04 + 'px;');
+  },
+  methods: {
+    calcVH () {
+      var vH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      document.querySelector('#app').setAttribute('style', 'height:' + vH + 'px;');
+      // document.querySelector('#app > div').setAttribute('style', 'height:' + vH + 'px;');
+    }
+  }
 }
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&subset=latin-ext');
 
-html{
-  background: #eee;
+:root {
+  --color-orange: #EF420C;
+  --color-blue: #0A264F;
+  --color-gray: #B8B8B8;
+  --color-lgray: #F3F3F3;
+  --color-white: #FFFFFF;
+}
+html, option, input {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--color-blue);
+  user-select: none;
 }
 body {
-  font-size: 5vmin;
+  position: fixed;
+  /* font-size: 4vh; */
   margin: 0;
-  user-select: none;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: black;
+  overflow: hidden;
 }
 h2, h3, h4, h5 {
   margin-top: 0;
 }
-#logo{
-  width: 30vmin;
+#logo {
+  height: 20%;
+}
+#logo.land {
+  height: 40%;
 }
 #app {
-  font-family: 'Montserrat', sans-serif;
-  color: #2c3e50;
-  width: 100vmin;
+  border-radius: 1vh;
+  background: white;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+#app > div {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-}
-
-main {
-  width: 80vmin;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #fff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
+  height: 100%;
+  width: 100%;
   box-sizing: border-box;
-  padding-top: 16px;
+  padding: 0 10%;
 }
-
+@media screen and (min-device-aspect-ratio: 1/1) {
+  #app {
+    width: calc(100vh/16*10);
+  }
+}
 button {
-  background: #EF420C;
-  border-radius: 2vmin;
-  color: #eee;
   border: none;
-  /* width: 30vmin; */
-  margin: 4vmin;
-  padding: 4vmin 12vmin;
-  box-shadow: 0 1vh 5vh 0 rgba(239, 66, 12, 0.5);
-  font-size: 80%;
+  margin:  4vh 0;
+  padding: 3vh 10vh;
   text-transform: uppercase;
-  font-weight: bold;
-
+  font-weight: 900;
+  cursor: pointer;
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 1.5vh;
+  font-size: 65%;
+  letter-spacing: 0.1em;
 }
 .input{
   display: flex;
@@ -106,18 +123,15 @@ input{
   color: #777;
 }
 input[type='text'], input[type='number']{
-  width: 75vmin;
-}
-.input, label {
-  font-variant: small-caps;
+  width: 100%;
 }
 
 .card{
-  position: relative;
   background: white;
-  padding: 5vmin;
-  height: 80vmin;
-  box-shadow: 0 2vmin #ddd;
+  height: 55vh;
+  width: 100%;
+  box-shadow: 0 1vh 2vh rgba(10, 38, 79, 1);
+  border-radius: 2.5vh;
   overflow-y: scroll;
 }
 </style>

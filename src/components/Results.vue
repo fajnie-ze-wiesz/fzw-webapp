@@ -177,12 +177,10 @@
 <!-- It only affect current component -->
 <style scoped>
   #results {
-    /* text-align: center; */
-  }
-
-  #results h1 {
-    color: #2c3e50;
-    font-weight: 300;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
   }
 
   .results {
