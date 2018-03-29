@@ -1,57 +1,62 @@
 <template>
   <div id="intro">
-    <img id="logo" src="static/img/icons/fzw_logo.svg" alt="">
-      <div v-if="page === 0" class="">
-        <h1>Cześć!</h1>
-        <p>Jesteśmy tu po to, aby sprawdzić Twoją odporność na manipulacje w internecie.</p>
-        <button @click="page++">zaczynamy</button>
+    <img id="logo" :class="{ land:(page === 0) }" src="static/img/icons/fzw_logo.svg" alt="">
+      <div v-show="page === 0" class="">
+        <p>Cześć!</p>
+        <p>Sprawdź swoją odporność na manipulacje w internecie.</p>
       </div>
 
       <div v-show="page === 1" class="">
-        <h3>Jak mamy się do Ciebie zwracać?</h3>
+        <p>Jak mamy się do Ciebie zwracać?</p>
         <div class="input">
-          <input v-model="userInfo.name" type="text" name="">
+          <input ref="name" v-model="userInfo.name" type="text">
         </div>
-        <button @click="page++">dalej</button>
       </div>
 
     <div v-show="page === 2" class="">
-      <h3>Na ile oceniasz swoją odporność na manipulacje?</h3>
+      <p>Na ile oceniasz swoją odporność na manipulacje?</p>
       <div class="input">
         <select class="input" name="">
           <option v-for="(item, value) in [0,10,20,30,40,50,60,70,80,90,100]" value="">{{item}}%</option>
         </select>
       </div>
-      <button @click="page++">dalej</button>
     </div>
 
       <div v-show="page === 3" class="">
         <div id="category-selection">
-          <h3>Wybierz obszar, który Cię najbardziej interesuje</h3>
+          <p>Wybierz obszar, który Cię najbardziej interesuje</p>
           <div class="input">
             <div class="category-selection">
               <div class="radio">
                 <input v-model="userInfo.category" id="rozrywka" type="radio" value="entertainment"></input>
-                <label for="rozrywka">rozrywka</label>
+                <label for="rozrywka">
+                  <img src="static/img/004-confetti.svg" alt="">Rozrywka
+                </label>
               </div>
               <div class="radio">
                 <input v-model="userInfo.category" id="sport" type="radio" value="sport">
-                <label for="sport">sport</label>
+                <label for="sport">
+                  <img src="static/img/001-basketball.svg" alt="">Sport
+                </label>
               </div>
               <div class="radio">
                 <input v-model="userInfo.category" id="nauka" type="radio" value="science"></input>
-                <label for="nauka">nauka</label>
+                <label for="nauka">
+                  <img src="static/img/003-startup.svg" alt="">Nauka
+                </label>
               </div>
               <div class="radio">
                 <input v-model="userInfo.category" id="polityka" type="radio" value="politics"></input>
-                <label for="polityka">polityka</label>
+                <label for="polityka">
+                  <img src="static/img/002-white-house.svg" alt="">Polityka
+                </label>
               </div>
             </div>
           </div>
-          <button @click="goToGuide">dalej</button>
         </div>
       </div>
 
+      <button class="main-cta" @click="incrementPage">dalej</button>
   </div>
 </template>
 
@@ -74,9 +79,9 @@
     methods: {
       incrementPage () {
         ++this.page
-      },
-      goToGuide () {
-        if (this.category !== '') {
+        if (this.page === 1) {
+          this.$nextTick(() => this.$refs.name.focus())
+        } else if (this.page === 4 && this.category !== '') {
           this.$store.commit('setUserInfo', this.userInfo)
           this.$router.push('/guide');
         }
@@ -87,57 +92,34 @@
 </script>
 
 <style scoped>
-  #intro {
-    text-align: center;
-  }
-
-  #intro h1 {
-    color: #2c3e50;
-    font-weight: 300;
-  }
-
-  .user-info-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .user-info-form div{
-    margin: 2vmin;
-  }
   select {
+    font-family: 'Montserrat';
     background: white;
     border: none;
+    font-weight: 900;
+    font-size: 175%;
+    color: var(--color-blue);
   }
   option{
-    font-size: 20%;
+    font-size: 50%;
   }
   label {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 200%;
-  }
-
-  .gender {
-    color: #777;
+    background: var(--color-blue);
+    color: white;
+    width: 100%;
+    /* height: 90%; */
+    border-radius: 2vh;
+    transition: .2s;
+    font-size: 50%;
+    cursor: pointer;
     display: flex;
-    flex-direction: row;
-    width: 75vmin;
-    justify-content: space-between;
+    flex-direction: column;
   }
-
   .error{
     background: red;
-  }
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .fade-enter-active {
-    transition-delay: .5s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
   }
 
   .category-selection{
@@ -146,27 +128,24 @@
     flex-wrap: wrap;
     justify-content: center;
     font-weight: normal;
-    width: 100%;
+    width: 40vh;
   }
   #category-selection input[type="radio"]:checked + label {
-    background: #666;
-    color: white;
+    background: var(--color-orange);
+    box-shadow: 0 1vh 5vh 0 rgba(239, 66, 12, 0.5);
   }
   .radio {
-    width: 40%;
-    height: 40%;
-    margin: 2%;
+    width: 44%;
+    height: 44%;
+    margin: 3%;
   }
-  #category-selection label {
-    width: 100%;
-    /* height: 90%; */
-    border-radius: 2vh;
-    transition: .2s;
-    font-size: 65%;
-    cursor: pointer;
+
+  img {
+    height: 70%;
   }
   #category-selection input {
     margin: 0;
     display: none;
+    color: white;
   }
 </style>
