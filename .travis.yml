@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '9'
+cache:
+  directories:
+  - node_modules
+install:
+- "./.travis/install.sh"
+script:
+- "./.travis/run.sh"
+deploy:
+  provider: pages
+  skip-cleanup: true
+  repo: fajnie-ze-wiesz.github.io
+  local-dir: dist/
+  github-token:
+    secure: q+Q8j7zYj59UgvMC/X+DQRI4Oo1wgkYntlAiQ9Cvy+oFmL4tPv7nbLd7uIV7oO1rz6Wvt3i7J6VJ/kuShINIhgg2CXjoeZ7Ec57E6/+fgdryAa4QKHsiVDYaUjvsapJnr1E53dHLbudUWSlwQPB7mpGl0FMR0APf0HY/rdwkdRd5B7fIPpLe7QKnn/30PGY03FslEajWbw4erWxVPF8xcNbxreRzdo2sWlljM1SE4FCV0ieaNvPHq0JDsXiLLb68VYn6xbnLkird54wECaf1yJpM+LNfkxofatEYxXUOdB+MI9tSx3irivm4sDOutZ+s8OqAX9vO/rUqHefJqft5HeFlZofq7lq0GjrkeiTgei5j0IX7MI3tXnlNldJ5EcwAnZr6yyEZhyfkeC+yEDwqdxLwjM6+WMaah80aoxp4dqNVsjIUMvhiU7GCL20H8D/GS4JZDQYek/kQtjRitP9h2pi7kWx8IC+fgF+3D9eNZ1Eh4THGf5cXqWlnp3Gr2as2LB1W8FrY6UrGvxREDBQiQmaw9+MTqeD8QFWgStQy/QWBqpFeZB6H8UUUlNOWLHkuuu0JMPCdPj+vYg42xM5javHcRV5puTfAU1UDAs/jVMNfzvZUhrmtYOG8TTlyQ6yzzE8Xy8sn0O1vpN9317pVsBjt9flf9YVAnIilMx2Xiu8=
+  on:
+    branch: master
