@@ -12,7 +12,7 @@ deploy:
   provider: pages
   skip-cleanup: true
   keep-history: false
-  repo: fajnie-ze-wiesz.github.io
+  repo: fajnie-ze-wiesz/fajnie-ze-wiesz.github.io
   target-branch: master
   local-dir: dist/
   github-token:
