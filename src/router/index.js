@@ -8,6 +8,7 @@ import Results from '@/components/Results'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'abstract',
   routes: [
     {
       path: '/',
