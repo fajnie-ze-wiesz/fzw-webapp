@@ -4,16 +4,16 @@
     <h1>{{this.userInfo.name}}</h1>
     <h5>Twoja ochrona jest na poziomie:</h5>
 
-    <svg viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg viewBox="0 0 100 100" preserveAspectRatio version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
         <clipPath id="cut-off-bottom">
-          <rect x="25" y="0" width="100" :height="100 - percentTemp" />
+          <rect x="0" y="0" width="100" :height="100 - percentTemp" />
         </clipPath>
       </defs>
 
-      <image xlink:href="static/img/tarcza_02.svg" x="25" y="0" width="100" height="100"/>
-      <image xlink:href="static/img/tarcza_01.svg" x="25" y="0" width="100" height="100" clip-path="url(#cut-off-bottom)"/>
-      <text x="75" y="50" font-size="25">{{ percentTemp }}%</text>
+      <image xlink:href="static/img/tarcza_02.svg" x="0" y="0" width="100" height="100"/>
+      <image xlink:href="static/img/tarcza_01.svg" x="0" y="0" width="100" height="100" clip-path="url(#cut-off-bottom)"/>
+      <text x="50" y="50" font-size="25">{{ percentTemp }}%</text>
 
     </svg>
 
@@ -232,5 +232,8 @@
   image {
     width: 100%;
     height: 100%;
+  }
+  svg {
+    width: 75%;
   }
 </style>
