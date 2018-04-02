@@ -4,7 +4,7 @@
     <h1>{{this.userInfo.name}}</h1>
     <h5>Twoja ochrona jest na poziomie:</h5>
 
-    <svg viewBox="0 0 100 100" preserveAspectRatio version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg id="armor" viewBox="0 0 100 100" preserveAspectRatio version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
         <clipPath id="cut-off-bottom">
           <rect x="0" y="0" width="100" :height="100 - percentTemp" />
@@ -233,7 +233,7 @@
     width: 100%;
     height: 100%;
   }
-  svg {
+  svg#armor {
     width: 75%;
   }
 </style>
