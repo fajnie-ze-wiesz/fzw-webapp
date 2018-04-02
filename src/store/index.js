@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-import newsdb from '../newsdb.json'
-import { NUM_OF_QUIZ_QUESTIONS } from '../consts';
+import { generateQuiz } from '../services/quizes';
 
 Vue.use(Vuex)
 
@@ -16,42 +14,15 @@ export default new Vuex.Store({
       name: 'test',
     },
   },
+  actions: {
+    generateQuiz (context) {
+      generateQuiz().then((quiz) => {
+        context.commit('loadQuiz', {quiz})
+      })
+    },
+  },
   mutations: {
-    generateQuiz (state) {
-      let questions = [];
-      let unusedNewsMap = {};
-      newsdb.forEach((news) => {
-        unusedNewsMap[`${news.id}`] = news;
-      });
-      for (let i = 0; i < NUM_OF_QUIZ_QUESTIONS; ++i) {
-        let unusedNewsKeys = Object.keys(unusedNewsMap);
-        if (unusedNewsKeys.length === 0) {
-          break;
-        }
-        const index = Math.floor(Math.random() * unusedNewsKeys.length);
-        const key = unusedNewsKeys[index];
-        const news = unusedNewsMap[key];
-        delete unusedNewsMap[key];
-        let expectedAnswer;
-        if (news.expectedAnswer) {
-          expectedAnswer = news.expectedAnswer;
-        } else if (news.negativeType) {
-          expectedAnswer = 'no';
-        } else {
-          expectedAnswer = 'yes';
-        }
-        questions.push({
-          newsId: news.id,
-          imageUrl: news.imageUrl,
-          type: news.negativeType,
-          answer: null,
-          expectedAnswer: expectedAnswer,
-        })
-      }
-      const quiz = {
-        questionIndex: 0,
-        questions,
-      }
+    loadQuiz (state, { quiz }) {
       state.quiz = quiz;
     },
     answerQuizQuestion (state, { answer }) {
