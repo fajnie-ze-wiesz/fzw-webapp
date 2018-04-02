@@ -207,6 +207,7 @@
 <!-- It only affect current component -->
 <style scoped>
   #results {
+    display: block;
     overflow: auto;
   }
   .check {
