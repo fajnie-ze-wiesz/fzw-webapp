@@ -15,3 +15,7 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+// In abstract router mode we must set the initial location explicitly:
+/// https://github.com/vuejs/vue-router/issues/729
+router.replace('/');
