@@ -32,7 +32,7 @@
 
 <script>
 import Velocity from 'velocity-animate';
-import { mapMutations } from 'vuex';
+import { mapMutations, mapActions } from 'vuex';
 import { QUESTION_TIMEOUT } from '../consts';
 import PieChart from '@/components/PieChart'
 
@@ -81,6 +81,8 @@ export default {
     ...mapMutations([
       'answerQuizQuestion',
       'omitQuizQuestion',
+    ]),
+    ...mapActions([
       'generateQuiz',
     ]),
     leaveQuestion (el, done) {
