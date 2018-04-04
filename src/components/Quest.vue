@@ -1,25 +1,12 @@
 <template>
   <div id="quest">
-    <svg class="defs-only">
-      <filter id="colorize-card" color-interpolation-filters="sRGB"
-              x="0" y="0" height="100%" width="100%">
-        <feColorMatrix type="matrix"
-          values="1.0 0.0 0.0 0.0  0
-                  0.0 1.0 0.0 0.0  0
-                  0.0 0.0 1.0 0.0  0
-                  0.0 0.0 0.0 1.0  0" />
-      </filter>
-    </svg>
     <div class="container" v-for="(q, index) in questions" :key="q.newsId">
       <transition
         name="question-transition"
-        v-on:leave="leaveQuestion"
       >
-        <div class="question" v-if="index === questionIndex">
+        <div :class="['question', q.expectedAnswer === 'no' ? 'fake' : 'news', q.expectedAnswer === q.answer ? 'correct' : 'wrong']" v-show="index === questionIndex">
           <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
-          <div class="card">
-            <img :src="q.imageUrl"/>
-          </div>
+          <div class="card img" :style="'background-image: url(' + q.imageUrl + ')'"></div>
           <div class="buttons">
             <button class="secondary-cta answer" v-on:click="answer('yes')">klikam</button>
             <button class="secondary-cta answer" v-on:click="answer('no')">nie klikam</button>
@@ -31,7 +18,6 @@
 </template>
 
 <script>
-import Velocity from 'velocity-animate';
 import { mapMutations, mapActions } from 'vuex';
 import { QUESTION_TIMEOUT } from '../consts';
 import PieChart from '@/components/PieChart'
@@ -85,27 +71,6 @@ export default {
     ...mapActions([
       'generateQuiz',
     ]),
-    leaveQuestion (el, done) {
-      // we already switched to new question, so get the previous one
-      const q = this.questions[this.questionIndex - 1];
-      const cardEl = el.querySelector('.card');
-      const translateVal = document.body.clientWidth;
-      const translateX = q.expectedAnswer === 'yes' ? -translateVal : translateVal;
-      // const filterId = q.answer === q.expectedAnswer ? 'colorize-green' : 'colorize-red'
-      const colorChannel = q.answer === q.expectedAnswer ? 1 : 0;
-      const filterEl = document.getElementById('colorize-card');
-      const matrixEl = filterEl.querySelector('feColorMatrix');
-      matrixEl.setAttribute('values', this.colorizeMatrixString(colorChannel, 0));
-      cardEl.style.filter = 'url(#colorize-card)';
-      Velocity(cardEl, {
-        translateX,
-      }, {
-        duration: 1000,
-        progress: (elements, complete) => {
-          matrixEl.setAttribute('values', this.colorizeMatrixString(colorChannel, complete));
-        },
-      });
-    },
     colorizeMatrixString (channel, t) {
       const A = [
         [1 - t, 0, 0, 0],
@@ -188,6 +153,12 @@ export default {
   img{
     width: 100%;
   }
+  .card.img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all .1s linear;
+  }
   button.answer{
     padding: 2vh 1vh;
     width: 45%;
@@ -210,15 +181,26 @@ export default {
   }
 
   .question-transition-enter-active {
-    transition: all 2s ease;
+    transition: all 1.5s ease;
   }
-
   .question-transition-leave-active {
-    transition: all 1s ease;
+    transition: all 1.5s ease;
   }
-
+  .question-transition-leave-active.fake{
+    transform: translateX(100vmin);
+  }
+  .question-transition-leave-active.news{
+    transform: translateX(-100vmin);
+  }
+  .question-transition-leave-to.correct .card {
+    background-blend-mode: multiply;
+    background-color: rgba(0, 255, 0, .5);
+  }
+  .question-transition-leave-to.wrong .card {
+    background-blend-mode: multiply;
+    background-color: rgba(255, 0, 0, .5);
+  }
   .question-transition-leave-to {
     opacity: 0;
   }
-
 </style>
