@@ -31,10 +31,6 @@ export default {
 }
 </script>
 
-<!-- Global CSS -->
-
-<!-- Scoped component css -->
-<!-- It only affect current component -->
 <style scoped>
 body {
 }
@@ -43,14 +39,14 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  background: #3A5172;
+  background: #0A264F;
 }
 strong{
   font-weight: bold;
 }
 .guide {
   height: auto;
-  padding: 5vh;
+  padding: 8vh 5vh 0;
   box-sizing: border-box;
   font-size: 80%;
 }

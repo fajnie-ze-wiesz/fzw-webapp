@@ -43,14 +43,12 @@ html, option, input {
 }
 body {
   position: fixed;
-  /* font-size: 4vh; */
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
-  background: black;
   overflow: hidden;
 }
 h2, h3, h4, h5, p {
@@ -76,28 +74,31 @@ h4 {
 p {
   font-weight: lighter;
 }
+li {
+  margin: 2em 0;
+}
 #logo {
-  height: 20%;
+  height: 15%;
 }
 #logo.land {
-  height: 40%;
+  height: 30%;
 }
 #app {
   border-radius: 1vh;
-  background: white;
   width: 100%;
   position: absolute;
   top: 0;
   height: 100%;
   display: flex;
   justify-content: space-around;
+  background: linear-gradient(#FFF, #F3F3F3);
 }
 #app > div {
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   text-align: center;
   height: 100%;
   width: 100%;
@@ -111,33 +112,36 @@ p {
 }
 button {
   border: none;
-  margin:  4vh 0;
   padding: 3vh 10vh;
+  margin:  8vh 0;
   text-transform: uppercase;
   font-weight: 900;
   cursor: pointer;
   color: var(--color-white);
   text-decoration: none;
   border-radius: 1.5vh;
-  font-size: 65%;
+  font-size: 55%;
   letter-spacing: 0.1em;
+  transition: .5s;
 }
 button:focus {
   outline:0;
 }
 .main-cta{
   background: var(--color-orange);
-  box-shadow: 0 1vh 2vh rgba(239, 16, 22, .6);
+  box-shadow: 0 1vh 2vh rgba(239, 16, 22, .4);
 }
 .main-cta:hover{
   background: #E63F0C;
+  box-shadow: none;
 }
 .secondary-cta{
   background: var(--color-blue);
-  box-shadow: 0 1vh 2vh rgba(10, 38, 79, .5);
+  box-shadow: 0 1vh 2vh rgba(10, 38, 79, .4);
 }
 .secondary-cta:hover{
   background: var(--color-blue);
+  box-shadow: none;
 }
 .ghost-cta{
   background: var(--color-white);
@@ -147,6 +151,7 @@ button:focus {
 .ghost-cta:hover{
   background: #E63F0C;
   border-radius: 2.5vh;
+  box-shadow: none;
   text-decoration: none;
 }
 .input{
@@ -178,7 +183,7 @@ input[type='text'], input[type='number']{
   background: white;
   height: 55vh;
   width: 100%;
-  box-shadow: 0 1vh 2vh rgba(10, 38, 79, 1);
+  box-shadow: 0 .8vh 1.6vh rgba(184, 184, 184, .5);
   border-radius: 2.5vh;
   overflow-y: auto;
 }
