@@ -3,7 +3,7 @@
     <img id="logo" :class="{ land:(page === 0) }" src="static/img/icons/fzw_logo.svg" alt="">
       <div v-show="page === 0" class="">
         <p>Cześć!</p>
-        <p>Sprawdź swoją odporność na manipulacje w internecie.</p>
+        <p>Sprawdź swoją <br> odporność na <br> manipulacje <br> w Internecie.</p>
       </div>
 
       <div v-show="page === 1" class="">
@@ -56,7 +56,14 @@
         </div>
       </div>
 
-      <button class="main-cta" @click="incrementPage">dalej</button>
+      <button class="main-cta" @click="incrementPage">
+        <div v-if="page===0">
+          zaczynamy
+        </div>
+        <div v-else>
+          dalej
+        </div>
+      </button>
   </div>
 </template>
 
