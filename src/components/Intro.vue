@@ -61,8 +61,12 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
   export default {
     name: 'intro',
+    mounted () {
+      this.pingBackend();
+    },
     data () {
       return {
         page: 0,
@@ -77,6 +81,9 @@
     computed: {
     },
     methods: {
+      ...mapActions([
+        'pingBackend',
+      ]),
       incrementPage () {
         ++this.page
         if (this.page === 1) {

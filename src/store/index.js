@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { generateQuiz } from '../services/quizes';
+import { ping } from '../services/ping';
 
 Vue.use(Vuex)
 
@@ -20,6 +21,9 @@ export default new Vuex.Store({
         context.commit('loadQuiz', {quiz})
       })
     },
+    pingBackend () {
+      ping();
+    }
   },
   mutations: {
     loadQuiz (state, { quiz }) {
