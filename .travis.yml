@@ -10,27 +10,20 @@ script:
 - "./.travis/run.sh"
 deploy:
   - provider: pages
+    repo: test-fajnie-ze-wiesz/test-fajnie-ze-wiesz.github.io
+    fqdn: test-app.fajniezewiesz.pl
     skip-cleanup: true
     keep-history: false
+    target-branch: master
+    local-dir: dist/
+    github-token: $GITHUB_TOKEN
+    on:
+      branch: master
+  - provider: pages
     repo: fajnie-ze-wiesz/fajnie-ze-wiesz.github.io
-    target-branch: master
-    local-dir: dist/
-    github-token: $GITHUB_TOKEN
-    on:
-      branch: master
-  - provider: pages
+    fqdn: app.fajniezewiesz.pl
     skip-cleanup: true
     keep-history: false
-    repo: fajnie-ze-wiesz/test.app.fajniezewiesz.pl
-    target-branch: master
-    local-dir: dist/
-    github-token: $GITHUB_TOKEN
-    on:
-      branch: master
-  - provider: pages
-    skip-cleanup: true
-    keep-history: false
-    repo: fajnie-ze-wiesz/app.fajniezewiesz.pl
     target-branch: master
     local-dir: dist/
     github-token: $GITHUB_TOKEN
