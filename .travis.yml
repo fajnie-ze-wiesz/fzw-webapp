@@ -21,7 +21,7 @@ deploy:
       branch: master
   - provider: pages
     repo: fajnie-ze-wiesz/fajnie-ze-wiesz.github.io
-    fqdn: app.fajniezewiesz.pl
+    fqdn: aplikacja.fajniezewiesz.pl
     skip-cleanup: true
     keep-history: false
     target-branch: master
