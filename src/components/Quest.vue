@@ -4,9 +4,9 @@
       <transition
         name="question-transition"
       >
-        <div :class="['question', q.expectedAnswer === 'no' ? 'fake' : 'news', q.expectedAnswer === q.answer ? 'correct' : 'wrong']" v-show="index === questionIndex">
+        <div class="question" v-show="index === questionIndex">
           <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
-          <div class="card img" :style="'background-image: url(' + q.imageUrl + ')'"></div>
+          <div :class="['card', 'img', q.expectedAnswer === 'no' ? 'fake' : 'news', q.expectedAnswer === q.answer ? 'correct' : 'wrong']" :style="'background-image: url(' + q.imageUrl + ')'"></div>
           <div class="buttons">
             <button class="secondary-cta answer" v-on:click="answer('yes')">klikam</button>
             <button class="secondary-cta answer" v-on:click="answer('no')">nie klikam</button>
@@ -157,7 +157,6 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    transition: all .1s linear;
   }
   button.answer{
     padding: 2vh 1vh;
@@ -179,26 +178,29 @@ export default {
   .question-transition-enter {
     transform: translateY(100vmax);
   }
-
   .question-transition-enter-active {
-    transition: all 1.5s ease;
+    transition: all 1.5s ease-in-out;
+    pointer-events: none;
   }
   .question-transition-leave-active {
-    transition: all 1.5s ease;
+    transition: all 1.5s ease-in-out;
   }
-  .question-transition-leave-active.fake{
+  .question-transition-leave-active .card {
+    transition: all 1.5s ease-in-out;
+  }
+  .question-transition-leave-active .fake{
     transform: translateX(100vmin);
   }
-  .question-transition-leave-active.news{
+  .question-transition-leave-active .news{
     transform: translateX(-100vmin);
   }
-  .question-transition-leave-to.correct .card {
+  .question-transition-leave-to .card.correct {
     background-blend-mode: multiply;
-    background-color: rgba(0, 255, 0, .5);
+    background-color: rgba(0, 255, 0, 1);
   }
-  .question-transition-leave-to.wrong .card {
+  .question-transition-leave-to .card.wrong  {
     background-blend-mode: multiply;
-    background-color: rgba(255, 0, 0, .5);
+    background-color: rgba(255, 0, 0, 1);
   }
   .question-transition-leave-to {
     opacity: 0;
