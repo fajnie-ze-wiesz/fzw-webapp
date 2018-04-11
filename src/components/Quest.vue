@@ -7,12 +7,12 @@
         <div class="question" v-show="index === questionIndex">
           <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
           <div :class="['card', 'img', q.expectedAnswer === 'no' ? 'fake' : 'news', q.expectedAnswer === q.answer ? 'correct' : 'wrong']" :style="'background-image: url(' + q.imageUrl + ')'"></div>
-          <div class="buttons">
-            <button class="secondary-cta answer" v-on:click="answer('yes')">klikam</button>
-            <button class="secondary-cta answer" v-on:click="answer('no')">nie klikam</button>
-          </div>
         </div>
       </transition>
+    </div>
+    <div class="buttons">
+      <button class="secondary-cta answer" v-on:click="answer('yes')">klikam</button>
+      <button class="secondary-cta answer" v-on:click="answer('no')">nie klikam</button>
     </div>
   </div>
 </template>
@@ -164,10 +164,12 @@ export default {
   }
 
   .buttons {
+    position: absolute;
+    bottom: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
   }
 
   .defs-only {
@@ -180,7 +182,6 @@ export default {
   }
   .question-transition-enter-active {
     transition: all 1.5s ease-in-out;
-    pointer-events: none;
   }
   .question-transition-leave-active {
     transition: all 1.5s ease-in-out;
