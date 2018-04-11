@@ -1,13 +1,11 @@
 <template>
   <div id="quest">
+    <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
     <div class="container" v-for="(q, index) in questions" :key="q.newsId">
       <transition
         name="question-transition"
       >
-        <div class="question" v-show="index === questionIndex">
-          <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
-          <div :class="['card', 'img', q.expectedAnswer === 'no' ? 'fake' : 'news', q.expectedAnswer === q.answer ? 'correct' : 'wrong']" :style="'background-image: url(' + q.imageUrl + ')'"></div>
-        </div>
+        <div :class="['card', 'img', q.expectedAnswer === 'no' ? 'fake' : 'news', q.expectedAnswer === q.answer ? 'correct' : 'wrong']" v-show="index === questionIndex" :style="'background-image: url(' + q.imageUrl + ')'"></div>
       </transition>
     </div>
     <div class="buttons">
@@ -139,15 +137,11 @@ export default {
   .container{
     position: absolute;
     width: 80%;
-    /* top: 0; */
-  }
-  .question {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    top: calc(20vh);
   }
   #counter{
+    display: flex;
+    justify-content: flex-start;
     width: 18vh;
   }
   img{
@@ -181,20 +175,17 @@ export default {
   .question-transition-leave-active {
     transition: all 1.5s ease-in-out;
   }
-  .question-transition-leave-active .card {
-    transition: all 1.5s ease-in-out;
-  }
-  .question-transition-leave-active .wrong{
+  .question-transition-leave-active.wrong{
     transform: translateX(100vmin);
   }
-  .question-transition-leave-active .correct{
+  .question-transition-leave-active.correct{
     transform: translateX(-100vmin);
   }
-  .question-transition-leave-to .card.correct {
+  .question-transition-leave-to.correct {
     background-blend-mode: multiply;
     background-color: rgba(0, 255, 0, 1);
   }
-  .question-transition-leave-to .card.wrong  {
+  .question-transition-leave-to.wrong  {
     background-blend-mode: multiply;
     background-color: rgba(255, 0, 0, 1);
   }
