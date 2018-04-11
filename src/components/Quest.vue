@@ -172,11 +172,6 @@ export default {
     width: 80%;
   }
 
-  .defs-only {
-    height: 0;
-    width: 0;
-  }
-
   .question-transition-enter {
     transform: translateY(100vmax);
   }
