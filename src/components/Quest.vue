@@ -189,10 +189,10 @@ export default {
   .question-transition-leave-active .card {
     transition: all 1.5s ease-in-out;
   }
-  .question-transition-leave-active .fake{
+  .question-transition-leave-active .wrong{
     transform: translateX(100vmin);
   }
-  .question-transition-leave-active .news{
+  .question-transition-leave-active .correct{
     transform: translateX(-100vmin);
   }
   .question-transition-leave-to .card.correct {
