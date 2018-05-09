@@ -211,8 +211,7 @@
     overflow: auto;
   }
   .check {
-    padding: 1em;
-    font-size: 60%;
+    font-size: 40%;
   }
   .results {
     display: flex;
