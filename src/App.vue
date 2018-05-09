@@ -75,7 +75,7 @@ p {
   font-weight: lighter;
 }
 li {
-  margin: 2em 0;
+  margin: 1em 0;
 }
 #logo {
   height: 15%;

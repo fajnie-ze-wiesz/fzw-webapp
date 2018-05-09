@@ -60,10 +60,10 @@ export default {
   .modal{
     position: fixed;
     /* width: calc(100vh/16*10); */
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
     font-size: 70%;
     /* background: white; */
   }
@@ -72,10 +72,13 @@ export default {
     justify-content: space-between;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 5vmin;
+    padding: 5vh;
     overflow-y: auto;
     text-align: left;
     height: 100%;
     width: 100%;
+  }
+  button {
+    margin: 0;
   }
 </style>
