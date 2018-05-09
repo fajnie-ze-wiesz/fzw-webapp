@@ -1,11 +1,10 @@
 <template>
-  <div class="container">
+  <div>
     <transition name="fade">
-      <div v-show="show" class="modal card">
-        <div class="content">
+      <div v-show="show" class="modal">
+        <div class="content card">
           <div style="text-align: right; cursor: pointer" @click="close()" >x</div>
           <slot :name="page"></slot>
-          <!-- <slot></slot> -->
           <button class="main-cta" @click="incrementPage" type="button" name="button">
             <div v-show="page === 0">Zwiększ odporność</div>
             <div v-show="page !== slotsNumber - 1 && page !== 0">Dalej</div>
@@ -53,32 +52,29 @@ export default {
 </script>
 
 <style scoped>
-  .container {
-    /* width: 0; */
-    /* height: 0; */
-  }
   .modal{
-    position: fixed;
-    /* width: calc(100vh/16*10); */
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    font-size: 70%;
-    /* background: white; */
+    font-size: 60%;
   }
   .content{
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    height: 90%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     box-sizing: border-box;
     padding: 5vh;
-    overflow-y: auto;
     text-align: left;
-    height: 100%;
-    width: 100%;
   }
   button {
     margin: 0;
+  }
+  @media screen and (min-device-aspect-ratio: 1/1)  {
+    .content{
+      width: calc(90vh/16*10);
+      left: calc((100vw - 90vh/16*10)/2);
+    }
   }
 </style>
