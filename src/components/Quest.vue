@@ -9,8 +9,8 @@
       </transition>
     </div>
     <div class="buttons">
-      <button class="secondary-cta answer" v-on:click="answer('yes')">klikam</button>
-      <button class="secondary-cta answer" v-on:click="answer('no')">nie klikam</button>
+      <button class="secondary-cta answer" v-on:click="answer('yes')">wchodzę</button>
+      <button class="secondary-cta answer" v-on:click="answer('no')">nie wchodzę</button>
     </div>
   </div>
 </template>

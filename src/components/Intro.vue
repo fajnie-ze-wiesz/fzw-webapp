@@ -7,14 +7,14 @@
       </div>
 
       <div v-show="page === 1" class="">
-        <p>Jak mamy się do Ciebie zwracać?</p>
+        <p>Jak masz na imię?</p>
         <div class="input">
           <input ref="name" v-model="userInfo.name" type="text">
         </div>
       </div>
 
     <div v-show="page === 2" class="">
-      <p>Na ile oceniasz swoją odporność na manipulacje?</p>
+      <p>Na ile oceniasz swoją odporność na manipulacje w Internecie?</p>
       <div class="input">
         <select class="input" name="">
           <option v-for="(item, value) in [0,10,20,30,40,50,60,70,80,90,100]" value="">{{item}}%</option>
