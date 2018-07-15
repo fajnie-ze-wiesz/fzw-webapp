@@ -149,7 +149,7 @@ export default {
   }
   .card.img {
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
   }
   button.answer{
