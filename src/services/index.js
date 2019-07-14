@@ -1,1 +1,0 @@
-API_BASE_URL = `https://aplikacja.fajniezewiesz.com.pl/api/v1/`

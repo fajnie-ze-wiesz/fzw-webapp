@@ -21,7 +21,6 @@ export default {
   name: 'modal',
   props: ['show'],
   created () {
-    console.log()
   },
   data () {
     return {
