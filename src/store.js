@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { generateQuiz } from '../services/quizes';
-import { ping } from '../services/ping';
+import { generateQuiz } from './services/quizes';
+import { ping } from './services/ping';
 
 Vue.use(Vuex)
 
