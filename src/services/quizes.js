@@ -1,5 +1,3 @@
-import apiAxios from './index';
-
 function parseQuestion(data) {
   return {
     newsId: data.news_id,
@@ -19,7 +17,9 @@ function parseQuiz(data) {
 }
 
 export function generateQuiz() {
-  return apiAxios.post('quiz/').then((response) => {
-    return parseQuiz(response.data);
+  return fetch('https://fzw-backend.herokuapp.com/api/v1/quiz/',{
+    method: 'POST'
+}).then(async response => {
+    return parseQuiz(await response.json());
   });
 }

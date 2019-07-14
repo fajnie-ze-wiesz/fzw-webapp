@@ -11,8 +11,8 @@
         </clipPath>
       </defs>
 
-      <image xlink:href="static/img/tarcza_02.svg" x="0" y="0" width="100" height="100"/>
-      <image xlink:href="static/img/tarcza_01.svg" x="0" y="0" width="100" height="100" clip-path="url(#cut-off-bottom)"/>
+      <image xlink:href="../assets/img/tarcza_02.svg" x="0" y="0" width="100" height="100"/>
+      <image xlink:href="../assets/img/tarcza_01.svg" x="0" y="0" width="100" height="100" clip-path="url(#cut-off-bottom)"/>
       <text x="50" y="50" font-size="25">{{ percentTemp }}%</text>
 
     </svg>
