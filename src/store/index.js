@@ -42,11 +42,6 @@ export default new Vuex.Store({
       if (quiz.questionIndex >= quiz.questions.length) {
         return
       }
-      if (quiz.questions[quiz.questionIndex].expectedAnswer === 'yes') {
-        quiz.questions[quiz.questionIndex].answer = 'no';
-      } else {
-        quiz.questions[quiz.questionIndex].answer = 'yes';
-      }
       quiz.questionIndex++;
     },
     setUserInfo (state, userInfo) {
