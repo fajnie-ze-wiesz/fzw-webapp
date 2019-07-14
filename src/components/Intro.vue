@@ -17,7 +17,7 @@
       <p>Na ile oceniasz swoją odporność na manipulacje w Internecie?</p>
       <div class="input">
         <select class="input" name="">
-          <option v-for="(item, value) in [0,10,20,30,40,50,60,70,80,90,100]" value="">{{item}}%</option>
+          <option v-for="(item) in [0,10,20,30,40,50,60,70,80,90,100]" v-bind:key="item" :value="item">{{item}}%</option>
         </select>
       </div>
     </div>
@@ -28,7 +28,7 @@
           <div class="input">
             <div class="category-selection">
               <div class="radio">
-                <input v-model="userInfo.category" id="rozrywka" type="radio" value="entertainment"></input>
+                <input v-model="userInfo.category" id="rozrywka" type="radio" value="entertainment"/>
                 <label for="rozrywka">
                   <img src="../assets/img/004-confetti.svg" alt="">Rozrywka
                 </label>
@@ -40,13 +40,13 @@
                 </label>
               </div>
               <div class="radio">
-                <input v-model="userInfo.category" id="nauka" type="radio" value="science"></input>
+                <input v-model="userInfo.category" id="nauka" type="radio" value="science"/>
                 <label for="nauka">
                   <img src="../assets/img/003-startup.svg" alt="">Nauka
                 </label>
               </div>
               <div class="radio">
-                <input v-model="userInfo.category" id="polityka" type="radio" value="politics"></input>
+                <input v-model="userInfo.category" id="polityka" type="radio" value="politics"/>
                 <label for="polityka">
                   <img src="../assets/img/002-white-house.svg" alt="">Polityka
                 </label>
