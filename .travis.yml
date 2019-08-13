@@ -11,7 +11,7 @@ script:
 deploy:
   - provider: pages
     repo: test-fajnie-ze-wiesz/test-fajnie-ze-wiesz.github.io
-    fqdn: test-app.fajniezewiesz.com.pl
+    fqdn: test-app.fajniezewiesz.pl
     skip-cleanup: true
     keep-history: false
     target-branch: master
@@ -21,7 +21,7 @@ deploy:
       branch: master
   - provider: pages
     repo: fajnie-ze-wiesz/fajnie-ze-wiesz.github.io
-    fqdn: aplikacja.fajniezewiesz.com.pl
+    fqdn: aplikacja.fajniezewiesz.pl
     skip-cleanup: true
     keep-history: false
     target-branch: master
