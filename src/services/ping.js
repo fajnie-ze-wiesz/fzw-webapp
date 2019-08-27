@@ -1,7 +1,6 @@
-import apiAxios from './index';
 
 export function ping() {
-  return apiAxios.get('ping/').then((response) => {
-    return response.data.message;
+  return fetch(`https://fzw-backend.herokuapp.com/api/v1/ping/`).then(response => {
+    return response.json();
   });
 }
