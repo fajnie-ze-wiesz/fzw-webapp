@@ -41,7 +41,7 @@ export default new Vuex.Store({
       let quiz = state.quiz;
       let currentQuestion = quiz.questions[quiz.questionIndex];
       if (currentQuestion.answer === null) {
-          currentQuestion.answer = 'no';
+        currentQuestion.answer = 'no';
       }
       if (quiz.questionIndex >= quiz.questions.length) {
         return
