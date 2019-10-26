@@ -5,7 +5,7 @@
       <transition
         name="question-transition"
       >
-        <div :class="['card', 'img', q.expectedAnswer === 'no' ? 'fake' : 'news', q.expectedAnswer === q.answer ? 'correct' : 'wrong']" v-show="index === questionIndex" :style="'background-image: url(' + q.imageUrl + ')'"></div>
+        <div :class="['card', 'img', ...cardClasses(q)]" v-show="index === questionIndex" :style="'background-image: url(' + q.imageUrl + ')'"></div>
       </transition>
     </div>
     <div class="buttons">
@@ -62,6 +62,14 @@ export default {
     }
   },
   methods: {
+    cardClasses (q) {
+      let classes = [];
+      if (q.answer) {
+        classes.push(q.expectedAnswer === 'no' ? 'fake' : 'news')
+        classes.push(q.expectedAnswer === q.answer ? 'correct' : 'wrong')
+      }
+      return classes
+    },
     ...mapMutations([
       'answerQuizQuestion',
       'omitQuizQuestion',
