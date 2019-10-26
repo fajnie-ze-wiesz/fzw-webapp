@@ -2,15 +2,16 @@
   <div id="quest">
     <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
     <div class="container" v-for="(q, index) in questions" :key="q.newsId">
-      <transition
-        name="question-transition"
-      >
-        <div :class="['card', 'img', ...cardClasses(q)]" v-show="index === questionIndex" :style="'background-image: url(' + q.imageUrl + ')'"></div>
-      </transition>
+          <transition
+            name="question-transition"
+            v-on:after-enter="afterEnter"
+          >
+            <quest-card :question="q" v-show="index === questionIndex"/>
+          </transition>
     </div>
     <div class="buttons">
-      <button class="secondary-cta answer" v-on:click="answer('yes')">wchodzę</button>
-      <button class="secondary-cta answer" v-on:click="answer('no')">nie wchodzę</button>
+      <button :disabled="buttonsDisabled" class="secondary-cta answer" v-on:click="answer('yes')">wchodzę</button>
+      <button :disabled="buttonsDisabled" class="secondary-cta answer" v-on:click="answer('no')">nie wchodzę</button>
     </div>
   </div>
 </template>
@@ -19,11 +20,13 @@
 import { mapMutations, mapActions } from 'vuex';
 import { QUESTION_TIMEOUT } from '../consts';
 import PieChart from '@/components/PieChart'
+import QuestCard from '@/components/QuestCard'
 
 export default {
   name: 'quest',
   components: {
-    PieChart
+    PieChart,
+    QuestCard
   },
   beforeRouteEnter (to, from, next) {
     next((vm) => {
@@ -39,6 +42,7 @@ export default {
   },
   data: () => ({
     tick: Date.now(),
+    buttonsDisabled: false
   }),
   computed: {
     question () {
@@ -62,13 +66,8 @@ export default {
     }
   },
   methods: {
-    cardClasses (q) {
-      let classes = [];
-      if (q.answer) {
-        classes.push(q.expectedAnswer === 'no' ? 'fake' : 'news')
-        classes.push(q.expectedAnswer === q.answer ? 'correct' : 'wrong')
-      }
-      return classes
+    toggleDisableButtons() {
+      this.buttonsDisabled = !this.buttonsDisabled
     },
     ...mapMutations([
       'answerQuizQuestion',
@@ -80,9 +79,13 @@ export default {
     answer (a) {
       this.answerQuestionOrEndQuiz(a);
     },
+    afterEnter () {
+      this.toggleDisableButtons();
+    },
     answerQuestionOrEndQuiz (answer) {
       this.stopQuestionTimeout()
       this.answerQuizQuestion({ answer });
+      this.toggleDisableButtons();
       if (this.$store.getters.isQuizFinished) {
         this.goToResults();
       } else {
@@ -133,14 +136,6 @@ export default {
     justify-content: flex-start;
     width: 18vh;
   }
-  img{
-    width: 100%;
-  }
-  .card.img {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-  }
   button.answer{
     padding: 2vh 1vh;
     width: 45%;
@@ -153,32 +148,5 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     width: 80%;
-  }
-
-  .question-transition-enter {
-    transform: translateY(100vmax);
-  }
-  .question-transition-enter-active {
-    transition: all 1.5s ease-in-out;
-  }
-  .question-transition-leave-active {
-    transition: all 1.5s ease-in-out;
-  }
-  .question-transition-leave-active.wrong{
-    transform: translateX(100vmin);
-  }
-  .question-transition-leave-active.correct{
-    transform: translateX(-100vmin);
-  }
-  .question-transition-leave-to.correct {
-    background-blend-mode: multiply;
-    background-color: rgba(0, 255, 0, 1);
-  }
-  .question-transition-leave-to.wrong  {
-    background-blend-mode: multiply;
-    background-color: rgba(255, 0, 0, 1);
-  }
-  .question-transition-leave-to {
-    opacity: 0;
   }
 </style>
