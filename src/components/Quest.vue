@@ -69,25 +69,6 @@ export default {
     ...mapActions([
       'generateQuiz',
     ]),
-    colorizeMatrixString (channel, t) {
-      const A = [
-        [1 - t, 0, 0, 0],
-        [0, 1 - t, 0, 0],
-        [0, 0, 1 - t, 0],
-        [0, 0, 0, 1],
-      ];
-      for (let j = 0; j < 3; ++j) {
-        A[channel][j] += t / 3;
-      }
-      const values = [];
-      for (let i = 0; i < 4; ++i) {
-        for (let j = 0; j < 4; ++j) {
-          values.push(A[i][j]);
-        }
-        values.push(0);
-      }
-      return values.join(' ');
-    },
     answer (a) {
       this.answerQuestionOrEndQuiz(a);
     },
