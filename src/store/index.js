@@ -63,6 +63,10 @@ export default new Vuex.Store({
       let quiz = state.quiz;
       return quiz.questionIndex >= quiz.questions.length;
     },
+    numOfQuizQuestions (state) {
+      let quiz = state.quiz;
+      return quiz.questions.length;
+    },
     numOfQuizAnswers (state) {
       let quiz = state.quiz;
       return quiz.questions.filter((q) => q.answer).length;
