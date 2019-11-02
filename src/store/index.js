@@ -5,6 +5,18 @@ import { ping } from '../services/ping';
 
 Vue.use(Vuex)
 
+const countByPredicate = (arr, predicate) => {
+  return arr.reduce((acc, v) => predicate(v) ? acc + 1 : acc, 0);
+}
+
+const isQuestionAnswered = (q) => !!q.answer
+
+const isQuestionAnsweredCorrectly = (q) => q.answer === q.expectedAnswer
+
+// aliases:
+const answered = isQuestionAnswered;
+const answeredCorrectly = isQuestionAnsweredCorrectly
+
 export default new Vuex.Store({
   state: {
     quiz: {
@@ -63,29 +75,25 @@ export default new Vuex.Store({
       let quiz = state.quiz;
       return quiz.questionIndex >= quiz.questions.length;
     },
-    numOfQuizAnswers (state) {
-      let quiz = state.quiz;
-      return quiz.questions.filter((q) => q.answer).length;
+    numOfQuizQuestionsByPredicate (state) {
+      return (predicate) => countByPredicate(state.quiz.questions, predicate)
     },
-    numOfCorrectQuizAnswers (state) {
-      let quiz = state.quiz;
-      return quiz.questions.filter((q) => q.answer && q.answer === q.expectedAnswer).length;
+    numOfQuizAnswers (state, getters) {
+      return getters.numOfQuizQuestionsByPredicate(answered);
     },
-    numOfOmmitedQuizQuestions (state) {
-      let quiz = state.quiz;
-      return quiz.questions.filter((q) => !q.answer).length;
+    numOfCorrectQuizAnswers (state, getters) {
+      return getters.numOfQuizQuestionsByPredicate(answeredCorrectly);
     },
-    numOfQuizAnswersByType (state) {
-      return (type) => {
-        let quiz = state.quiz;
-        return quiz.questions.filter((q) => q.type === type && q.answer).length;
-      };
+    numOfOmmitedQuizQuestions (state, getters) {
+      return getters.numOfQuizQuestionsByPredicate((q) => !answered(q));
     },
-    numOfCorrectQuizAnswersByType (state) {
-      return (type) => {
-        let quiz = state.quiz;
-        return quiz.questions.filter((q) => q.type === type && q.answer === q.expectedAnswer).length;
-      };
+    numOfQuizAnswersByType (state, getters) {
+      return (type) => getters.numOfQuizQuestionsByPredicate(
+        (q) => q.type === type && answered(q));
+    },
+    numOfCorrectQuizAnswersByType (state, getters) {
+      return (type) => getters.numOfQuizQuestionsByPredicate(
+        (q) => q.type === type && answeredCorrectly(q));
     }
   }
 })
