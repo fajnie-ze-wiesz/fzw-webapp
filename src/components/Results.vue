@@ -17,12 +17,11 @@
 
     </svg>
 
-    <!-- <pie-chart :textPercent="true" :numerator="numOfCorrectAnswers" :denominator="numOfAnswers"/> -->
   </div>
   <p>Twoja odporność na:</p>
   <div class="results">
     <div @click="bait=true" class="vulnerability">
-      <pie-chart :textPercent="true" :numerator="numOfCorrectClickbaitAnswers" :denominator="numOfClickbaitAnswers" />
+      <pie-chart :textPercent="true" :numerator="numOfCorrectClickbaitAnswers" :denominator="numOfClickbaitQuestions" />
       <h5>Clickbait</h5>
     </div>
     <modal :show="bait" @close="bait=false">
@@ -48,7 +47,7 @@
     </modal>
 
     <div @click="manipulation=true" class="vulnerability">
-      <pie-chart :textPercent="true" :numerator="numOfCorrectImageManipulationAnswers" :denominator="numOfImageManipulationAnswers" />
+      <pie-chart :textPercent="true" :numerator="numOfCorrectImageManipulationAnswers" :denominator="numOfImageManipulationQuestions" />
       <h5>Manipulacja obrazem</h5>
     </div>
     <modal :show="manipulation" @close="manipulation=false">
@@ -84,7 +83,7 @@
     </modal>
 
     <div @click="emo=true" class="vulnerability">
-      <pie-chart :textPercent="true" :numerator="numOfCorrectEmotionalLanguageAnswers" :denominator="numOfEmotionalLanguageAnswers" />
+      <pie-chart :textPercent="true" :numerator="numOfCorrectEmotionalLanguageAnswers" :denominator="numOfEmotionalLanguageQuestions" />
       <h5>Emocjonalny język</h5>
     </div>
     <modal :show="emo" @close="emo=false">
@@ -104,7 +103,7 @@
     </modal>
 
     <div @click="lie=true" class="vulnerability">
-      <pie-chart :textPercent="true" :numerator="numOfCorrectFakeNewsAnswers" :denominator="numOfFakeNewsAnswers" />
+      <pie-chart :textPercent="true" :numerator="numOfCorrectFakeNewsAnswers" :denominator="numOfFakeNewsQuestions" />
       <h5>Fake news</h5>
     </div>
     <modal :show="lie" @close="lie=false">
@@ -154,41 +153,38 @@
     },
     computed: {
       percentTemp () {
-        return Math.floor(this.numOfCorrectAnswers / this.numOfAnswers * 100)
+        return Math.floor(this.numOfCorrectAnswers / this.numOfQustions * 100)
       },
-      numOfAnswers () {
-        return this.$store.getters.numOfQuizAnswers;
+      numOfQustions () {
+        return this.$store.getters.numOfQuizQuestions;
       },
       numOfCorrectAnswers () {
         return this.$store.getters.numOfCorrectQuizAnswers;
       },
-      numOfOmmitedQuestions () {
-        return this.$store.getters.numOfOmmitedQuizQuestions;
-      },
 
-      numOfEmotionalLanguageAnswers () {
-        return this.$store.getters.numOfQuizAnswersByType('emotional-language');
+      numOfEmotionalLanguageQuestions () {
+        return this.$store.getters.numOfQuizQuestionsByType('emotional-language');
       },
       numOfCorrectEmotionalLanguageAnswers () {
         return this.$store.getters.numOfCorrectQuizAnswersByType('emotional-language');
       },
 
-      numOfClickbaitAnswers () {
-        return this.$store.getters.numOfQuizAnswersByType('clickbait');
+      numOfClickbaitQuestions () {
+        return this.$store.getters.numOfQuizQuestionsByType('clickbait');
       },
       numOfCorrectClickbaitAnswers () {
         return this.$store.getters.numOfCorrectQuizAnswersByType('clickbait');
       },
 
-      numOfFakeNewsAnswers () {
-        return this.$store.getters.numOfQuizAnswersByType('fake-news');
+      numOfFakeNewsQuestions () {
+        return this.$store.getters.numOfQuizQuestionsByType('fake-news');
       },
       numOfCorrectFakeNewsAnswers () {
         return this.$store.getters.numOfCorrectQuizAnswersByType('fake-news');
       },
 
-      numOfImageManipulationAnswers () {
-        return this.$store.getters.numOfQuizAnswersByType('image-manipulation');
+      numOfImageManipulationQuestions () {
+        return this.$store.getters.numOfQuizQuestionsByType('image-manipulation');
       },
       numOfCorrectImageManipulationAnswers () {
         return this.$store.getters.numOfCorrectQuizAnswersByType('image-manipulation');
