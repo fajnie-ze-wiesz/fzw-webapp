@@ -75,6 +75,9 @@ export default new Vuex.Store({
       let quiz = state.quiz;
       return quiz.questionIndex >= quiz.questions.length;
     },
+    numOfQuizQuestions (state) {
+      return state.quiz.questions.length;
+    },
     numOfQuizQuestionsByPredicate (state) {
       return (predicate) => countByPredicate(state.quiz.questions, predicate)
     },
@@ -86,6 +89,10 @@ export default new Vuex.Store({
     },
     numOfOmmitedQuizQuestions (state, getters) {
       return getters.numOfQuizQuestionsByPredicate((q) => !answered(q));
+    },
+    numOfQuizQuestionsByType (state, getters) {
+      return (type) => getters.numOfQuizQuestionsByPredicate(
+        (q) => q.type === type);
     },
     numOfQuizAnswersByType (state, getters) {
       return (type) => getters.numOfQuizQuestionsByPredicate(
