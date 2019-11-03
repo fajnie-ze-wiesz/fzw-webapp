@@ -81,9 +81,6 @@ export default new Vuex.Store({
     numOfQuizQuestionsByPredicate (state) {
       return (predicate) => countByPredicate(state.quiz.questions, predicate)
     },
-    numOfQuizAnswers (state, getters) {
-      return getters.numOfQuizQuestionsByPredicate(answered);
-    },
     numOfCorrectQuizAnswers (state, getters) {
       return getters.numOfQuizQuestionsByPredicate(answeredCorrectly);
     },
@@ -93,10 +90,6 @@ export default new Vuex.Store({
     numOfQuizQuestionsByType (state, getters) {
       return (type) => getters.numOfQuizQuestionsByPredicate(
         (q) => q.type === type);
-    },
-    numOfQuizAnswersByType (state, getters) {
-      return (type) => getters.numOfQuizQuestionsByPredicate(
-        (q) => q.type === type && answered(q));
     },
     numOfCorrectQuizAnswersByType (state, getters) {
       return (type) => getters.numOfQuizQuestionsByPredicate(
