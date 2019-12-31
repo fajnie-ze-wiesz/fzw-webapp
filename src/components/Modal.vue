@@ -67,6 +67,7 @@ export default {
     box-sizing: border-box;
     padding: 5vh;
     text-align: left;
+    align-items: center;
   }
   button {
     margin: 0;
