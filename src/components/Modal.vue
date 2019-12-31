@@ -3,7 +3,7 @@
     <transition name="fade">
       <div v-show="show" class="modal">
         <div class="content card">
-          <div style="text-align: right; cursor: pointer" @click="close()" >x</div>
+          <div class="close-icon" @click="close()">✕</div>
           <slot :name="page"></slot>
           <button class="main-cta" @click="incrementPage" type="button" name="button">
             <div v-show="page === 0">Zwiększ odporność</div>
@@ -54,6 +54,11 @@ export default {
 <style scoped>
   .modal{
     font-size: 60%;
+  }
+  .close-icon {
+      align-self: end;
+      cursor: pointer;
+      font-size: 150%;
   }
   .content{
     position: fixed;
