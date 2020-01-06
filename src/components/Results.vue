@@ -153,9 +153,9 @@
     },
     computed: {
       percentTemp () {
-        return Math.floor(this.numOfCorrectAnswers / this.numOfQustions * 100)
+        return Math.floor(this.numOfCorrectAnswers / this.numOfQuestions * 100)
       },
-      numOfQustions () {
+      numOfQuestions () {
         return this.$store.getters.numOfQuizQuestions;
       },
       numOfCorrectAnswers () {
