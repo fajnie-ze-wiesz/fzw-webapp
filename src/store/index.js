@@ -3,29 +3,18 @@ import Vuex from 'vuex'
 import { generateQuiz } from '../services/quizes';
 import { ping } from '../services/ping';
 
-Vue.use(Vuex)
+import { default as Quiz } from '../data/quiz';
+import { default as QuizSetupInfo } from '../data/quiz_setup_info';
+import { default as User } from '../data/user';
+import { default as ResultStats } from '../data/result_stats';
 
-const countByPredicate = (arr, predicate) => {
-  return arr.reduce((acc, v) => predicate(v) ? acc + 1 : acc, 0);
-}
-
-const isQuestionAnswered = (q) => !!q.answer
-
-const isQuestionAnsweredCorrectly = (q) => q.answer === q.expectedAnswer
-
-// aliases:
-const answered = isQuestionAnswered;
-const answeredCorrectly = isQuestionAnsweredCorrectly
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    quiz: {
-      questionIndex: 0,
-      questions: [],
-    },
-    userInfo: {
-      name: 'test',
-    },
+    quiz: Quiz.create({id: 'empty-quiz-id'}),
+    user: User.create({name: 'test'}),
+    quizSetupInfo: QuizSetupInfo.create({}),
   },
   actions: {
     generateQuiz (context) {
@@ -42,58 +31,35 @@ export default new Vuex.Store({
       state.quiz = quiz;
     },
     answerQuizQuestion (state, { answer }) {
-      let quiz = state.quiz;
-      if (quiz.questionIndex >= quiz.questions.length) {
-        return
-      }
-      quiz.questions[quiz.questionIndex].answer = answer;
-      quiz.questionIndex++;
+      Quiz.answerQuestion(state.quiz, answer);
     },
     omitQuizQuestion (state) {
-      let quiz = state.quiz;
-      if (quiz.questionIndex >= quiz.questions.length) {
-        return
-      }
-      quiz.questionIndex++;
+      Quiz.omitQuestion(state.quiz);
     },
     setUserInfo (state, userInfo) {
-      state.userInfo = userInfo;
+      User.setName(state.user, userInfo.name);
     },
   },
   getters: {
     currentQuizQuestion (state) {
-      let quiz = state.quiz;
-      return quiz.questions[quiz.questionIndex];
+      return Quiz.getCurrentQuestion(state.quiz);
     },
     quizQuestions (state) {
-      return state.quiz.questions;
+      return Quiz.getQuestions(state.quiz);
     },
     quizQuestionIndex (state) {
-      return state.quiz.questionIndex;
+      return Quiz.getQuestionIndex(state.quiz);
     },
     isQuizFinished (state) {
-      let quiz = state.quiz;
-      return quiz.questionIndex >= quiz.questions.length;
+      return Quiz.isFinished(state.quiz);
     },
-    numOfQuizQuestions (state) {
-      return state.quiz.questions.length;
+    resultStats (state) {
+      const { quiz, user, quizSetupInfo } = state;
+      return ResultStats.create({
+        quiz,
+        user,
+        quizSetupInfo,
+      });
     },
-    numOfQuizQuestionsByPredicate (state) {
-      return (predicate) => countByPredicate(state.quiz.questions, predicate)
-    },
-    numOfCorrectQuizAnswers (state, getters) {
-      return getters.numOfQuizQuestionsByPredicate(answeredCorrectly);
-    },
-    numOfOmmitedQuizQuestions (state, getters) {
-      return getters.numOfQuizQuestionsByPredicate((q) => !answered(q));
-    },
-    numOfQuizQuestionsByType (state, getters) {
-      return (type) => getters.numOfQuizQuestionsByPredicate(
-        (q) => q.type === type);
-    },
-    numOfCorrectQuizAnswersByType (state, getters) {
-      return (type) => getters.numOfQuizQuestionsByPredicate(
-        (q) => q.type === type && answeredCorrectly(q));
-    }
   }
 })

@@ -1,9 +1,10 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Intro from '@/components/Intro'
-import Guide from '@/components/Guide'
-import Quest from '@/components/Quest'
-import Results from '@/components/Results'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Intro from '@/components/Intro';
+import Guide from '@/components/Guide';
+import Quest from '@/components/Quest';
+import Results from '@/components/Results';
+import ShareResults from '@/components/ShareResults';
 
 Vue.use(Router)
 
@@ -13,24 +14,30 @@ export default new Router({
     {
       path: '/',
       name: 'Intro',
-      component: Intro
+      component: Intro,
     },
     {
       path: '/guide',
       name: 'Guide',
-      component: Guide
+      component: Guide,
     },
 
     {
       path: '/quest',
       name: 'Quest',
-      component: Quest
+      component: Quest,
     },
 
     {
       path: '/results',
       name: 'Results',
-      component: Results
-    }
+      component: Results,
+    },
+
+    {
+      path: '/share-results',
+      name: 'ShareResults',
+      component: ShareResults,
+    },
   ]
 })

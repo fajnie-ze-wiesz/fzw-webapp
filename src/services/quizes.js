@@ -1,21 +1,22 @@
 import apiAxios from './index';
 
+import { default as Quiz } from '../data/quiz';
+import { default as Question } from '../data/question';
+
 function parseQuestion(data) {
-  return {
+  return Question.create({
     newsId: data.news_id,
     imageUrl: data.image_url,
     type: data.manipulation_category_name,
-    answer: null,
-    expectedAnswer: data.expected_answer
-  }
+    expectedAnswer: data.expected_answer,
+  });
 }
 
 function parseQuiz(data) {
-  return {
+  return Quiz.create({
     id: data.id,
-    questionIndex: 0,
-    questions: (data.questions || []).map((questionData) => parseQuestion(questionData)),
-  }
+    questions: (data.questions || []).map(parseQuestion),
+  });
 }
 
 export function generateQuiz() {
