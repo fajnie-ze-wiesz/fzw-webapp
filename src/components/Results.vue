@@ -1,7 +1,7 @@
 <template>
 <div id="results">
   <div>
-    <h1>{{this.userInfo.name}}</h1>
+    <h1>{{this.username}}</h1>
     <h5>Twoja ochrona jest na poziomie:</h5>
 
     <svg id="armor" viewBox="0 0 100 100" preserveAspectRatio version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -129,13 +129,17 @@
     </modal>
 
   </div>
-  <button class="main-cta check" type="button" name="button">sprawdź swoje odpowiedzi</button>
+  <!-- <button class="main-cta check" type="button" name="button">sprawdź swoje odpowiedzi</button> -->
+  <button class="main-cta" type="button" name="button" v-on:click="goToShareResults()">Podziel się wynikiem</button>
 </div>
 </template>
 
 <script>
   import PieChart from '@/components/PieChart'
   import Modal from '@/components/Modal'
+
+  import { default as ResultStats } from '../data/result_stats';
+  import { default as ManipulationCategory } from '../data/manipulation_category';
 
   export default {
     name: 'results',
@@ -152,49 +156,79 @@
       }
     },
     computed: {
+      resultStats () {
+        const routeResultStatsPayload = this.$route.params.results;
+        if (routeResultStatsPayload) {
+          // load results from url
+          return ResultStats.decode(routeResultStatsPayload);
+        } else {
+          return this.$store.getters.resultStats;
+        }
+      },
+      resultStatsEmoLang () {
+        return this.getManipulationCategoryResultStats('emotional-language');
+      },
+      resultStatsClickbait () {
+        return this.getManipulationCategoryResultStats('clickbait');
+      },
+      resultStatsFakeNews () {
+        return this.getManipulationCategoryResultStats('fake-news');
+      },
+      resultStatsImgManip () {
+        return this.getManipulationCategoryResultStats('image-manipulation');
+      },
       percentTemp () {
         return Math.floor(this.numOfCorrectAnswers / this.numOfQuestions * 100)
       },
       numOfQuestions () {
-        return this.$store.getters.numOfQuizQuestions;
+        return ResultStats.getNumOfAnswers(this.resultStats);
       },
       numOfCorrectAnswers () {
-        return this.$store.getters.numOfCorrectQuizAnswers;
+        return ResultStats.getNumOfCorrectAnswers(this.resultStats);
       },
 
       numOfEmotionalLanguageQuestions () {
-        return this.$store.getters.numOfQuizQuestionsByType('emotional-language');
+        return ResultStats.getNumOfAnswers(this.resultStatsEmoLang);
       },
       numOfCorrectEmotionalLanguageAnswers () {
-        return this.$store.getters.numOfCorrectQuizAnswersByType('emotional-language');
+        return ResultStats.getNumOfCorrectAnswers(this.resultStatsEmoLang);
       },
 
       numOfClickbaitQuestions () {
-        return this.$store.getters.numOfQuizQuestionsByType('clickbait');
+        return ResultStats.getNumOfAnswers(this.resultStatsClickbait);
       },
       numOfCorrectClickbaitAnswers () {
-        return this.$store.getters.numOfCorrectQuizAnswersByType('clickbait');
+        return ResultStats.getNumOfCorrectAnswers(this.resultStatsClickbait);
       },
 
       numOfFakeNewsQuestions () {
-        return this.$store.getters.numOfQuizQuestionsByType('fake-news');
+        return ResultStats.getNumOfAnswers(this.resultStatsFakeNews);
       },
       numOfCorrectFakeNewsAnswers () {
-        return this.$store.getters.numOfCorrectQuizAnswersByType('fake-news');
+        return ResultStats.getNumOfCorrectAnswers(this.resultStatsFakeNews);
       },
 
       numOfImageManipulationQuestions () {
-        return this.$store.getters.numOfQuizQuestionsByType('image-manipulation');
+        return this.resultStatsImgManip.total;
       },
       numOfCorrectImageManipulationAnswers () {
-        return this.$store.getters.numOfCorrectQuizAnswersByType('image-manipulation');
+        return this.resultStatsImgManip.correct;
       },
 
-      userInfo () {
-        return this.$store.state.userInfo
+      username () {
+        return this.resultStats.username;
       }
     },
     methods: {
+      goToShareResults () {
+        this.$router.push('/share-results');
+      },
+      getManipulationCategoryResultStats (categoryName) {
+        return ResultStats.getByManipulationCategory(
+          this.resultStats,
+          ManipulationCategory.fromName(categoryName),
+        );
+      },
     }
   }
 </script>

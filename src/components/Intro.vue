@@ -69,10 +69,18 @@
 
 <script>
   import { mapActions } from 'vuex';
+  import { parseQuery } from '../utils/location';
   export default {
     name: 'intro',
     mounted () {
       this.pingBackend();
+      const queryParams = parseQuery(window.location.search);
+      if (queryParams.results) {
+        this.$router.replace({
+          name: 'Results',
+          params: queryParams,
+        })
+      }
     },
     data () {
       return {
@@ -84,8 +92,6 @@
         },
         validationError: false
       }
-    },
-    computed: {
     },
     methods: {
       ...mapActions([
