@@ -138,8 +138,8 @@
   import PieChart from '@/components/PieChart'
   import Modal from '@/components/Modal'
 
-  import { default as ResultStats } from '../data/result_stats';
-  import { default as ManipulationCategory } from '../data/manipulation_category';
+  import ResultStats from '../data/result_stats';
+  import ManipulationCategory from '../data/manipulation_category';
 
   export default {
     name: 'results',

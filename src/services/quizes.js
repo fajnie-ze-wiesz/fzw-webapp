@@ -1,7 +1,7 @@
 import apiAxios from './index';
 
-import { default as Quiz } from '../data/quiz';
-import { default as Question } from '../data/question';
+import Quiz from '../data/quiz';
+import Question from '../data/question';
 
 function parseQuestion(data) {
   return Question.create({

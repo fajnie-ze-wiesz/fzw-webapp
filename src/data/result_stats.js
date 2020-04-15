@@ -1,8 +1,8 @@
 import { countByPredicate } from '../utils/collections';
-import { default as ManipulationCategory } from './manipulation_category';
-import { default as Question } from './question';
-import { default as QuizSetupInfo } from './quiz_setup_info';
-import { default as User } from './user';
+import ManipulationCategory from './manipulation_category';
+import Question from './question';
+import QuizSetupInfo from './quiz_setup_info';
+import User from './user';
 
 export function create({ quiz, user, quizSetupInfo }) {
   const results = {

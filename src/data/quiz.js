@@ -1,4 +1,4 @@
-import { default as Question } from './question';
+import Question from './question';
 
 export function create({id, questions = []}) {
   return {
