@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { default as ResultStats } from '../data/result_stats';
+import ResultStats from '../data/result_stats';
 
 export default {
   name: 'share-results',

@@ -3,10 +3,10 @@ import Vuex from 'vuex'
 import { generateQuiz } from '../services/quizes';
 import { ping } from '../services/ping';
 
-import { default as Quiz } from '../data/quiz';
-import { default as QuizSetupInfo } from '../data/quiz_setup_info';
-import { default as User } from '../data/user';
-import { default as ResultStats } from '../data/result_stats';
+import Quiz from '../data/quiz';
+import QuizSetupInfo from '../data/quiz_setup_info';
+import User from '../data/user';
+import ResultStats from '../data/result_stats';
 
 Vue.use(Vuex);
 
