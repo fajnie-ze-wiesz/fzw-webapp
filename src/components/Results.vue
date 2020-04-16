@@ -129,8 +129,9 @@
     </modal>
 
   </div>
-  <!-- <button class="main-cta check" type="button" name="button">sprawdź swoje odpowiedzi</button> -->
-  <button class="main-cta" type="button" name="button" v-on:click="goToShareResults()">Podziel się wynikiem</button>
+  <router-link tag="button" class="main-cta" type="button" name="button" to="/share-results">
+    Podziel się wynikiem
+  </router-link>
 </div>
 </template>
 
@@ -220,9 +221,6 @@
       }
     },
     methods: {
-      goToShareResults () {
-        this.$router.push('/share-results');
-      },
       getManipulationCategoryResultStats (categoryName) {
         return ResultStats.getByManipulationCategory(
           this.resultStats,
