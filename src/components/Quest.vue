@@ -1,24 +1,26 @@
 <template>
-  <div id="quest">
-    <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false"/>
-    <div class="container" v-for="(q, index) in questions" :key="q.newsId">
-          <transition
-            name="question-transition"
-            v-on:after-enter="afterEnter"
-          >
-            <quest-card :question="q" v-show="index === questionIndex"/>
-          </transition>
-    </div>
-    <div class="buttons">
-      <button :disabled="buttonsDisabled" class="secondary-cta answer" v-on:click="answer('yes')">wchodzę</button>
-      <button :disabled="buttonsDisabled" class="secondary-cta answer" v-on:click="answer('no')">nie wchodzę</button>
-    </div>
+<div id="quest">
+  <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false" />
+  <div class="container" v-for="(q, index) in questions" :key="q.newsId">
+    <transition name="question-transition" v-on:after-enter="afterEnter">
+      <quest-card :question="q" v-show="index === questionIndex" />
+    </transition>
   </div>
+  <div class="buttons">
+    <button :disabled="buttonsDisabled" class="opaque-white answer" v-on:click="answer('yes')">Prawda</button>
+    <button :disabled="buttonsDisabled" class="opaque-white answer" v-on:click="answer('no')">Fałsz</button>
+  </div>
+</div>
 </template>
 
 <script>
-import { mapMutations, mapActions } from 'vuex';
-import { QUESTION_TIMEOUT } from '../consts';
+import {
+  mapMutations,
+  mapActions
+} from 'vuex';
+import {
+  QUESTION_TIMEOUT
+} from '../consts';
 import PieChart from '@/components/PieChart'
 import QuestCard from '@/components/QuestCard'
 
@@ -28,14 +30,14 @@ export default {
     PieChart,
     QuestCard
   },
-  beforeRouteEnter (to, from, next) {
+  beforeRouteEnter(to, from, next) {
     next((vm) => {
       vm.generateQuiz();
       vm.startQuestionTimeout();
       vm.startTicker();
     });
   },
-  beforeRouteLeave (to, from, next) {
+  beforeRouteLeave(to, from, next) {
     this.stopQuestionTimeout();
     this.stopTicker();
     next();
@@ -45,19 +47,19 @@ export default {
     buttonsDisabled: false
   }),
   computed: {
-    question () {
+    question() {
       return this.$store.getters.currentQuizQuestion;
     },
-    questions () {
+    questions() {
       return this.$store.getters.quizQuestions;
     },
-    questionIndex () {
+    questionIndex() {
       return this.$store.getters.quizQuestionIndex;
     },
-    questionNumber () {
+    questionNumber() {
       return this.$store.getters.quizQuestionIndex + 1;
     },
-    countdownSeconds () {
+    countdownSeconds() {
       const delta = this.tick - this.questionStartTime;
       return Math.ceil((QUESTION_TIMEOUT - delta) / 1000);
     },
@@ -76,15 +78,17 @@ export default {
     ...mapActions([
       'generateQuiz',
     ]),
-    answer (a) {
+    answer(a) {
       this.answerQuestionOrEndQuiz(a);
     },
-    afterEnter () {
+    afterEnter() {
       this.toggleDisableButtons();
     },
-    answerQuestionOrEndQuiz (answer) {
+    answerQuestionOrEndQuiz(answer) {
       this.stopQuestionTimeout()
-      this.answerQuizQuestion({ answer });
+      this.answerQuizQuestion({
+        answer
+      });
       this.toggleDisableButtons();
       if (this.$store.getters.isQuizFinished) {
         this.goToResults();
@@ -92,7 +96,7 @@ export default {
         this.startQuestionTimeout();
       }
     },
-    omitQuestionOrEndQuiz () {
+    omitQuestionOrEndQuiz() {
       this.omitQuizQuestion();
       if (this.$store.getters.isQuizFinished) {
         this.goToResults();
@@ -100,25 +104,25 @@ export default {
         this.startQuestionTimeout();
       }
     },
-    goToResults () {
+    goToResults() {
       this.$router.push('/results');
     },
-    stopQuestionTimeout () {
+    stopQuestionTimeout() {
       clearTimeout(this.questionTimeout)
     },
-    startQuestionTimeout () {
+    startQuestionTimeout() {
       clearTimeout(this.questionTimeout)
       this.questionStartTime = Date.now();
       this.questionTimeout = setTimeout(() => {
         this.omitQuestionOrEndQuiz();
       }, QUESTION_TIMEOUT);
     },
-    startTicker () {
+    startTicker() {
       this.tickInterval = setInterval(() => {
         this.tick = Date.now();
       }, 100);
     },
-    stopTicker () {
+    stopTicker() {
       clearInterval(this.tickInterval);
     },
   }
@@ -126,27 +130,42 @@ export default {
 </script>
 
 <style scoped>
-  .container{
-    position: absolute;
-    width: 80%;
-    top: calc(20vh);
-  }
-  #counter{
-    display: flex;
-    justify-content: flex-start;
-    width: 18vh;
-  }
-  button.answer{
-    padding: 2vh 1vh;
-    width: 45%;
-  }
+#quest {
+  background: var(--color-blue);
+}
 
-  .buttons {
-    position: absolute;
-    bottom: 5vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80%;
-  }
+.container {
+  position: absolute;
+  width: 80%;
+  top: calc(25vh);
+}
+
+#counter {
+  display: flex;
+  justify-content: flex-start;
+  width: 18vh;
+}
+
+button.answer {
+  padding: 2vh 1vh;
+  width: 48%;
+}
+
+.card {
+  background: white;
+  height: 55vh;
+  width: 100%;
+  box-shadow: 0 .8vh 1.6vh rgba(184, 184, 184, .5);
+  border-radius: .8em;
+  overflow-y: auto;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+}
 </style>

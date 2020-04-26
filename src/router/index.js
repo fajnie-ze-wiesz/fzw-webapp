@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Intro from '@/components/Intro';
-import Guide from '@/components/Guide';
 import Quest from '@/components/Quest';
 import Results from '@/components/Results';
 import ShareResults from '@/components/ShareResults';
@@ -16,12 +15,6 @@ export default new Router({
       name: 'Intro',
       component: Intro,
     },
-    {
-      path: '/guide',
-      name: 'Guide',
-      component: Guide,
-    },
-
     {
       path: '/quest',
       name: 'Quest',
