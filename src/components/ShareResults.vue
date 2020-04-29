@@ -1,11 +1,26 @@
 <template>
-<div id="results">
+<div id="share-results">
   <div>
-    <button class="main-cta" type="button" name="share-results" v-on:click="shareResults()">Podziel się wynikiem</button>
-    <p>Chcesz wiedzieć więcej?</p>
-    <p>Odwiedź Akademię Fact-Checkingu!</p>
+      <h2>Podziel się swoim wynikiem ze znajomymi</h2>
 
-    <button class="main-cta" type="button" name="visit">Odwiedź</button>
+      <div class="">
+          Twoja odporność na fake-news to 68%
+          <button class="main-cta" type="button" name="share-results" v-on:click="shareResults()">Share</button>
+      </div>
+
+      <p>Jeśli chcesz dowiedzieć się o naszych działaniach w ramach edukacji medialnej poznaj Akademię Fact-Checkingu. Organizujemy m.in. kursy dla szkół czy warsztaty dla organizacji pozarządowych.</p>
+      <p>
+          <strong>Możesz również zagrać jeszcze raz i zwiększć swoją odporność. Śmiało! :)</strong>
+      </p>
+  </div>
+  <div class="">
+      <a href="#">
+          <button type="button" name="button" class="opaque-blue">poznaj akademię</button>
+      </a>
+
+      <a href="#">
+          <button type="button" name="button" class="red">zagraj jeszcze raz</button>
+      </a>
   </div>
 </div>
 </template>
@@ -52,3 +67,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#share-results {
+    color: var(--color-blue);
+    background: #EBF1F4;
+}
+</style>

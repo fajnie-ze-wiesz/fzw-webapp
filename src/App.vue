@@ -42,7 +42,6 @@ export default {
 }
 html, option, input {
   font-family: 'Rubik', sans-serif;
-  color: var(--color-blue);
   user-select: none;
 }
 body {
@@ -59,7 +58,6 @@ body {
 }
 .numbering {
     display: inline-block;
-    
     background: var(--color-orange);
     font-size: 50%;
     width: 1rem;
@@ -105,7 +103,6 @@ li {
   height: 100%;
   display: flex;
   justify-content: space-around;
-  background: #EBF1F4;
 }
 #app > div {
   display: flex;
@@ -123,13 +120,9 @@ li {
   }
 }
 
-.button {
+button {
     text-transform: uppercase;
     transition: background 200ms, color 200ms, box-shadow 200ms;
-}
-
-
-button {
     display: inline-block;
     box-sizing: border-box;
     text-align: center;
@@ -163,7 +156,7 @@ button.blue:hover, button.red:hover{
 }
 
 button.opaque-blue:hover {
-    background-color: var(--blue);
+    background-color: var(--color-blue);
     color: white;
 }
 
@@ -185,8 +178,8 @@ button.opaque-white {
 }
 
 button.opaque-blue {
-    color: var(--blue);
-    box-shadow: inset 0 0 0 .15em var(--blue);
+    color: var(--color-blue);
+    box-shadow: inset 0 0 0 .15em var(--color-blue);
 }
 
 .input{

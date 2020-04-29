@@ -155,7 +155,6 @@ button.answer {
   background: white;
   height: 55vh;
   width: 100%;
-  box-shadow: 0 .8vh 1.6vh rgba(184, 184, 184, .5);
   border-radius: .8em;
   overflow-y: auto;
 }
