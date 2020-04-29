@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  
+
   <div v-show="page === 4">
       <h2><span class="numbering">{{page}}</span>Gotów?</h2>
       <p>Za chwilę zobaczysz 16 przykładów treści, które pojawiły się w sieci. Oceń czy są prawdziwe czy fałszywe.</p>
@@ -106,6 +106,10 @@ export default {
 </script>
 
 <style scoped>
+#intro {
+    color: var(--color-blue);
+    background: #EBF1F4;
+}
 select {
   font-family: 'Montserrat';
   background: white;

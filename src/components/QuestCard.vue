@@ -56,10 +56,10 @@ export default {
     transform: translateY(100vmax);
   }
   .question-transition-enter-active {
-    transition: all 1.5s ease-in-out;
+    transition: all 1.5s ease;
   }
   .question-transition-leave-active {
-    transition: all 1.5s ease-in-out;
+    transition: all 1.5s ease;
   }
   .question-transition-leave-active.wrong{
     transform: translateX(100vmin);
