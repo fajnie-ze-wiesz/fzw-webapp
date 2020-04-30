@@ -1,8 +1,8 @@
 <template>
 <div id="results">
     <div class="">
-        <h2>Twoja odporność na fake news to {{percentTemp}}%</h2>
-        <p>Odpowiedziałeś poprawnie na {{numOfCorrectClickbaitAnswers}} z {{numOfClickbaitQuestions}} newsów. Nie jest tak źle, ale zawsze może być lepiej zwłaszcza, że na początku oceniłeś się na 75%. ;)</p>
+        <h1>Twoja odporność na fake news to {{percentTemp}}%</h1>
+        <p>Odpowiedziałeś poprawnie na {{numOfCorrectClickbaitAnswers}} z {{numOfClickbaitQuestions}} newsów. Nie jest tak źle, ale zawsze może być lepiej zwłaszcza, że na początku oceniłeś się na XXX%. ;)</p>
         <p>W ocenie braliśmy pod uwagę:
             <ul>
                 <li>rozpoznawanie fałszywej treści</li>

@@ -1,11 +1,11 @@
 <template>
 <div id="share-results">
   <div>
-      <h2>Podziel się swoim wynikiem ze znajomymi</h2>
+      <h1>Podziel się swoim wynikiem ze znajomymi</h1>
 
-      <div class="">
-          Twoja odporność na fake-news to 68%
-          <button class="main-cta" type="button" name="share-results" v-on:click="shareResults()">Share</button>
+      <div class="share-box">
+          Twoja odporność na fake news to XXX%
+          <button class="share-button" type="button" name="share-results" v-on:click="shareResults()">Share</button>
       </div>
 
       <p>Jeśli chcesz dowiedzieć się o naszych działaniach w ramach edukacji medialnej poznaj Akademię Fact-Checkingu. Organizujemy m.in. kursy dla szkół czy warsztaty dla organizacji pozarządowych.</p>
@@ -13,12 +13,12 @@
           <strong>Możesz również zagrać jeszcze raz i zwiększć swoją odporność. Śmiało! :)</strong>
       </p>
   </div>
-  <div class="">
-      <a href="#">
+  <div class="buttons">
+      <a href="https://akademia.demagog.org.pl/">
           <button type="button" name="button" class="opaque-blue">poznaj akademię</button>
       </a>
 
-      <a href="#">
+      <a href="/">
           <button type="button" name="button" class="red">zagraj jeszcze raz</button>
       </a>
   </div>
@@ -72,5 +72,26 @@ export default {
 #share-results {
     color: var(--color-blue);
     background: #EBF1F4;
+}
+.share-box {
+    display: flex;
+    padding: 2em;
+    background: white;
+    border-radius: 1em;
+    font-weight: 500;
+    font-size: 75%;
+    line-height: 125%;
+    text-transform: uppercase;
+}
+.share-button {
+    background: blue;
+    padding: 0;
+    float: right;
+    margin: 1em;
+    width: auto;
+    
+}
+.buttons a {
+    margin-top: 1em;
 }
 </style>
