@@ -56,16 +56,6 @@ body {
   line-height: 1.6em;
   background: black;
 }
-.numbering {
-    display: inline-block;
-    background: var(--color-orange);
-    font-size: 50%;
-    width: 1rem;
-    height: 1rem;
-    text-align: center;
-    border-radius: 100%;
-    color: white;
-}
 h1, h2, h3, h4, h5 {
     text-transform: uppercase;
 }
@@ -128,6 +118,7 @@ button {
     text-align: center;
     padding: 1em 2em;
     width: 100%;
+    font-size: 100%;
     border-radius: .5em;
   font-family: 'Rubik', sans-serif;
   letter-spacing: .1em;
