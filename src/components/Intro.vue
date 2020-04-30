@@ -92,10 +92,10 @@ export default {
     }
   },
   computed: {
-    getQuestionTimeoutInSeconds() {
+    questionTimeoutInSeconds() {
       return QUESTION_TIMEOUT / 1000
     },
-    getNumOfQuizQuestions() {
+    numOfQuizQuestions() {
       return NUM_OF_QUIZ_QUESTIONS
     }
   },
