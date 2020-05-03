@@ -8,6 +8,7 @@ function parseQuestion(data) {
     newsId: data.news_id,
     imageUrl: data.image_url,
     type: data.manipulation_category_name,
+    answerExplanation: data.answer_explanation,
     expectedAnswer: data.expected_answer,
   });
 }

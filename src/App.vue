@@ -32,6 +32,7 @@ export default {
 
 :root {
   --color-orange: #EF420C;
+  --color-green: #61bd4f;
   --color-blue: #10305F;
   --color-gray: #B8B8B8;
   --color-lgray: #F3F3F3;

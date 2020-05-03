@@ -20,7 +20,16 @@ export function getDisplayName(category) {
   return category.displayName;
 }
 
+export function mapFromList(categories) {
+  const categoriesMap = {}
+  categories.forEach((c) => {
+    categoriesMap[c.name] = c;
+  });
+  return categoriesMap;
+}
+
 const ManipulationCategory = {
+  mapFromList,
   create,
   fromName,
   getName,

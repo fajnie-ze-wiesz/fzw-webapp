@@ -12,8 +12,8 @@
             </ul>
         </p>
     </div>
-  <router-link tag="button" type="button" name="button" class="red" to="/share-results">
-    Podziel się wynikiem
+  <router-link tag="button" type="button" name="button" class="red" to="/answers-review">
+    Sprawdź swoje odpowiedzi
   </router-link>
 </div>
 </template>
