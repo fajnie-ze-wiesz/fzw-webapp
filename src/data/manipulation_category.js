@@ -1,8 +1,10 @@
-import { MANIPULATION_CATEGORY_NAMES } from '../consts';
-
-export function create({ name }) {
+export function create({ name, displayName }) {
+  if (!displayName) {
+    displayName = name;
+  }
   return {
     name,
+    displayName,
   };
 }
 
@@ -14,14 +16,25 @@ export function getName(category) {
   return category.name;
 }
 
+export function getDisplayName(category) {
+  return category.displayName;
+}
+
 export function list() {
-  return MANIPULATION_CATEGORY_NAMES.map((name) => create({ name }));
+  // TODO: move to service
+  return [
+    create({name: 'clickbait'}),
+    create({name: 'fake-news'}),
+    create({name: 'image-manipulation'}),
+    create({name: 'emotional-language'}),
+  ]
 }
 
 const ManipulationCategory = {
   create,
   fromName,
   getName,
+  getDisplayName,
   list,
 };
 
