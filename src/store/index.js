@@ -4,6 +4,7 @@ import { generateQuiz } from '../services/quizes';
 import { ping } from '../services/ping';
 import ManipulationCategoryService from '../services/manipulation_category';
 
+import ManipulationCategory from '../data/manipulation_category';
 import Quiz from '../data/quiz';
 import QuizSetupInfo from '../data/quiz_setup_info';
 import User from '../data/user';
@@ -51,6 +52,12 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    manipulationCategories(state) {
+      return state.manipulationCategories;
+    },
+    manipulationCategoriesMap(state) {
+      return ManipulationCategory.mapFromList(state.manipulationCategories);
+    },
     currentQuizQuestion(state) {
       return Quiz.getCurrentQuestion(state.quiz);
     },

@@ -22,11 +22,7 @@ function fetchList() {
 
 function fetchMap() {
   return fetchList().then((categories) => {
-    const categoriesMap = {}
-    categories.forEach((c) => {
-      categoriesMap[c.name] = c;
-    });
-    return categoriesMap;
+    return ManipulationCategory.mapFromList(categories);
   });
 }
 

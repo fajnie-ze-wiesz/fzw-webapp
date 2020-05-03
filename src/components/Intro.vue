@@ -104,6 +104,7 @@ export default {
   methods: {
     ...mapActions([
       'pingBackend',
+      'fetchManipulationCategories',
     ]),
     incrementPage() {
       ++this.page;
