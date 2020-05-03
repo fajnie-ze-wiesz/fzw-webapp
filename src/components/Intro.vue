@@ -72,13 +72,15 @@ export default {
   name: 'intro',
   mounted() {
     this.pingBackend();
-    const queryParams = parseQuery(window.location.search);
-    if (queryParams.results) {
-      this.$router.replace({
-        name: 'Results',
-        params: queryParams,
-      });
-    }
+    this.fetchManipulationCategories().then(() => {
+      const queryParams = parseQuery(window.location.search);
+      if (queryParams.results) {
+        this.$router.replace({
+          name: 'Results',
+          params: queryParams,
+        });
+      }
+    });
   },
   data() {
     return {
