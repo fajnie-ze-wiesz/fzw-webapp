@@ -4,7 +4,7 @@ import Question from './question';
 import QuizSetupInfo from './quiz_setup_info';
 import User from './user';
 
-export function create({ quiz, user, quizSetupInfo }) {
+export function create({ quiz, user, quizSetupInfo, manipulationCategories }) {
   const results = {
     version: 'v1',
     username: User.getName(user),
@@ -14,8 +14,7 @@ export function create({ quiz, user, quizSetupInfo }) {
     omitted: countQuestionsByPredicate(quiz, Question.isOmitted),
     byManipCat: {},
   };
-  const categories = ManipulationCategory.list();
-  categories.forEach((category) => {
+  manipulationCategories.forEach((category) => {
     const name = ManipulationCategory.getName(category);
     const isOfManipulationCategory = (q) => Question.isOfManipulationCategory(q, category);
     const total = countQuestionsByPredicate(quiz, isOfManipulationCategory);
