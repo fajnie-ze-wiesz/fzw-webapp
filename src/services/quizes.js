@@ -20,7 +20,11 @@ function parseQuiz(data) {
 }
 
 export function generateQuiz() {
-  return apiAxios.post('quiz/').then((response) => {
+  const data = {};
+  if (process.env.NUM_OF_QUIZ_QUESTIONS) {
+    data['num_of_questions'] = process.env.NUM_OF_QUIZ_QUESTIONS;
+  }
+  return apiAxios.post('quiz/', data).then((response) => {
     return parseQuiz(response.data);
   });
 }
