@@ -96,7 +96,7 @@ export default {
       return QUESTION_TIMEOUT / 1000
     },
     numOfQuizQuestions() {
-      return NUM_OF_QUIZ_QUESTIONS
+      return process.env.NUM_OF_QUIZ_QUESTIONS || NUM_OF_QUIZ_QUESTIONS
     }
   },
   methods: {
