@@ -11,7 +11,12 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "lint:file": "eslint",
+    "lint:config": "eslint .eslintrc.js --ignore-pattern !.eslintrc.js",
+    "lint:config:strict": "eslint .eslintrc.js --ignore-pattern !.eslintrc.js --max-warnings 0",
+    "lint:strict": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs --max-warnings 0",
+    "lint:fix": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs --fix"
   },
   "dependencies": {
     "axios": "^0.19.0",
