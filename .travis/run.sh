@@ -12,8 +12,10 @@ print_step() {
 }
 
 main() {
-    print_step "Running npm run lint"
-    npm run lint
+    print_step "Running npm run lint:config:strict"
+    npm run lint:config:strict
+    print_step "Running npm run lint:strict"
+    npm run lint:strict
     print_step "Running npm run build"
     npm run build
 }
