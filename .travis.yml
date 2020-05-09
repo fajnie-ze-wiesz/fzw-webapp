@@ -29,3 +29,8 @@ deploy:
     github-token: $GITHUB_TOKEN
     on:
       branch: production
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
