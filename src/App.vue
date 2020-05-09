@@ -9,21 +9,22 @@
 <script>
 export default {
   name: 'app',
-  mounted () {
+  mounted() {
     if (navigator.userAgent.indexOf('Chrome') !== -1) {
-      this.calcVH()
+      this.calcVH();
       window.addEventListener('onorientationchange', this.calcVH);
     }
-    document.querySelector('body').setAttribute('style', 'font-size:' + document.documentElement.clientHeight * 0.024 + 'px;');
+    const fontSize = document.documentElement.clientHeight * 0.024;
+    document.querySelector('body').setAttribute('style', `font-size: ${fontSize}px;`);
   },
   methods: {
-    calcVH () {
+    calcVH() {
       var vH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
       document.querySelector('#app').setAttribute('style', 'height:' + vH + 'px;');
       // document.querySelector('#app > div').setAttribute('style', 'height:' + vH + 'px;');
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>

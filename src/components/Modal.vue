@@ -20,35 +20,35 @@
 export default {
   name: 'modal',
   props: ['show'],
-  created () {
-    console.log()
+  created() {
+    console.log();
   },
-  data () {
+  data() {
     return {
-      page: 0
-    }
+      page: 0,
+    };
   },
   computed: {
-    slotsNumber () {
-      return Object.keys(this.$slots).length
-    }
+    slotsNumber() {
+      return Object.keys(this.$slots).length;
+    },
   },
   methods: {
-    incrementPage () {
+    incrementPage() {
       if (this.page === this.slotsNumber - 1) {
-        this.close()
+        this.close();
       } else {
-        this.page++
+        this.page++;
       }
     },
-    close () {
+    close() {
       setTimeout(() => {
-        this.page = 0
-      }, 200)
-      this.$emit('close')
-    }
-  }
-}
+        this.page = 0;
+      }, 200);
+      this.$emit('close');
+    },
+  },
+};
 </script>
 
 <style scoped>

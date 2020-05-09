@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 import { generateQuiz } from '../services/quizes';
 import { ping } from '../services/ping';
 
@@ -17,43 +17,43 @@ export default new Vuex.Store({
     quizSetupInfo: QuizSetupInfo.create({}),
   },
   actions: {
-    generateQuiz (context) {
+    generateQuiz(context) {
       generateQuiz().then((quiz) => {
-        context.commit('loadQuiz', {quiz})
-      })
+        context.commit('loadQuiz', {quiz});
+      });
     },
-    pingBackend () {
+    pingBackend() {
       ping();
-    }
+    },
   },
   mutations: {
-    loadQuiz (state, { quiz }) {
+    loadQuiz(state, { quiz }) {
       state.quiz = quiz;
     },
-    answerQuizQuestion (state, { answer }) {
+    answerQuizQuestion(state, { answer }) {
       Quiz.answerQuestion(state.quiz, answer);
     },
-    omitQuizQuestion (state) {
+    omitQuizQuestion(state) {
       Quiz.omitQuestion(state.quiz);
     },
-    setUserInfo (state, userInfo) {
+    setUserInfo(state, userInfo) {
       User.setName(state.user, userInfo.name);
     },
   },
   getters: {
-    currentQuizQuestion (state) {
+    currentQuizQuestion(state) {
       return Quiz.getCurrentQuestion(state.quiz);
     },
-    quizQuestions (state) {
+    quizQuestions(state) {
       return Quiz.getQuestions(state.quiz);
     },
-    quizQuestionIndex (state) {
+    quizQuestionIndex(state) {
       return Quiz.getQuestionIndex(state.quiz);
     },
-    isQuizFinished (state) {
+    isQuizFinished(state) {
       return Quiz.isFinished(state.quiz);
     },
-    resultStats (state) {
+    resultStats(state) {
       const { quiz, user, quizSetupInfo } = state;
       return ResultStats.create({
         quiz,
@@ -61,5 +61,5 @@ export default new Vuex.Store({
         quizSetupInfo,
       });
     },
-  }
-})
+  },
+});

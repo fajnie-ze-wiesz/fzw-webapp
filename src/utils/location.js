@@ -1,13 +1,13 @@
 const decode = decodeURIComponent;
 
 // Copied from vue-router utils
-export function parseQuery (query) {
+export function parseQuery(query) {
   const res = {};
 
   query = query.trim().replace(/^(\?|#|&)/, '');
 
   if (!query) {
-    return res
+    return res;
   }
 
   query.split('&').forEach(function (param) {
@@ -26,5 +26,5 @@ export function parseQuery (query) {
     }
   });
 
-  return res
+  return res;
 }

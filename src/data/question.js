@@ -6,7 +6,7 @@ export const create = ({newsId, imageUrl, type, expectedAnswer}) => {
     answer: null,
     expectedAnswer,
   };
-}
+};
 
 export const isAnswered = (q) => !!q.answer;
 

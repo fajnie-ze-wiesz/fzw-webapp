@@ -12,21 +12,21 @@ export default {
   name: 'quest-card',
   props: ['question'],
   computed: {
-    cardClasses () {
+    cardClasses() {
       let classes = [];
       if (this.question.answer) {
-        classes.push(this.question.expectedAnswer === 'no' ? 'fake' : 'news')
-        classes.push(this.question.expectedAnswer === this.question.answer ? 'correct' : 'wrong')
-        classes.push(this.question.expectedAnswer === this.question.answer ? 'ready' : '')
+        classes.push(this.question.expectedAnswer === 'no' ? 'fake' : 'news');
+        classes.push(this.question.expectedAnswer === this.question.answer ? 'correct' : 'wrong');
+        classes.push(this.question.expectedAnswer === this.question.answer ? 'ready' : '');
       }
-      return classes
-    }
+      return classes;
+    },
   },
   methods: {
     afterEnter: function (el) {
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

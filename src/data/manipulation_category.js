@@ -23,6 +23,6 @@ const ManipulationCategory = {
   fromName,
   getName,
   list,
-}
+};
 
 export default ManipulationCategory;
