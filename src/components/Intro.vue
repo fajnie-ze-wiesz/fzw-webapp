@@ -59,14 +59,14 @@
 
 <script>
 import {
-  mapActions
+  mapActions,
 } from 'vuex';
 import {
-  parseQuery
+  parseQuery,
 } from '../utils/location';
 import {
   QUESTION_TIMEOUT,
-  NUM_OF_QUIZ_QUESTIONS
+  NUM_OF_QUIZ_QUESTIONS,
 } from '../consts';
 export default {
   name: 'intro',
@@ -77,7 +77,7 @@ export default {
       this.$router.replace({
         name: 'Results',
         params: queryParams,
-      })
+      });
     }
   },
   data() {
@@ -86,34 +86,34 @@ export default {
       userInfo: {
         name: '',
         prediction: 50,
-        category: ''
+        category: '',
       },
-      validationError: false
-    }
+      validationError: false,
+    };
   },
   computed: {
     questionTimeoutInSeconds() {
-      return QUESTION_TIMEOUT / 1000
+      return QUESTION_TIMEOUT / 1000;
     },
     numOfQuizQuestions() {
-      return process.env.NUM_OF_QUIZ_QUESTIONS || NUM_OF_QUIZ_QUESTIONS
-    }
+      return process.env.NUM_OF_QUIZ_QUESTIONS || NUM_OF_QUIZ_QUESTIONS;
+    },
   },
   methods: {
     ...mapActions([
       'pingBackend',
     ]),
     incrementPage() {
-      ++this.page
+      ++this.page;
       if (this.page === 1) {
-        this.$nextTick(() => this.$refs.name.focus())
+        this.$nextTick(() => this.$refs.name.focus());
       } else if (this.page === 5 && this.category !== '') {
-        this.$store.commit('setUserInfo', this.userInfo)
+        this.$store.commit('setUserInfo', this.userInfo);
         this.$router.push('/quest');
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

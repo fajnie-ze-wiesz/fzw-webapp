@@ -16,19 +16,19 @@
 <script>
 import {
   mapMutations,
-  mapActions
+  mapActions,
 } from 'vuex';
 import {
-  QUESTION_TIMEOUT
+  QUESTION_TIMEOUT,
 } from '../consts';
-import PieChart from '@/components/PieChart'
-import QuestCard from '@/components/QuestCard'
+import PieChart from '@/components/PieChart';
+import QuestCard from '@/components/QuestCard';
 
 export default {
   name: 'quest',
   components: {
     PieChart,
-    QuestCard
+    QuestCard,
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
@@ -44,7 +44,7 @@ export default {
   },
   data: () => ({
     tick: Date.now(),
-    buttonsDisabled: false
+    buttonsDisabled: false,
   }),
   computed: {
     question() {
@@ -63,13 +63,13 @@ export default {
       const delta = this.tick - this.questionStartTime;
       return Math.ceil((QUESTION_TIMEOUT - delta) / 1000);
     },
-    questionTimeoutSeconds () {
-      return QUESTION_TIMEOUT / 1000
-    }
+    questionTimeoutSeconds() {
+      return QUESTION_TIMEOUT / 1000;
+    },
   },
   methods: {
     toggleDisableButtons() {
-      this.buttonsDisabled = !this.buttonsDisabled
+      this.buttonsDisabled = !this.buttonsDisabled;
     },
     ...mapMutations([
       'answerQuizQuestion',
@@ -85,9 +85,9 @@ export default {
       this.toggleDisableButtons();
     },
     answerQuestionOrEndQuiz(answer) {
-      this.stopQuestionTimeout()
+      this.stopQuestionTimeout();
       this.answerQuizQuestion({
-        answer
+        answer,
       });
       this.toggleDisableButtons();
       if (this.$store.getters.isQuizFinished) {
@@ -108,10 +108,10 @@ export default {
       this.$router.push('/results');
     },
     stopQuestionTimeout() {
-      clearTimeout(this.questionTimeout)
+      clearTimeout(this.questionTimeout);
     },
     startQuestionTimeout() {
-      clearTimeout(this.questionTimeout)
+      clearTimeout(this.questionTimeout);
       this.questionStartTime = Date.now();
       this.questionTimeout = setTimeout(() => {
         this.omitQuestionOrEndQuiz();
@@ -125,8 +125,8 @@ export default {
     stopTicker() {
       clearInterval(this.tickInterval);
     },
-  }
-}
+  },
+};
 </script>
 
 <style scoped>

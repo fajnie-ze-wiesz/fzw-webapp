@@ -5,7 +5,7 @@ import Quest from '@/components/Quest';
 import Results from '@/components/Results';
 import ShareResults from '@/components/ShareResults';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'abstract',
@@ -32,5 +32,5 @@ export default new Router({
       name: 'ShareResults',
       component: ShareResults,
     },
-  ]
-})
+  ],
+});

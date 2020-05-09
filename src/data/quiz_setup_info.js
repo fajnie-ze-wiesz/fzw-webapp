@@ -2,7 +2,7 @@ export function create({ topicCategories = [], correctnessEstimate = 1.0 }) {
   return {
     topicCategories,
     correctnessEstimate,
-  }
+  };
 }
 
 export function getCorrectnessEstimate(quizSetupInfo) {
@@ -22,6 +22,6 @@ const QuizSetupInfo = {
   create,
   getCorrectnessEstimate,
   setValues,
-}
+};
 
 export default QuizSetupInfo;

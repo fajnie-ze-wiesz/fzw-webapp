@@ -16,6 +16,6 @@ const User = {
   create,
   getName,
   setName,
-}
+};
 
 export default User;

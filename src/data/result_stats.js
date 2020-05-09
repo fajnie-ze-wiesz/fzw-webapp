@@ -14,9 +14,9 @@ export function create({ quiz, user, quizSetupInfo }) {
     omitted: countQuestionsByPredicate(quiz, Question.isOmitted),
     byManipCat: {},
   };
-  const categories = ManipulationCategory.list()
+  const categories = ManipulationCategory.list();
   categories.forEach((category) => {
-    const name = ManipulationCategory.getName(category)
+    const name = ManipulationCategory.getName(category);
     const isOfManipulationCategory = (q) => Question.isOfManipulationCategory(q, category);
     const total = countQuestionsByPredicate(quiz, isOfManipulationCategory);
     const correct = countQuestionsByPredicate(
@@ -43,8 +43,8 @@ export function encode(resultStats) {
 }
 
 export function decode(resultStatsPayload) {
-  const resultStatsJSON = atob(resultStatsPayload)
-  const resultStats = JSON.parse(resultStatsJSON)
+  const resultStatsJSON = atob(resultStatsPayload);
+  const resultStats = JSON.parse(resultStatsJSON);
   return resultStats;
 }
 

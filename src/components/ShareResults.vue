@@ -37,15 +37,15 @@ export default {
     resultsUrl() {
       const { protocol, host } = window.location;
 
-      const statsPayload = ResultStats.encode(this.resultStats)
+      const statsPayload = ResultStats.encode(this.resultStats);
       const url = `${protocol}//${host}/?results=${statsPayload}`;
       console.log(url);
       return url;
     },
-    numOfQuestions () {
+    numOfQuestions() {
       return ResultStats.getNumOfAnswers(this.resultStats);
     },
-    numOfCorrectAnswers () {
+    numOfCorrectAnswers() {
       return ResultStats.getNumOfCorrectAnswers(this.resultStats);
     },
   },
@@ -63,8 +63,8 @@ export default {
       const fbShareUrl = `http://www.facebook.com/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(title)}`;
       console.log(fbShareUrl);
       window.open(fbShareUrl, 'sharer', 'toolbar=0,status=0,width=626,height=436');
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -89,7 +89,6 @@ export default {
     float: right;
     margin: 1em;
     width: auto;
-    
 }
 .buttons a {
     margin-top: 1em;

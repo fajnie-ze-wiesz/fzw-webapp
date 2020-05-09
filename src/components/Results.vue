@@ -19,8 +19,8 @@
 </template>
 
 <script>
-  import PieChart from '@/components/PieChart'
-  import Modal from '@/components/Modal'
+  import PieChart from '@/components/PieChart';
+  import Modal from '@/components/Modal';
 
   import ResultStats from '../data/result_stats';
   import ManipulationCategory from '../data/manipulation_category';
@@ -31,16 +31,16 @@
       PieChart,
       Modal,
     },
-    data () {
+    data() {
       return {
         emo: false,
         bait: false,
         lie: false,
-        manipulation: false
-      }
+        manipulation: false,
+      };
     },
     computed: {
-      resultStats () {
+      resultStats() {
         const routeResultStatsPayload = this.$route.params.results;
         if (routeResultStatsPayload) {
           // load results from url
@@ -49,69 +49,69 @@
           return this.$store.getters.resultStats;
         }
       },
-      resultStatsEmoLang () {
+      resultStatsEmoLang() {
         return this.getManipulationCategoryResultStats('emotional-language');
       },
-      resultStatsClickbait () {
+      resultStatsClickbait() {
         return this.getManipulationCategoryResultStats('clickbait');
       },
-      resultStatsFakeNews () {
+      resultStatsFakeNews() {
         return this.getManipulationCategoryResultStats('fake-news');
       },
-      resultStatsImgManip () {
+      resultStatsImgManip() {
         return this.getManipulationCategoryResultStats('image-manipulation');
       },
-      percentTemp () {
-        return Math.floor(this.numOfCorrectAnswers / this.numOfQuestions * 100)
+      percentTemp() {
+        return Math.floor(this.numOfCorrectAnswers / this.numOfQuestions * 100);
       },
-      numOfQuestions () {
+      numOfQuestions() {
         return ResultStats.getNumOfAnswers(this.resultStats);
       },
-      numOfCorrectAnswers () {
+      numOfCorrectAnswers() {
         return ResultStats.getNumOfCorrectAnswers(this.resultStats);
       },
 
-      numOfEmotionalLanguageQuestions () {
+      numOfEmotionalLanguageQuestions() {
         return ResultStats.getNumOfAnswers(this.resultStatsEmoLang);
       },
-      numOfCorrectEmotionalLanguageAnswers () {
+      numOfCorrectEmotionalLanguageAnswers() {
         return ResultStats.getNumOfCorrectAnswers(this.resultStatsEmoLang);
       },
 
-      numOfClickbaitQuestions () {
+      numOfClickbaitQuestions() {
         return ResultStats.getNumOfAnswers(this.resultStatsClickbait);
       },
-      numOfCorrectClickbaitAnswers () {
+      numOfCorrectClickbaitAnswers() {
         return ResultStats.getNumOfCorrectAnswers(this.resultStatsClickbait);
       },
 
-      numOfFakeNewsQuestions () {
+      numOfFakeNewsQuestions() {
         return ResultStats.getNumOfAnswers(this.resultStatsFakeNews);
       },
-      numOfCorrectFakeNewsAnswers () {
+      numOfCorrectFakeNewsAnswers() {
         return ResultStats.getNumOfCorrectAnswers(this.resultStatsFakeNews);
       },
 
-      numOfImageManipulationQuestions () {
+      numOfImageManipulationQuestions() {
         return this.resultStatsImgManip.total;
       },
-      numOfCorrectImageManipulationAnswers () {
+      numOfCorrectImageManipulationAnswers() {
         return this.resultStatsImgManip.correct;
       },
 
-      username () {
+      username() {
         return this.resultStats.username;
-      }
+      },
     },
     methods: {
-      getManipulationCategoryResultStats (categoryName) {
+      getManipulationCategoryResultStats(categoryName) {
         return ResultStats.getByManipulationCategory(
           this.resultStats,
           ManipulationCategory.fromName(categoryName),
         );
       },
-    }
-  }
+    },
+  };
 </script>
 
 <!-- Scoped component css -->

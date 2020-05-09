@@ -14,46 +14,46 @@
   export default {
     name: 'pie-chart2',
     props: ['numerator', 'denominator', 'textPercent'],
-    data () {
+    data() {
       return {
         r: 100 / this.denominator,
         total: 100,
-      }
+      };
     },
-    created () {
+    created() {
     },
     computed: {
-      score () {
-        return this.numerator * this.r
+      score() {
+        return this.numerator * this.r;
       },
-      percent () {
+      percent() {
         return Math.floor(this.numerator / this.denominator * 100);
       },
-      counterText () {
+      counterText() {
         if (this.textPercent && this.denominator > 0) {
           return `${this.percent}%`;
         } else if (!this.textPercent) {
-          return this.numerator
+          return this.numerator;
         } else {
           return 'N/A';
         }
       },
-      points () {
-        let points = {s: '', t: ''}
-        let x, y, angle
+      points() {
+        let points = {s: '', t: ''};
+        let x, y, angle;
         for (var i = 0; i < this.total + 1; i++) {
-          angle = Math.PI * 2 / this.total * i
-          x = 25 + 20 * Math.cos(angle + Math.PI / 2)
-          y = 25 + 20 * -Math.sin(angle + Math.PI / 2)
-          points.t += `${x},${y} `
+          angle = Math.PI * 2 / this.total * i;
+          x = 25 + 20 * Math.cos(angle + Math.PI / 2);
+          y = 25 + 20 * -Math.sin(angle + Math.PI / 2);
+          points.t += `${x},${y} `;
           if (this.score >= i) {
-            points.s = points.t
+            points.s = points.t;
           }
         }
-        return points
-      }
-    }
-  }
+        return points;
+      },
+    },
+  };
 </script>
 
 
