@@ -21,7 +21,7 @@ export function getDisplayName(category) {
 }
 
 export function mapFromList(categories) {
-  const categoriesMap = {}
+  const categoriesMap = {};
   categories.forEach((c) => {
     categoriesMap[c.name] = c;
   });
