@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import QuestCard from '@/components/QuestCard'
+import QuestCard from '@/components/QuestCard';
 import Question from '../data/question';
 import ManipulationCategory from '../data/manipulation_category';
 
@@ -69,8 +69,8 @@ export default {
     goToShareResults() {
       this.$router.push('/share-results');
     },
-  }
-}
+  },
+};
 </script>
 
 <style scoped>

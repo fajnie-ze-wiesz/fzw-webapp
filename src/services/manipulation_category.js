@@ -29,6 +29,6 @@ function fetchMap() {
 const ManipulationCategoryService = {
   fetchList,
   fetchMap,
-}
+};
 
 export default ManipulationCategoryService;
