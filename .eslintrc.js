@@ -2,8 +2,9 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: 'vue-eslint-parser',
   parserOptions: {
+    parser: 'babel-eslint',
     sourceType: 'module',
   },
   env: {
@@ -11,11 +12,14 @@ module.exports = {
   },
 
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
+  extends: [
+    'standard',
+    'plugin:vue/recommended',
+  ],
 
   // required to lint *.vue files
   plugins: [
-    'html',
+    'vue',
   ],
 
   // add your custom rules here
@@ -28,16 +32,8 @@ module.exports = {
      * appear in dev server CLI output).
      */
 
-    // set max number of chars in a line to 100; ignore lines with urls
-    'max-len': ['warn', {
-      'code': 100,
-      'ignoreComments': false,
-      'ignoreTrailingComments': false,
-      'ignoreUrls': true,
-      'ignoreStrings': false,
-      'ignoreTemplateLiterals': false,
-      'ignoreRegExpLiterals': false,
-    }],
+    // rules are set via vue/max-len
+    'max-len': 'off',
 
     // force semicolons
     'semi': ['warn', 'always', {
@@ -73,6 +69,20 @@ module.exports = {
 
     // operators like '+' should be spaced appropriately
     'space-infix-ops': ['warn', { 'int32Hint': false }],
+
+    // set max number of chars in a line to 100; ignore lines with urls
+    'vue/max-len': ['warn', {
+      'code': 100,
+      'template': 100,
+      'tabWidth': 2,
+      'comments': 100,
+      'ignoreComments': false,
+      'ignoreTrailingComments': false,
+      'ignoreUrls': true,
+      'ignoreStrings': false,
+      'ignoreTemplateLiterals': false,
+      'ignoreRegExpLiterals': false,
+    }],
 
     /*
      * remaining rules
