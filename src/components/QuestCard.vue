@@ -9,7 +9,7 @@
 <script>
 export default {
   name: 'quest-card',
-  props: ['question']
+  props: ['question'],
 };
 </script>
 
