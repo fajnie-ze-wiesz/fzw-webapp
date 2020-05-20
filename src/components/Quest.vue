@@ -2,7 +2,9 @@
 <div id="quest">
   <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false" />
   <div class="container" v-for="(q, index) in questions" :key="q.newsId">
-    <transition name="question-transition" v-on:after-enter="afterEnter">
+    <transition name="question-transition"
+                v-on:after-enter="afterEnter"
+                v-on:leave="leave">
       <quest-card :question="q" v-show="index === questionIndex" />
     </transition>
   </div>
@@ -68,9 +70,6 @@ export default {
     },
   },
   methods: {
-    toggleDisableButtons() {
-      this.buttonsDisabled = !this.buttonsDisabled;
-    },
     ...mapMutations([
       'answerQuizQuestion',
       'omitQuizQuestion',
@@ -78,18 +77,27 @@ export default {
     ...mapActions([
       'generateQuiz',
     ]),
+    disableButtons() {
+      this.buttonsDisabled = true;
+    },
+    enableButtons() {
+      this.buttonsDisabled = false;
+    },
     answer(a) {
       this.answerQuestionOrEndQuiz(a);
     },
     afterEnter() {
-      this.toggleDisableButtons();
+      this.enableButtons();
+    },
+    leave() {
+      this.disableButtons();
     },
     answerQuestionOrEndQuiz(answer) {
       this.stopQuestionTimeout();
       this.answerQuizQuestion({
         answer,
       });
-      this.toggleDisableButtons();
+      this.disableButtons();
       if (this.$store.getters.isQuizFinished) {
         this.goToResults();
       } else {
