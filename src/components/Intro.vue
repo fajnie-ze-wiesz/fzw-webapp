@@ -47,8 +47,8 @@
 
   <div v-show="page === 4">
     <h1><span class="numbering">{{page}}</span>Gotów?</h1>
-    <p>Za chwilę zobaczysz {{getNumOfQuizQuestions}} przykładów treści, które pojawiły się w sieci. Oceń czy są prawdziwe czy fałszywe.</p>
-    <p>Na każdy przykład masz {{getQuestionTimeoutInSeconds}} sekund aby dokonać wyboru. Cała zabawa potrwa do 3 minut. To jak, gotów?</p>
+    <p>Za chwilę zobaczysz {{numOfQuizQuestions}} przykładów treści, które pojawiły się w sieci. Oceń czy są prawdziwe czy fałszywe.</p>
+    <p>Na każdy przykład masz {{questionTimeoutInSeconds}} sekund aby dokonać wyboru. Cała zabawa potrwa do 3 minut. To jak, gotów?</p>
   </div>
 
   <button class="blue" @click="incrementPage">
