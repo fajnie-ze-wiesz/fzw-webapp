@@ -1,31 +1,15 @@
 <template>
     <transition
         name="question-transition"
-        v-on:after-enter="afterEnter"
     >
-        <div :class="['card', 'img', ...cardClasses]" :style="'background-image: url(' + question.imageUrl + ')'"></div>
+        <div :class="['card', 'img', this.question.answer]" :style="'background-image: url(' + question.imageUrl + ')'"></div>
     </transition>
 </template>
 
 <script>
 export default {
   name: 'quest-card',
-  props: ['question'],
-  computed: {
-    cardClasses() {
-      let classes = [];
-      if (this.question.answer) {
-        classes.push(this.question.expectedAnswer === 'no' ? 'fake' : 'news');
-        classes.push(this.question.expectedAnswer === this.question.answer ? 'correct' : 'wrong');
-        classes.push(this.question.expectedAnswer === this.question.answer ? 'ready' : '');
-      }
-      return classes;
-    },
-  },
-  methods: {
-    afterEnter: function (el) {
-    },
-  },
+  props: ['question']
 };
 </script>
 
@@ -61,19 +45,11 @@ export default {
   .question-transition-leave-active {
     transition: all 1.5s ease;
   }
-  .question-transition-leave-active.wrong{
-    transform: translateX(100vmin);
-  }
-  .question-transition-leave-active.correct{
+  .question-transition-leave-active.yes{
     transform: translateX(-100vmin);
   }
-  .question-transition-leave-to.correct {
-    background-blend-mode: multiply;
-    background-color: rgba(0, 255, 0, 1);
-  }
-  .question-transition-leave-to.wrong  {
-    background-blend-mode: multiply;
-    background-color: rgba(255, 0, 0, 1);
+  .question-transition-leave-active.no{
+    transform: translateX(100vmin);
   }
   .question-transition-leave-to {
     opacity: 0;
