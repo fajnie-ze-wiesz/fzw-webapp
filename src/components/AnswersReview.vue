@@ -23,7 +23,6 @@
 <script>
 import QuestCard from '@/components/QuestCard';
 import Question from '../data/question';
-import ManipulationCategory from '../data/manipulation_category';
 
 export default {
   name: 'answers-review',
@@ -49,18 +48,6 @@ export default {
     },
     questionIsAnsweredCorrectly() {
       return Question.isAnsweredCorrectly(this.question);
-    },
-    questionAnswerInvertedLabel() {
-      return Question.isTrueNews(this.question) ? 'fałsz' : 'prawda';
-    },
-    questionAnswerLabel() {
-      if (Question.isTrueNews(this.question)) {
-        return 'Prawda';
-      }
-      const catMap = this.$store.getters.manipulationCategoriesMap;
-      const catName = Question.getManipulationCategoryName(this.question);
-      const catDisplayName = ManipulationCategory.getDisplayName(catMap[catName]);
-      return catDisplayName;
     },
     question() {
       return this.questions[this.questionIndex];
