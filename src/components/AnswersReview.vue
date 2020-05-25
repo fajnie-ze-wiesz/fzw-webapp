@@ -1,13 +1,15 @@
 <template>
   <div id="answers-review">
     <div class="container">
+      <h1 v-if="newsIsTrue">to jest prawda</h1>
+      <h1 v-else>to jest fałsz</h1>
+      <h3 v-if="questionIsAnsweredCorrectly" class="correct-answer">
+        <span class="correct-answer-circle">&check;</span>odpowiedziałeś dobrze
+      </h3>
+      <h3 v-else class="wrong-answer">
+        <span class="wrong-answer-circle">&times;</span>pomyliłeś się
+      </h3>
       <quest-card :question="question "/>
-      <h1 v-if="questionIsAnsweredCorrectly">
-        <span class="good-answer-circle">&check;</span> zaznaczyłeś prawidłowo, to {{ questionAnswerLabel }}
-      </h1>
-      <h1 v-else>
-        <span class="bad-answer-circle">&times;</span> to nie jest {{ questionAnswerInvertedLabel }}
-      </h1>
       <div>
         {{ question.answerExplanation }}
       </div>
@@ -34,6 +36,14 @@ export default {
     };
   },
   computed: {
+    newsIsTrue() {
+      if (this.question.expectedAnswer === 'yes') {
+        return true;
+      } else if (this.question.expectedAnswer === 'no') {
+        return false;
+      }
+      return null;
+    },
     answerExplanation() {
       return Question.getAnswerExplanation(this.question);
     },
@@ -76,6 +86,7 @@ export default {
 <style scoped>
 #answers-review {
   background: #EBF1F4;
+  color: var(--color-blue);
   overflow: scroll;
   padding: 0;
 }
@@ -93,25 +104,34 @@ export default {
   overflow-y: auto;
 }
 
-.good-answer-circle, .bad-answer-circle {
+.correct-answer-circle, .wrong-answer-circle {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   font-size: 100%;
   transform: scale(50%);
   transform-origin: left;
-  width: 2em;
-  height: 2em;
+  width: 1.25em;
+  height: 1.25em;
   text-align: center;
   border-radius: 100%;
   color: white;
+  margin-right: 2em;
 }
 
-.good-answer-circle {
+.correct-answer {
+  color: var(--color-green);
+}
+
+.correct-answer-circle {
   background: var(--color-green);
 }
 
-.bad-answer-circle {
+.wrong-answer {
+  color: var(--color-orange);
+}
+
+.wrong-answer-circle {
   background: var(--color-orange);
 }
 
