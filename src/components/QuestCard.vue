@@ -2,7 +2,7 @@
     <transition
         name="question-transition"
     >
-        <div :class="['card', 'img', this.question.answer]" :style="'background-image: url(' + question.imageUrl + ')'"></div>
+        <div :class="['card', 'img', this.answerClass]" :style="'background-image: url(' + question.imageUrl + ')'"></div>
     </transition>
 </template>
 
@@ -10,6 +10,16 @@
 export default {
   name: 'quest-card',
   props: ['question'],
+  computed: {
+    answerClass() {
+      if (this.question.answer === 'yes') {
+        return 'answer-true';
+      } else if (this.question.answer === 'no') {
+        return 'answer-false';
+      }
+      return null;
+    },
+  },
 };
 </script>
 
@@ -45,10 +55,10 @@ export default {
   .question-transition-leave-active {
     transition: all 1.5s ease;
   }
-  .question-transition-leave-active.yes{
+  .question-transition-leave-active.answer-true{
     transform: translateX(-100vmin);
   }
-  .question-transition-leave-active.no{
+  .question-transition-leave-active.answer-false{
     transform: translateX(100vmin);
   }
   .question-transition-leave-to {
