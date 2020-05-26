@@ -1,35 +1,54 @@
 <template>
-<div id="share-results">
-  <div>
+  <div id="share-results">
+    <div>
       <h1>Podziel się swoim wynikiem ze znajomymi</h1>
 
       <div class="share-box">
-          Twoja odporność na fake news to XXX%
-          <button class="share-button" type="button" name="share-results" v-on:click="shareResults()">Share</button>
+        Twoja odporność na fake news to XXX%
+        <button
+          class="share-button"
+          type="button"
+          name="share-results"
+          @click="shareResults()"
+        >
+          Share
+        </button>
       </div>
 
-      <p>Jeśli chcesz dowiedzieć się o naszych działaniach w ramach edukacji medialnej poznaj Akademię Fact-Checkingu. Organizujemy m.in. kursy dla szkół czy warsztaty dla organizacji pozarządowych.</p>
       <p>
-          <strong>Możesz również zagrać jeszcze raz i zwiększć swoją odporność. Śmiało! :)</strong>
+        Jeśli chcesz dowiedzieć się o naszych działaniach w ramach edukacji medialnej
+        poznaj Akademię Fact-Checkingu.
+        Organizujemy m.in. kursy dla szkół czy warsztaty dla organizacji pozarządowych.
       </p>
-  </div>
-  <div class="buttons">
+      <p>
+        <strong>Możesz również zagrać jeszcze raz i zwiększć swoją odporność. Śmiało! :)</strong>
+      </p>
+    </div>
+    <div class="buttons">
       <a href="https://akademia.demagog.org.pl/">
-          <button type="button" name="button" class="opaque-blue">poznaj akademię</button>
+        <button
+          type="button"
+          name="button"
+          class="opaque-blue"
+        >poznaj akademię</button>
       </a>
 
       <a href="/">
-          <button type="button" name="button" class="red">zagraj jeszcze raz</button>
+        <button
+          type="button"
+          name="button"
+          class="red"
+        >zagraj jeszcze raz</button>
       </a>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 import ResultStats from '../data/result_stats';
 
 export default {
-  name: 'share-results',
+  name: 'ShareResults',
   computed: {
     resultStats() {
       return this.$store.getters.resultStats;

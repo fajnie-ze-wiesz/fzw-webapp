@@ -1,20 +1,37 @@
 <template>
   <div id="answers-review">
     <div class="container">
-      <h1 v-if="newsIsTrue">to jest prawda</h1>
-      <h1 v-else>to jest fałsz</h1>
-      <h3 v-if="questionIsAnsweredCorrectly" class="correct-answer">
+      <h1 v-if="newsIsTrue">
+        to jest prawda
+      </h1>
+      <h1 v-else>
+        to jest fałsz
+      </h1>
+      <h3
+        v-if="questionIsAnsweredCorrectly"
+        class="correct-answer"
+      >
         <span class="correct-answer-circle">&check;</span>odpowiedziałeś dobrze
       </h3>
-      <h3 v-else class="wrong-answer">
+      <h3
+        v-else
+        class="wrong-answer"
+      >
         <span class="wrong-answer-circle">&times;</span>pomyliłeś się
       </h3>
-      <quest-card :question="question "/>
+      <quest-card :question="question " />
       <div>
         {{ question.answerExplanation }}
       </div>
       <div class="buttons">
-        <button type="button" name="button" class="red" v-on:click="goToNextAnswer()">następny</button>
+        <button
+          type="button"
+          name="button"
+          class="red"
+          @click="goToNextAnswer()"
+        >
+          następny
+        </button>
       </div>
     </div>
   </div>
@@ -25,7 +42,7 @@ import QuestCard from '@/components/QuestCard';
 import Question from '../data/question';
 
 export default {
-  name: 'answers-review',
+  name: 'AnswersReview',
   components: {
     QuestCard,
   },

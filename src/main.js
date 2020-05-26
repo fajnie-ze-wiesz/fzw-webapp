@@ -13,8 +13,8 @@ new Vue({
   el: '#app',
   router,
   store,
-  template: '<App/>',
   components: { App },
+  template: '<App/>',
 });
 
 // In abstract router mode we must set the initial location explicitly:
