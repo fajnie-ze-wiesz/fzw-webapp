@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <transition name="fade">
-      <router-view></router-view>
+      <router-view />
     </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'App',
   mounted() {
     if (navigator.userAgent.indexOf('Chrome') !== -1) {
       this.calcVH();

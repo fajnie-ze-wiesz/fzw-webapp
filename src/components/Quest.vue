@@ -1,18 +1,44 @@
 <template>
-<div id="quest">
-  <pie-chart id="counter" :numerator="countdownSeconds" :denominator="questionTimeoutSeconds" :textPercent="false" />
-  <div class="container" v-for="(q, index) in questions" :key="q.newsId">
-    <transition name="question-transition"
-                v-on:after-enter="afterEnter"
-                v-on:leave="leave">
-      <quest-card :question="q" v-show="index === questionIndex" />
-    </transition>
+  <div id="quest">
+    <PieChart
+      id="counter"
+      :numerator="countdownSeconds"
+      :denominator="questionTimeoutSeconds"
+      :text-percent="false"
+    />
+    <div
+      v-for="(q, index) in questions"
+      :key="q.newsId"
+      class="container"
+    >
+      <transition
+        name="question-transition"
+        @after-enter="afterEnter"
+        @leave="leave"
+      >
+        <QuestCard
+          v-show="index === questionIndex"
+          :question="q"
+        />
+      </transition>
+    </div>
+    <div class="buttons">
+      <button
+        :disabled="buttonsDisabled"
+        class="opaque-white answer"
+        @click="answer('yes')"
+      >
+        Prawda
+      </button>
+      <button
+        :disabled="buttonsDisabled"
+        class="opaque-white answer"
+        @click="answer('no')"
+      >
+        Fałsz
+      </button>
+    </div>
   </div>
-  <div class="buttons">
-    <button :disabled="buttonsDisabled" class="opaque-white answer" v-on:click="answer('yes')">Prawda</button>
-    <button :disabled="buttonsDisabled" class="opaque-white answer" v-on:click="answer('no')">Fałsz</button>
-  </div>
-</div>
 </template>
 
 <script>
@@ -27,7 +53,7 @@ import PieChart from '@/components/PieChart';
 import QuestCard from '@/components/QuestCard';
 
 export default {
-  name: 'quest',
+  name: 'Quest',
   components: {
     PieChart,
     QuestCard,

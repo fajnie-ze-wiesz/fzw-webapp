@@ -1,15 +1,23 @@
 <template>
-    <transition
-        name="question-transition"
-    >
-        <div :class="['card', 'img', this.answerClass]" :style="'background-image: url(' + question.imageUrl + ')'"></div>
-    </transition>
+  <transition
+    name="question-transition"
+  >
+    <div
+      :class="['card', 'img', answerClass]"
+      :style="'background-image: url(' + question.imageUrl + ')'"
+    />
+  </transition>
 </template>
 
 <script>
 export default {
-  name: 'quest-card',
-  props: ['question'],
+  name: 'QuestCard',
+  props: {
+    question: {
+      type: Object,
+      required: true,
+    },
+  },
   computed: {
     answerClass() {
       if (this.question.answer === 'yes') {
