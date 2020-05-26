@@ -31,7 +31,6 @@
 
 <script>
 
-<<<<<<< HEAD
 import ResultStats from '../data/result_stats';
 import ManipulationCategory from '../data/manipulation_category';
 import { mapGetters } from 'vuex';
