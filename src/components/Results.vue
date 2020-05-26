@@ -5,7 +5,7 @@
       <p>
         Odpowiedziałeś poprawnie na {{ numOfCorrectAnswers }} z {{ numOfQuestions }} newsów.
         Nie jest tak źle, ale zawsze może być lepiej zwłaszcza, że na początku oceniłeś się
-        na XXX%. ;)
+        na {{ userPrediction }}%. ;)
       </p>
       <p>
         W ocenie braliśmy pod uwagę:
@@ -31,8 +31,10 @@
 
 <script>
 
+<<<<<<< HEAD
 import ResultStats from '../data/result_stats';
 import ManipulationCategory from '../data/manipulation_category';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Results',
@@ -45,6 +47,9 @@ export default {
     };
   },
   computed: {
+    ...mapGetters({
+      userPrediction: 'getUserPrediction',
+    }),
     resultStats() {
       const routeResultStatsPayload = this.$route.params.results;
       if (routeResultStatsPayload) {

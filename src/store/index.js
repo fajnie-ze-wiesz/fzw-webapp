@@ -10,9 +10,14 @@ import QuizSetupInfo from '../data/quiz_setup_info';
 import User from '../data/user';
 import ResultStats from '../data/result_stats';
 
+import UserInput from '@/store/modules/userInput';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+    UserInput,
+  },
   state: {
     quiz: Quiz.create({id: 'empty-quiz-id'}),
     user: User.create({name: 'test'}),
@@ -46,9 +51,6 @@ export default new Vuex.Store({
     },
     omitQuizQuestion(state) {
       Quiz.omitQuestion(state.quiz);
-    },
-    setUserInfo(state, userInfo) {
-      User.setName(state.user, userInfo.name);
     },
   },
   getters: {

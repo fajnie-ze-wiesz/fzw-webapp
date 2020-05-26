@@ -110,7 +110,7 @@
 
     <button
       class="blue"
-      @click="incrementPage"
+      @click="finishIntro"
     >
       dalej
     </button>
@@ -165,15 +165,19 @@ export default {
     ...mapActions([
       'pingBackend',
       'fetchManipulationCategories',
+      'setUserInput',
     ]),
     incrementPage() {
       ++this.page;
       if (this.page === 1) {
         this.$nextTick(() => this.$refs.name.focus());
       } else if (this.page === 5 && this.category !== '') {
-        this.$store.commit('setUserInfo', this.userInfo);
         this.$router.push('/quest');
       }
+    },
+    finishIntro() {
+      this.setUserInput(this.userInfo)
+        .then(() => this.incrementPage());
     },
   },
 };
