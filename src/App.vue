@@ -34,6 +34,7 @@ export default {
   --color-orange: #EF420C;
   --color-green: #61bd4f;
   --color-blue: #10305F;
+  --color-light-blue: #4368a0;
   --color-gray: #B8B8B8;
   --color-lgray: #F3F3F3;
   --color-white: #FFFFFF;
@@ -196,11 +197,13 @@ input{
   border: .15em solid #E4EDF2;
   border-radius: .4em;
   padding: .6em .8em;
+  margin: 1em 0;
   background: #F5FAFC;
   caret-color: var(--color-blue);
 }
 input:focus {
-    border-color: var(--color-blue);
+    border-color: var(--color-light-blue);
+    outline: none;
 }
 
 input[type='text'], input[type='number']{

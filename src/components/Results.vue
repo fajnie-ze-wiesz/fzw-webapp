@@ -119,12 +119,17 @@ export default {
 };
 </script>
 
-<!-- Scoped component css -->
-<!-- It only affect current component -->
 <style scoped>
   #results {
     overflow: auto;
     background: var(--color-blue);
     color: white;
+  }
+  ul {
+      padding-left: 1em;
+      margin: 0;
+  }
+  li {
+      margin: 0;
   }
 </style>
