@@ -20,7 +20,6 @@
 
 <script>
   import PieChart from '@/components/PieChart';
-  import Modal from '@/components/Modal';
 
   import ResultStats from '../data/result_stats';
   import ManipulationCategory from '../data/manipulation_category';
@@ -29,7 +28,6 @@
     name: 'results',
     components: {
       PieChart,
-      Modal,
     },
     data() {
       return {
