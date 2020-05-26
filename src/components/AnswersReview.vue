@@ -62,6 +62,7 @@ export default {
   methods: {
     goToNextAnswer() {
       this.questionIndex += 1;
+      document.querySelector('#app > div').scrollTo(0, 0);
       if (this.questionIndex >= this.$store.getters.numOfQuizQuestions) {
         this.goToShareResults();
       }
