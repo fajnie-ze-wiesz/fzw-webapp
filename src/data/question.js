@@ -1,15 +1,15 @@
-export const create = ({newsId, imageUrl, type, answerExplanation, expectedAnswer}) => {
+export const create = ({newsId, imageUrl, type, answerExplanationHTML, expectedAnswer}) => {
   return {
     newsId,
     imageUrl,
     type,
     answer: null,
-    answerExplanation,
+    answerExplanationHTML,
     expectedAnswer,
   };
 };
 
-export const getAnswerExplanation = (q) => q.answerExplanation;
+export const getAnswerExplanationHTML = (q) => q.answerExplanationHTML;
 
 export const isTrueNews = (q) => q.expectedAnswer === 'yes';
 
@@ -29,7 +29,7 @@ export const getManipulationCategoryName = (q) => q.type;
 
 const Question = {
   create,
-  getAnswerExplanation,
+  getAnswerExplanationHTML,
   isTrueNews,
   isFalseNews,
   isAnswered,

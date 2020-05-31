@@ -20,9 +20,8 @@
         <span class="wrong-answer-circle">&times;</span>pomyliłeś się
       </h3>
       <quest-card :question="question " />
-      <div>
-        {{ question.answerExplanation }}
-      </div>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div v-html="question.answerExplanationHTML" />
       <div class="buttons">
         <button
           type="button"
@@ -60,8 +59,8 @@ export default {
       }
       return null;
     },
-    answerExplanation() {
-      return Question.getAnswerExplanation(this.question);
+    answerExplanationHTML() {
+      return Question.getAnswerExplanationHTML(this.question);
     },
     questionIsAnsweredCorrectly() {
       return Question.isAnsweredCorrectly(this.question);
