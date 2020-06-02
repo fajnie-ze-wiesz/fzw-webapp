@@ -228,7 +228,7 @@ input[type='text'], input[type='number']{
   justify-content: center;
   align-items: center;
   font-size: 100%;
-  transform: scale(55%);
+  transform: scale(0.55);
   transform-origin: left;
   width: 2em;
   height: 2em;
