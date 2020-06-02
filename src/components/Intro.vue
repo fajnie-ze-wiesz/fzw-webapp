@@ -1,7 +1,7 @@
 <template>
   <div id="intro">
     <div v-show="page === 1">
-      <h1><span class="numbering">{{ page }}</span>Witaj!</h1>
+      <h1><span class="circle-icon numbering">{{ page }}</span>Witaj!</h1>
       <p>
         Fajnie, że tu jesteś! Nauczymy Cię jak radzić sobie z fake newsami w naszej grze prawda
         czy fałsz. :)
@@ -16,7 +16,7 @@
     </div>
 
     <div v-show="page === 2">
-      <h1><span class="numbering">{{ page }}</span>Oceń odporność</h1>
+      <h1><span class="circle-icon numbering">{{ page }}</span>Oceń odporność</h1>
       <p>
         Na ile procent oceniasz swoją odporność na manipulacje w internecie? W polu niżej
         wpisz wartość od 1 do maksymalnie 100. Unikaj liter i innych znaków.
@@ -33,7 +33,7 @@
 
     <div v-show="page === 3">
       <div id="category-selection">
-        <h1><span class="numbering">{{ page }}</span>Wybierz temat</h1>
+        <h1><span class="circle-icon numbering">{{ page }}</span>Wybierz temat</h1>
         <p>Wybierz obszar tematyczny w którym chcesz się sprawdzić.</p>
         <div class="input">
           <div class="radio">
@@ -97,7 +97,7 @@
     </div>
 
     <div v-show="page === 4">
-      <h1><span class="numbering">{{ page }}</span>Gotów?</h1>
+      <h1><span class="circle-icon numbering">{{ page }}</span>Gotów?</h1>
       <p>
         Za chwilę zobaczysz {{ numOfQuizQuestions }} przykładów treści, które pojawiły się w sieci.
         Oceń czy są prawdziwe czy fałszywe.
@@ -211,17 +211,7 @@ label {
 }
 
 .numbering {
-  display: inline-flex;
   background: var(--color-orange);
-  justify-content: center;
-  align-items: center;
-  font-size: 100%;
-  transform: scale(50%);
-  transform-origin: left;
-  width: 2em;
-  height: 2em;
-  text-align: center;
-  border-radius: 100%;
   color: white;
 }
 </style>
