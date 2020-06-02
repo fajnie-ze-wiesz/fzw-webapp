@@ -38,10 +38,8 @@ export default {
   --color-gray: #B8B8B8;
   --color-lgray: #F3F3F3;
   --color-white: #FFFFFF;
-}
-:root {
-    --gray: #ebf1f4;
-    --gray-text: #9dabbc;
+  --color-gray: #ebf1f4;
+  --color-gray-text: #9dabbc;
 }
 html, option, input {
   font-family: 'Rubik', sans-serif;
@@ -61,6 +59,7 @@ body {
 }
 h1, h2, h3, h4, h5 {
     margin: 0;
+    margin-bottom: 1em;
     text-transform: uppercase;
 }
 h1 {
@@ -106,7 +105,7 @@ li {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 10%;
+  padding: 2em;
 }
 @media screen and (min-device-aspect-ratio: 1/1) {
   #app {
@@ -115,15 +114,15 @@ li {
 }
 
 button {
-    text-transform: uppercase;
-    transition: background 200ms, color 200ms, box-shadow 200ms;
-    display: inline-block;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 1em 2em;
-    width: 100%;
-    font-size: 100%;
-    border-radius: .5em;
+  text-transform: uppercase;
+  transition: background 200ms, color 200ms, box-shadow 200ms;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 1em 0;
+  width: 100%;
+  font-size: 90%;
+  border-radius: .5em;
   font-family: 'Rubik', sans-serif;
   letter-spacing: .1em;
   border: none;
@@ -136,8 +135,9 @@ button {
   transition: .5s;
 }
 
-button:focus {
+button:focus, button:active, button::-moz-focus-inner {
   outline:0;
+  border: 0;
 }
 
 button.red {
@@ -157,7 +157,7 @@ button.opaque-blue:hover {
 
 button.opaque-white:hover {
     background-color: white;
-    color: var(--red);
+    color: var(--color-orange);
 }
 
 button.blue {
@@ -174,6 +174,7 @@ button.opaque-white {
 
 button.opaque-blue {
     color: var(--color-blue);
+    background: transparent;
     box-shadow: inset 0 0 0 .15em var(--color-blue);
 }
 
@@ -219,4 +220,21 @@ input[type='text'], input[type='number']{
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+
+.circle-icon {
+  margin-right: 0;
+  display: inline-flex;
+  background: var(--color-orange);
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+  transform: scale(55%);
+  transform-origin: left;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  border-radius: 100%;
+  color: white;
+}
+
 </style>

@@ -11,13 +11,13 @@
         v-if="questionIsAnsweredCorrectly"
         class="correct-answer"
       >
-        <span class="correct-answer-circle">&check;</span>odpowiedziałeś dobrze
+        <span class="circle-icon correct-answer-circle">&check;</span>odpowiedziałeś dobrze
       </h3>
       <h3
         v-else
         class="wrong-answer"
       >
-        <span class="wrong-answer-circle">&times;</span>pomyliłeś się
+        <span class="circle-icon wrong-answer-circle">&times;</span>pomyliłeś się
       </h3>
       <quest-card :question="question " />
       <!-- eslint-disable-next-line vue/no-v-html -->
@@ -94,6 +94,22 @@ export default {
   padding: 0;
 }
 
+#answers-review:before {
+  pointer-events: none;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, transparent 80vh, var(--color-gray));
+}
+
+h1 {
+  margin-bottom: .2em;
+}
+
 .container {
   margin-top: calc(5vh);
   width: 80%;
@@ -105,21 +121,8 @@ export default {
   width: 100%;
   border-radius: .8em;
   overflow-y: auto;
-}
-
-.correct-answer-circle, .wrong-answer-circle {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 100%;
-  transform: scale(50%);
-  transform-origin: left;
-  width: 1.25em;
-  height: 1.25em;
-  text-align: center;
-  border-radius: 100%;
-  color: white;
-  margin-right: 2em;
+  box-shadow: 0 0 1em #10305F3D;
+  margin: 1em 0;
 }
 
 .correct-answer {
@@ -138,8 +141,10 @@ export default {
   background: var(--color-orange);
 }
 
-.buttons button {
-  margin-top: 1em;
+button {
+  margin: 2em 0;
+  position: relative;
+  z-index: 10;
 }
 
 </style>

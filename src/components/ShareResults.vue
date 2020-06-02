@@ -21,7 +21,7 @@
         Organizujemy m.in. kursy dla szkół czy warsztaty dla organizacji pozarządowych.
       </p>
       <p>
-        <strong>Możesz również zagrać jeszcze raz i zwiększć swoją odporność. Śmiało! :)</strong>
+        <strong>Możesz również zagrać jeszcze raz i zwiększać swoją odporność. Śmiało! :)</strong>
       </p>
     </div>
     <div class="buttons">
@@ -94,20 +94,32 @@ export default {
 }
 .share-box {
     display: flex;
-    padding: 2em;
+    padding: 1.2em;
     background: white;
-    border-radius: 1em;
+    border-radius: .8em;
     font-weight: 500;
-    font-size: 75%;
+    font-size: 90%;
     line-height: 125%;
     text-transform: uppercase;
+    align-items: center;
+    margin: 3em 0;
 }
 .share-button {
-    background: blue;
-    padding: 0;
-    float: right;
-    margin: 1em;
+    background: #1778f2;
+    text-transform: none;
+    padding: .5em 1em;
+    /* float: right; */
+    letter-spacing: normal;
+    margin: .5em;
     width: auto;
+    font-size: 100%;
+    border-radius: .4em;
+}
+button {
+    margin: .8em 0;
+}
+.buttons {
+    width: 100%;
 }
 .buttons a {
     margin-top: 1em;
