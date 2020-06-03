@@ -113,7 +113,7 @@
       class="blue"
       @click="incrementPage"
     >
-      dalej
+      {{ incrementPageText }}
     </button>
   </div>
 </template>
@@ -149,6 +149,12 @@ export default {
         return !this.isQuizLoaded;
       }
       return false;
+    },
+    incrementPageText() {
+      if (this.page === 4 && !this.isQuizLoaded) {
+        return 'czekaj...';
+      }
+      return 'dalej';
     },
     questionTimeoutInSeconds() {
       return QUESTION_TIMEOUT / 1000;
