@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { generateQuiz } from '../services/quizes';
+import { generateQuiz, loadQuizImages } from '../services/quizes';
 import { ping } from '../services/ping';
 import ManipulationCategoryService from '../services/manipulation_category';
 
@@ -14,7 +14,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    quiz: Quiz.create({id: 'empty-quiz-id'}),
+    quiz: Quiz.create({id: null}),
     user: User.create({name: 'test'}),
     quizSetupInfo: QuizSetupInfo.create({}),
     manipulationCategories: [],
@@ -25,9 +25,11 @@ export default new Vuex.Store({
         context.commit('loadManipulationCategories', {manipulationCategories});
       });
     },
-    generateQuiz(context) {
-      generateQuiz().then((quiz) => {
-        context.commit('loadQuiz', {quiz});
+    async generateQuiz(context) {
+      const quiz = await generateQuiz();
+      const images = await loadQuizImages(quiz);
+      context.commit('loadQuiz', {
+        quiz, images,
       });
     },
     pingBackend() {
@@ -52,6 +54,9 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    isQuizLoaded(state) {
+      return !!Quiz.getId(state.quiz);
+    },
     manipulationCategories(state) {
       return state.manipulationCategories;
     },

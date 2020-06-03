@@ -44,7 +44,6 @@
 <script>
 import {
   mapMutations,
-  mapActions,
 } from 'vuex';
 import {
   QUESTION_TIMEOUT,
@@ -60,7 +59,6 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
-      vm.generateQuiz();
       vm.startQuestionTimeout();
       vm.startTicker();
     });
@@ -99,9 +97,6 @@ export default {
     ...mapMutations([
       'answerQuizQuestion',
       'omitQuizQuestion',
-    ]),
-    ...mapActions([
-      'generateQuiz',
     ]),
     disableButtons() {
       this.buttonsDisabled = true;

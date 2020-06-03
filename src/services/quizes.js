@@ -29,3 +29,18 @@ export function generateQuiz() {
     return parseQuiz(response.data);
   });
 }
+
+function loadImageByUrl(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error(`Image ${url} could not be loaded`));
+    img.src = url;
+  });
+}
+
+export function loadQuizImages(quiz) {
+  const questions = Quiz.getQuestions(quiz);
+  const imageUrls = questions.map(Question.getImageUrl);
+  return Promise.all(imageUrls.map(loadImageByUrl));
+}
