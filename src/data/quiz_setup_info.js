@@ -1,6 +1,6 @@
-export function create({ topicCategories = [], correctnessEstimate = 1.0 }) {
+export function create({ topicCategory = null, correctnessEstimate = 1.0 }) {
   return {
-    topicCategories,
+    topicCategory,
     correctnessEstimate,
   };
 }
@@ -9,9 +9,9 @@ export function getCorrectnessEstimate(quizSetupInfo) {
   return quizSetupInfo.correctnessEstimate;
 }
 
-export function setValues(quizSetupInfo, { topicCategories, correctnessEstimate }) {
-  if (typeof topicCategories !== 'undefined') {
-    quizSetupInfo.topicCategories = topicCategories;
+export function setValues(quizSetupInfo, { topicCategory, correctnessEstimate }) {
+  if (typeof topicCategory !== 'undefined') {
+    quizSetupInfo.topicCategory = topicCategory;
   }
   if (typeof correctnessEstimate !== 'undefined') {
     quizSetupInfo.correctnessEstimate = correctnessEstimate;

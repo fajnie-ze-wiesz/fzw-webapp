@@ -9,6 +9,7 @@ import Quiz from '../data/quiz';
 import QuizSetupInfo from '../data/quiz_setup_info';
 import User from '../data/user';
 import ResultStats from '../data/result_stats';
+import TopicCategory from '../data/topic_category';
 
 Vue.use(Vuex);
 
@@ -51,6 +52,10 @@ export default new Vuex.Store({
     },
     setUserInfo(state, userInfo) {
       User.setName(state.user, userInfo.name);
+      QuizSetupInfo.setValues(state.quizSetupInfo, {
+        topicCategory: TopicCategory.fromName(userInfo.category),
+        correctnessEstimate: userInfo.prediction / 100,
+      });
     },
   },
   getters: {
