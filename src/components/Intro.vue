@@ -144,11 +144,41 @@ export default {
   },
   computed: {
     ...mapGetters(['isQuizLoaded']),
-    incrementPageDisabled() {
-      if (this.page === 4) {
-        return !this.isQuizLoaded;
+    pageTransitions() {
+      return {
+        1: {
+          canGoNext() {
+            return this.userInfo.name !== '';
+          },
+        },
+        3: {
+          canGoNext() {
+            return this.userInfo.category !== '';
+          },
+          next() {
+            this.generateQuiz();
+          },
+        },
+        4: {
+          canGoNext() {
+            return this.isQuizLoaded;
+          },
+          next() {
+            this.$store.commit('setUserInfo', this.userInfo);
+            this.startQuiz();
+          },
+        },
+      };
+    },
+    incrementPageEnabled() {
+      const pageTransition = this.pageTransitions[this.page];
+      if (pageTransition && pageTransition.canGoNext) {
+        return pageTransition.canGoNext.call(this);
       }
-      return false;
+      return true;
+    },
+    incrementPageDisabled() {
+      return !this.incrementPageEnabled;
     },
     incrementPageText() {
       if (this.page === 4 && !this.isQuizLoaded) {
@@ -182,14 +212,10 @@ export default {
       'fetchManipulationCategories',
     ]),
     incrementPage() {
+      const pageTransition = this.pageTransitions[this.page];
       ++this.page;
-      if (this.page === 1) {
-        this.$nextTick(() => this.$refs.name.focus());
-      } else if (this.page === 4) {
-        this.generateQuiz();
-      } else if (this.page === 5 && this.category !== '') {
-        this.$store.commit('setUserInfo', this.userInfo);
-        this.startQuiz();
+      if (pageTransition && pageTransition.next) {
+        pageTransition.next.call(this);
       }
     },
     startQuiz() {
