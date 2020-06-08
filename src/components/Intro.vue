@@ -151,6 +151,15 @@ export default {
             return this.userInfo.name !== '';
           },
         },
+        2: {
+          canGoNext() {
+            if (isNaN(this.userInfo.prediction)) {
+              return false;
+            }
+            const prediction = parseInt(this.userInfo.prediction, 10);
+            return prediction >= 1 && prediction <= 100;
+          },
+        },
         3: {
           canGoNext() {
             return this.userInfo.category !== '';
