@@ -11,6 +11,8 @@ export const create = ({newsId, imageUrl, type, answerExplanationHTML, expectedA
 
 export const getAnswerExplanationHTML = (q) => q.answerExplanationHTML;
 
+export const getImageUrl = (q) => q.imageUrl;
+
 export const isTrueNews = (q) => q.expectedAnswer === 'yes';
 
 export const isFalseNews = (q) => !isTrueNews(q);
@@ -30,6 +32,7 @@ export const getManipulationCategoryName = (q) => q.type;
 const Question = {
   create,
   getAnswerExplanationHTML,
+  getImageUrl,
   isTrueNews,
   isFalseNews,
   isAnswered,

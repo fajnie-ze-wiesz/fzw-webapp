@@ -109,17 +109,18 @@
     </div>
 
     <button
+      :disabled="incrementPageDisabled"
       class="blue"
       @click="incrementPage"
     >
-      dalej
+      {{ incrementPageText }}
     </button>
   </div>
 </template>
 
 <script>
 import {
-  mapActions,
+  mapActions, mapGetters,
 } from 'vuex';
 import {
   parseQuery,
@@ -142,6 +143,19 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(['isQuizLoaded']),
+    incrementPageDisabled() {
+      if (this.page === 4) {
+        return !this.isQuizLoaded;
+      }
+      return false;
+    },
+    incrementPageText() {
+      if (this.page === 4 && !this.isQuizLoaded) {
+        return 'czekaj...';
+      }
+      return 'dalej';
+    },
     questionTimeoutInSeconds() {
       return QUESTION_TIMEOUT / 1000;
     },
@@ -163,6 +177,7 @@ export default {
   },
   methods: {
     ...mapActions([
+      'generateQuiz',
       'pingBackend',
       'fetchManipulationCategories',
     ]),
@@ -170,10 +185,15 @@ export default {
       ++this.page;
       if (this.page === 1) {
         this.$nextTick(() => this.$refs.name.focus());
+      } else if (this.page === 4) {
+        this.generateQuiz();
       } else if (this.page === 5 && this.category !== '') {
         this.$store.commit('setUserInfo', this.userInfo);
-        this.$router.push('/quest');
+        this.startQuiz();
       }
+    },
+    startQuiz() {
+      this.$router.push('/quest');
     },
   },
 };

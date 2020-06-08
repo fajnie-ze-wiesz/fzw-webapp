@@ -8,6 +8,10 @@ export function create({id, questions = []}) {
   };
 }
 
+export function getId(quiz) {
+  return quiz.id;
+}
+
 export function getCurrentQuestion(quiz) {
   return quiz.questions[quiz.questionIndex];
 }
@@ -41,6 +45,7 @@ export function omitQuestion(quiz) {
 
 const Quiz = {
   create,
+  getId,
   getCurrentQuestion,
   getQuestions,
   getQuestionIndex,
