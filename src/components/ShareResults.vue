@@ -102,7 +102,7 @@ export default {
     line-height: 125%;
     text-transform: uppercase;
     align-items: center;
-    margin: 3em 0;
+    margin: 2em 0;
 }
 .share-button {
     background: #1778f2;

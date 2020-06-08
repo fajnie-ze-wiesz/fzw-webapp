@@ -1,29 +1,27 @@
 <template>
-  <div>
-    <svg
-      viewBox="0 0 50 50"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g>
-        <text
-          x="25"
-          :y="25"
-          :font-size="textPercent ? 13 : 17"
-          :style="{ fill: 'white'}"
-        >
-          {{ counterText }}
-        </text>
-        <polyline
-          :points="points.t"
-          :style="{ stroke: '#ddd', opacity: '15%' }"
-        />
-        <polyline
-          :points="points.s"
-          :style="{ stroke: '#EF420C'}"
-        />
-      </g>
-    </svg>
-  </div>
+  <svg
+    viewBox="0 0 50 50"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g>
+      <text
+        x="25"
+        :y="25"
+        :font-size="textPercent ? 13 : 17"
+        :style="{ fill: 'white'}"
+      >
+        {{ counterText }}
+      </text>
+      <polyline
+        :points="points.t"
+        :style="{ stroke: '#ddd', opacity: '15%' }"
+      />
+      <polyline
+        :points="points.s"
+        :style="{ stroke: '#EF420C'}"
+      />
+    </g>
+  </svg>
 </template>
 
 <script>
@@ -88,10 +86,6 @@ export default {
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
-  svg {
-    width: 90%;
-    height: 90%;
-  }
   polyline {
     fill: none;
     stroke-width: 3;

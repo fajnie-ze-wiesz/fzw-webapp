@@ -6,22 +6,19 @@
       :denominator="questionTimeoutSeconds"
       :text-percent="false"
     />
-    <div
+
+    <transition
       v-for="(q, index) in questions"
       :key="q.newsId"
-      class="container"
+      name="question-transition"
+      @after-enter="afterEnter"
+      @leave="leave"
     >
-      <transition
-        name="question-transition"
-        @after-enter="afterEnter"
-        @leave="leave"
-      >
-        <QuestCard
-          v-show="index === questionIndex"
-          :question="q"
-        />
-      </transition>
-    </div>
+      <QuestCard
+        v-show="index === questionIndex"
+        :question="q"
+      />
+    </transition>
     <div class="buttons">
       <button
         :disabled="buttonsDisabled"
@@ -161,18 +158,14 @@ export default {
 <style scoped>
 #quest {
   background: var(--color-blue);
-}
-
-.container {
-  position: absolute;
-  width: 80%;
-  top: calc(25vh);
+  position: relative;
 }
 
 #counter {
   display: flex;
   justify-content: flex-start;
-  width: 18vh;
+  width: 30%;
+  z-index: 10;
 }
 
 button.answer {
@@ -181,19 +174,17 @@ button.answer {
 }
 
 .card {
+  position: absolute;
+  max-width: calc(100% - 3em);
+  top: 20%;
   background: white;
-  height: 55vh;
-  width: 100%;
-  border-radius: .8em;
-  overflow-y: auto;
+  height: 65%;
 }
 
 .buttons {
-  position: absolute;
-  bottom: 5vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
 }
 </style>
