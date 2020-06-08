@@ -1,12 +1,13 @@
 <template>
-  <transition
-    name="question-transition"
+  <!-- <div
+    :class="['card', 'img', answerClass]"
+    :style="'background-image: url(' + question.imageUrl + ')'"
+  /> -->
+  <img
+    :src="question.imageUrl"
+    :class="['card', 'img', answerClass]"
+    alt=""
   >
-    <div
-      :class="['card', 'img', answerClass]"
-      :style="'background-image: url(' + question.imageUrl + ')'"
-    />
-  </transition>
 </template>
 
 <script>
@@ -32,26 +33,13 @@ export default {
 </script>
 
 <style scoped>
-  img{
-    width: 100%;
-  }
   .card.img {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
   }
-  button.answer{
-    padding: 2vh 1vh;
-    width: 45%;
-  }
-
-  .buttons {
-    position: absolute;
-    bottom: 5vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80%;
+  .card {
+    border-radius: .8em;
   }
 
   .question-transition-enter {

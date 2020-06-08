@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <img
+      id="logo"
+      src="static/img/icons/fzw_logo.svg"
+      alt="Fajnie, że wiesz! Logo"
+    >
     <transition name="fade">
       <router-view />
     </transition>
@@ -9,21 +14,6 @@
 <script>
 export default {
   name: 'App',
-  mounted() {
-    if (navigator.userAgent.indexOf('Chrome') !== -1) {
-      this.calcVH();
-      window.addEventListener('onorientationchange', this.calcVH);
-    }
-    const fontSize = document.documentElement.clientHeight * 0.024;
-    document.querySelector('body').setAttribute('style', `font-size: ${fontSize}px;`);
-  },
-  methods: {
-    calcVH() {
-      var vH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-      document.querySelector('#app').setAttribute('style', 'height:' + vH + 'px;');
-      // document.querySelector('#app > div').setAttribute('style', 'height:' + vH + 'px;');
-    },
-  },
 };
 </script>
 
@@ -35,7 +25,6 @@ export default {
   --color-green: #61bd4f;
   --color-blue: #10305F;
   --color-light-blue: #4368a0;
-  --color-gray: #B8B8B8;
   --color-lgray: #F3F3F3;
   --color-white: #FFFFFF;
   --color-gray: #ebf1f4;
@@ -55,7 +44,8 @@ body {
   width: 100%;
   overflow: hidden;
   line-height: 1.6em;
-  background: black;
+  background: var(--color-gray);
+  font-size: 16px;
 }
 h1, h2, h3, h4, h5 {
     margin: 0;
@@ -83,19 +73,23 @@ li {
   margin: 1em 0;
 }
 #logo {
+  position: absolute;
+  right: 0;
+  left: 0;
   height: 15%;
-}
-#logo.land {
-  height: 30%;
+  top: 0;
+  margin: auto;
+  z-index: -10;
+  padding: 1.5em;
+  box-sizing: border-box;
 }
 #app {
   border-radius: 1em;
   width: 100%;
-  position: absolute;
-  top: 0;
   height: 100%;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
 }
 #app > div {
   display: flex;
@@ -104,12 +98,16 @@ li {
   justify-content: space-between;
   height: 100%;
   width: 100%;
+  overflow: hidden;
   box-sizing: border-box;
-  padding: 2em;
+  padding: 1.5em;
+  border: solid .3em rgba(0,0,0,0.05);
+  border-radius: 1em;
 }
-@media screen and (min-device-aspect-ratio: 1/1) {
+@media screen and (min-aspect-ratio: 10/16) {
   #app {
-    width: calc(100vh/16*10);
+    width: calc(70vh/16*9);
+    height: 70vh;
   }
 }
 
@@ -135,8 +133,8 @@ button {
   transition: .5s;
 }
 
-button:focus, button:active, button::-moz-focus-inner {
-  outline:0;
+button, button:focus, button:active, button::-moz-focus-inner {
+  outline: 0;
   border: 0;
 }
 

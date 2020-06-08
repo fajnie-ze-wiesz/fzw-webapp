@@ -1,38 +1,34 @@
 <template>
   <div id="answers-review">
-    <div class="container">
-      <h1 v-if="newsIsTrue">
-        to jest prawda
-      </h1>
-      <h1 v-else>
-        to jest fałsz
-      </h1>
-      <h3
-        v-if="questionIsAnsweredCorrectly"
-        class="correct-answer"
-      >
-        <span class="circle-icon correct-answer-circle">&check;</span>odpowiedziałeś dobrze
-      </h3>
-      <h3
-        v-else
-        class="wrong-answer"
-      >
-        <span class="circle-icon wrong-answer-circle">&times;</span>pomyliłeś się
-      </h3>
-      <quest-card :question="question " />
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <div v-html="question.answerExplanationHTML" />
-      <div class="buttons">
-        <button
-          type="button"
-          name="button"
-          class="red"
-          @click="goToNextAnswer()"
-        >
-          następny
-        </button>
-      </div>
-    </div>
+    <h1 v-if="newsIsTrue">
+      to jest prawda
+    </h1>
+    <h1 v-else>
+      to jest fałsz
+    </h1>
+    <h3
+      v-if="questionIsAnsweredCorrectly"
+      class="correct-answer"
+    >
+      <span class="circle-icon correct-answer-circle">&check;</span>odpowiedziałeś dobrze
+    </h3>
+    <h3
+      v-else
+      class="wrong-answer"
+    >
+      <span class="circle-icon wrong-answer-circle">&times;</span>pomyliłeś się
+    </h3>
+    <quest-card :question="question" />
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div v-html="question.answerExplanationHTML" />
+    <button
+      type="button"
+      name="button"
+      class="red"
+      @click="goToNextAnswer()"
+    >
+      następny
+    </button>
   </div>
 </template>
 
@@ -90,8 +86,7 @@ export default {
 #answers-review {
   background: #EBF1F4;
   color: var(--color-blue);
-  overflow: scroll;
-  padding: 0;
+  overflow-y: scroll;
 }
 
 #answers-review:before {
@@ -110,17 +105,10 @@ h1 {
   margin-bottom: .2em;
 }
 
-.container {
-  margin-top: calc(5vh);
-  width: 80%;
-}
-
 .card {
+  display: block;
   background: white;
-  height: 55vh;
   width: 100%;
-  border-radius: .8em;
-  overflow-y: auto;
   box-shadow: 0 0 1em #10305F3D;
   margin: 1em 0;
 }
@@ -142,8 +130,6 @@ h1 {
 }
 
 button {
-  margin: 2em 0;
-  position: relative;
   z-index: 10;
 }
 
