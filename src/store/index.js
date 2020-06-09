@@ -27,7 +27,8 @@ export default new Vuex.Store({
       });
     },
     async generateQuiz(context) {
-      const quiz = await generateQuiz();
+      const topicCategory = QuizSetupInfo.getTopicCategory(context.state.quizSetupInfo);
+      const quiz = await generateQuiz({topicCategory});
       const images = await loadQuizImages(quiz);
       context.commit('loadQuiz', {
         quiz, images,
