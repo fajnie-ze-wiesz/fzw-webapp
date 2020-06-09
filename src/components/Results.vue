@@ -5,7 +5,7 @@
       <p>
         Odpowiedziałeś poprawnie na {{ numOfCorrectAnswers }} z {{ numOfQuestions }} newsów.
         Nie jest tak źle, ale zawsze może być lepiej zwłaszcza, że na początku oceniłeś się
-        na XXX%. ;)
+        na {{ correctnessEstimatePercent }}%. ;)
       </p>
       <p>
         W ocenie braliśmy pod uwagę:
@@ -68,6 +68,12 @@ export default {
     },
     percentTemp() {
       return Math.floor(this.numOfCorrectAnswers / this.numOfQuestions * 100);
+    },
+    correctnessEstimatePercent() {
+      return Math.floor(this.correctnessEstimate * 100);
+    },
+    correctnessEstimate() {
+      return ResultStats.getCorrectnessEstimate(this.resultStats);
     },
     numOfQuestions() {
       return ResultStats.getNumOfAnswers(this.resultStats);
