@@ -51,6 +51,10 @@ export function getUserName(resultStats) {
   return resultStats.username;
 }
 
+export function getCorrectnessEstimate(resultStats) {
+  return resultStats.est;
+}
+
 export function getByManipulationCategory(resultStats, manipulationCategory) {
   return resultStats.byManipCat[manipulationCategory.name];
 }
@@ -76,6 +80,7 @@ const ResultStats = {
   encode,
   decode,
   getUserName,
+  getCorrectnessEstimate,
   getByManipulationCategory,
   getNumOfAnswers,
   getNumOfCorrectAnswers,
