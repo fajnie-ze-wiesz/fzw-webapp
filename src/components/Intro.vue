@@ -120,7 +120,7 @@
 
 <script>
 import {
-  mapActions, mapGetters,
+  mapActions, mapGetters, mapMutations,
 } from 'vuex';
 import {
   parseQuery,
@@ -165,6 +165,7 @@ export default {
             return this.userInfo.category !== '';
           },
           next() {
+            this.setUserInfo(this.userInfo);
             this.generateQuiz();
           },
         },
@@ -173,7 +174,6 @@ export default {
             return this.isQuizLoaded;
           },
           next() {
-            this.$store.commit('setUserInfo', this.userInfo);
             this.startQuiz();
           },
         },
@@ -219,6 +219,9 @@ export default {
       'generateQuiz',
       'pingBackend',
       'fetchManipulationCategories',
+    ]),
+    ...mapMutations([
+      'setUserInfo',
     ]),
     incrementPage() {
       const pageTransition = this.pageTransitions[this.page];

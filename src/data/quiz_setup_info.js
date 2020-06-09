@@ -9,6 +9,10 @@ export function getCorrectnessEstimate(quizSetupInfo) {
   return quizSetupInfo.correctnessEstimate;
 }
 
+export function getTopicCategory(quizSetupInfo) {
+  return quizSetupInfo.topicCategory;
+}
+
 export function setValues(quizSetupInfo, { topicCategory, correctnessEstimate }) {
   if (typeof topicCategory !== 'undefined') {
     quizSetupInfo.topicCategory = topicCategory;
@@ -21,6 +25,7 @@ export function setValues(quizSetupInfo, { topicCategory, correctnessEstimate })
 const QuizSetupInfo = {
   create,
   getCorrectnessEstimate,
+  getTopicCategory,
   setValues,
 };
 
