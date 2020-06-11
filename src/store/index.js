@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { generateQuiz } from '../services/quizes';
+import { generateQuiz, loadQuizImages } from '../services/quizes';
 import { ping } from '../services/ping';
 import ManipulationCategoryService from '../services/manipulation_category';
 
@@ -9,12 +9,13 @@ import Quiz from '../data/quiz';
 import QuizSetupInfo from '../data/quiz_setup_info';
 import User from '../data/user';
 import ResultStats from '../data/result_stats';
+import TopicCategory from '../data/topic_category';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    quiz: Quiz.create({id: 'empty-quiz-id'}),
+    quiz: Quiz.create({id: null}),
     user: User.create({name: 'test'}),
     quizSetupInfo: QuizSetupInfo.create({}),
     manipulationCategories: [],
@@ -25,9 +26,12 @@ export default new Vuex.Store({
         context.commit('loadManipulationCategories', {manipulationCategories});
       });
     },
-    generateQuiz(context) {
-      generateQuiz().then((quiz) => {
-        context.commit('loadQuiz', {quiz});
+    async generateQuiz(context) {
+      const topicCategory = QuizSetupInfo.getTopicCategory(context.state.quizSetupInfo);
+      const quiz = await generateQuiz({topicCategory});
+      const images = await loadQuizImages(quiz);
+      context.commit('loadQuiz', {
+        quiz, images,
       });
     },
     pingBackend() {
@@ -49,9 +53,16 @@ export default new Vuex.Store({
     },
     setUserInfo(state, userInfo) {
       User.setName(state.user, userInfo.name);
+      QuizSetupInfo.setValues(state.quizSetupInfo, {
+        topicCategory: TopicCategory.fromName(userInfo.category),
+        correctnessEstimate: userInfo.prediction / 100,
+      });
     },
   },
   getters: {
+    isQuizLoaded(state) {
+      return !!Quiz.getId(state.quiz);
+    },
     manipulationCategories(state) {
       return state.manipulationCategories;
     },

@@ -109,17 +109,18 @@
     </div>
 
     <button
+      :disabled="incrementPageDisabled"
       class="blue"
       @click="incrementPage"
     >
-      dalej
+      {{ incrementPageText }}
     </button>
   </div>
 </template>
 
 <script>
 import {
-  mapActions,
+  mapActions, mapGetters, mapMutations,
 } from 'vuex';
 import {
   parseQuery,
@@ -142,6 +143,58 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(['isQuizLoaded']),
+    pageTransitions() {
+      return {
+        1: {
+          canGoNext() {
+            return this.userInfo.name !== '';
+          },
+        },
+        2: {
+          canGoNext() {
+            if (isNaN(this.userInfo.prediction)) {
+              return false;
+            }
+            const prediction = parseInt(this.userInfo.prediction, 10);
+            return prediction >= 1 && prediction <= 100;
+          },
+        },
+        3: {
+          canGoNext() {
+            return this.userInfo.category !== '';
+          },
+          next() {
+            this.setUserInfo(this.userInfo);
+            this.generateQuiz();
+          },
+        },
+        4: {
+          canGoNext() {
+            return this.isQuizLoaded;
+          },
+          next() {
+            this.startQuiz();
+          },
+        },
+      };
+    },
+    incrementPageEnabled() {
+      const pageTransition = this.pageTransitions[this.page];
+      if (pageTransition && pageTransition.canGoNext) {
+        return pageTransition.canGoNext.call(this);
+      }
+      return true;
+    },
+    incrementPageDisabled() {
+      return !this.incrementPageEnabled;
+    },
+    incrementPageText() {
+      if (this.page === 4 && !this.isQuizLoaded) {
+        return 'czekaj...';
+      }
+      return 'dalej';
+    },
     questionTimeoutInSeconds() {
       return QUESTION_TIMEOUT / 1000;
     },
@@ -163,17 +216,22 @@ export default {
   },
   methods: {
     ...mapActions([
+      'generateQuiz',
       'pingBackend',
       'fetchManipulationCategories',
     ]),
+    ...mapMutations([
+      'setUserInfo',
+    ]),
     incrementPage() {
+      const pageTransition = this.pageTransitions[this.page];
       ++this.page;
-      if (this.page === 1) {
-        this.$nextTick(() => this.$refs.name.focus());
-      } else if (this.page === 5 && this.category !== '') {
-        this.$store.commit('setUserInfo', this.userInfo);
-        this.$router.push('/quest');
+      if (pageTransition && pageTransition.next) {
+        pageTransition.next.call(this);
       }
+    },
+    startQuiz() {
+      this.$router.push('/quest');
     },
   },
 };

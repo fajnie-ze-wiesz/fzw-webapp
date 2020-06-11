@@ -41,7 +41,6 @@
 <script>
 import {
   mapMutations,
-  mapActions,
 } from 'vuex';
 import {
   QUESTION_TIMEOUT,
@@ -59,7 +58,6 @@ export default {
     document.body.style.background = getComputedStyle(document.body)
       .getPropertyValue('--color-blue');
     next((vm) => {
-      vm.generateQuiz();
       vm.startQuestionTimeout();
       vm.startTicker();
     });
@@ -100,9 +98,6 @@ export default {
     ...mapMutations([
       'answerQuizQuestion',
       'omitQuizQuestion',
-    ]),
-    ...mapActions([
-      'generateQuiz',
     ]),
     disableButtons() {
       this.buttonsDisabled = true;

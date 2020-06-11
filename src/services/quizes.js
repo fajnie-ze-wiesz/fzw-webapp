@@ -2,6 +2,7 @@ import apiAxios from './index';
 
 import Quiz from '../data/quiz';
 import Question from '../data/question';
+import TopicCategory from '../data/topic_category';
 
 function parseQuestion(data) {
   return Question.create({
@@ -20,12 +21,29 @@ function parseQuiz(data) {
   });
 }
 
-export function generateQuiz() {
+export async function generateQuiz({topicCategory = null}) {
   const data = {};
   if (process.env.NUM_OF_QUIZ_QUESTIONS) {
     data['num_of_questions'] = process.env.NUM_OF_QUIZ_QUESTIONS;
   }
-  return apiAxios.post('quiz/', data).then((response) => {
-    return parseQuiz(response.data);
+  if (topicCategory) {
+    data['topic_category_name'] = TopicCategory.getName(topicCategory);
+  }
+  const response = await apiAxios.post('quiz/', data);
+  return parseQuiz(response.data);
+}
+
+function loadImageByUrl(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error(`Image ${url} could not be loaded`));
+    img.src = url;
   });
+}
+
+export function loadQuizImages(quiz) {
+  const questions = Quiz.getQuestions(quiz);
+  const imageUrls = questions.map(Question.getImageUrl);
+  return Promise.all(imageUrls.map(loadImageByUrl));
 }
