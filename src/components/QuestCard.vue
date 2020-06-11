@@ -1,8 +1,4 @@
 <template>
-  <!-- <div
-    :class="['card', 'img', answerClass]"
-    :style="'background-image: url(' + question.imageUrl + ')'"
-  /> -->
   <img
     :src="question.imageUrl"
     :class="['card', 'img', answerClass]"
