@@ -46,6 +46,7 @@ body {
   line-height: 1.6em;
   background: var(--color-gray);
   font-size: 16px;
+  transition: background .5s;
 }
 h1, h2, h3, h4, h5 {
     margin: 0;
@@ -76,8 +77,8 @@ li {
   position: absolute;
   right: 0;
   left: 0;
-  height: 15%;
-  top: 0;
+  height: 20%;
+  top: -20%;
   margin: auto;
   z-index: -10;
   padding: 1.5em;
@@ -90,6 +91,7 @@ li {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  position: relative;
 }
 #app > div {
   display: flex;
@@ -101,8 +103,8 @@ li {
   overflow: hidden;
   box-sizing: border-box;
   padding: 1.5em;
-  border: solid .3em rgba(0,0,0,0.05);
   border-radius: 1em;
+  box-shadow: 0 0 0 .25em rgba(150,150,150,0.15);
 }
 @media screen and (min-aspect-ratio: 10/16) {
   #app {

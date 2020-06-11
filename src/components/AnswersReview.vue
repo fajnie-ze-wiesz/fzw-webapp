@@ -82,14 +82,8 @@ export default {
 };
 </script>
 
-<style scoped>
-#answers-review {
-  background: #EBF1F4;
-  color: var(--color-blue);
-  overflow-y: scroll;
-}
-
-#answers-review:before {
+<style>
+#app:before {
   pointer-events: none;
   content: " ";
   width: 100%;
@@ -98,7 +92,16 @@ export default {
   z-index: 5;
   top: 0;
   left: 0;
-  background: linear-gradient(to bottom, transparent 80vh, var(--color-gray));
+  background: linear-gradient(to bottom, transparent 80%, var(--color-gray));
+  border-radius: 1em;
+}
+</style>
+
+<style scoped>
+#answers-review {
+  background: #EBF1F4;
+  color: var(--color-blue);
+  overflow-y: scroll !important;
 }
 
 h1 {

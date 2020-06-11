@@ -56,6 +56,8 @@ export default {
     QuestCard,
   },
   beforeRouteEnter(to, from, next) {
+    document.body.style.background = getComputedStyle(document.body)
+      .getPropertyValue('--color-blue');
     next((vm) => {
       vm.generateQuiz();
       vm.startQuestionTimeout();
@@ -65,6 +67,8 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.stopQuestionTimeout();
     this.stopTicker();
+    document.body.style.background = getComputedStyle(document.body)
+      .getPropertyValue('--color-gray');
     next();
   },
   data: () => ({

@@ -108,7 +108,6 @@ export default {
     background: #1778f2;
     text-transform: none;
     padding: .5em 1em;
-    /* float: right; */
     letter-spacing: normal;
     margin: .5em;
     width: auto;
@@ -120,6 +119,7 @@ button {
 }
 .buttons {
     width: 100%;
+    z-index: 10;
 }
 .buttons a {
     margin-top: 1em;
