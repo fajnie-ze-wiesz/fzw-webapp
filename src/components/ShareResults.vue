@@ -4,7 +4,7 @@
       <h1>Podziel się swoim wynikiem ze znajomymi</h1>
 
       <div class="share-box">
-        Twoja odporność na fake news to XXX%
+        Twoja odporność na fake news to {{ correctnessPercent }}%
         <button
           class="share-button"
           type="button"
@@ -60,6 +60,9 @@ export default {
       const url = `${protocol}//${host}/?results=${statsPayload}`;
       console.log(url);
       return url;
+    },
+    correctnessPercent() {
+      return Math.floor(this.numOfCorrectAnswers / this.numOfQuestions * 100);
     },
     numOfQuestions() {
       return ResultStats.getNumOfAnswers(this.resultStats);
