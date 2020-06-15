@@ -1,5 +1,6 @@
 <template>
   <div id="answers-review">
+    <div id="fog-effect" />
     <h1 v-if="newsIsTrue">
       to jest prawda
     </h1>
@@ -82,8 +83,8 @@ export default {
 };
 </script>
 
-<style>
-#app:before {
+<style scoped>
+#fog-effect {
   pointer-events: none;
   content: " ";
   width: 100%;
@@ -95,9 +96,7 @@ export default {
   background: linear-gradient(to bottom, transparent 80%, var(--color-gray));
   border-radius: 1em;
 }
-</style>
 
-<style scoped>
 #answers-review {
   background: #EBF1F4;
   color: var(--color-blue);
