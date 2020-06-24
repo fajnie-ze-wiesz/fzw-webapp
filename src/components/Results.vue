@@ -123,7 +123,7 @@ export default {
       document.body.style.background = getComputedStyle(document.body)
         .getPropertyValue('--color-gray');
       router.push('answers-review');
-    }
+    },
   },
 };
 </script>
