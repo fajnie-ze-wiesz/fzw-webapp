@@ -24,8 +24,15 @@
     <div v-html="question.answerExplanationHTML" />
     <button
       type="button"
+      name="button-transparent"
+      class="button-transparent"
+    >
+      następny
+    </button>
+    <button
+      type="button"
       name="button"
-      class="red"
+      class="button red"
       @click="goToNextAnswer()"
     >
       następny
@@ -131,8 +138,16 @@ h1 {
   background: var(--color-orange);
 }
 
-button {
+.button {
+  position: absolute;
+  width: 80%;
+  bottom: 1.5em;
   z-index: 10;
+}
+
+.button-transparent {
+  opacity: 0.0;
+  line-height: 3em;
 }
 
 </style>

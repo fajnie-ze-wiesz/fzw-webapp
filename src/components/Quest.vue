@@ -163,12 +163,13 @@ export default {
 #quest {
   background: var(--color-blue);
   position: relative;
+  align-items: center;
 }
 
 #counter {
   display: flex;
   justify-content: flex-start;
-  width: 30%;
+  height: 15%;
   z-index: 10;
 }
 

@@ -96,13 +96,13 @@ li {
 #app > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   height: 100%;
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 1.5em;
+  padding: 8%;
   border-radius: 1em;
   box-shadow: 0 0 0 .25em rgba(150,150,150,0.15);
 }
