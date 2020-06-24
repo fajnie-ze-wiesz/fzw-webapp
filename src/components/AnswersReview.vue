@@ -22,7 +22,7 @@
     <quest-card :question="question" />
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="question.answerExplanationHTML" />
-    <div class="spacer"></div>
+    <div class="spacer" />
     <button
       type="button"
       name="button"
