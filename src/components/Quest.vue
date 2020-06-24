@@ -23,14 +23,14 @@
       <button
         :disabled="buttonsDisabled"
         class="opaque-white answer"
-        @click="answer('yes')"
+        @click="answer('yes', $event)"
       >
         Prawda
       </button>
       <button
         :disabled="buttonsDisabled"
         class="opaque-white answer"
-        @click="answer('no')"
+        @click="answer('no', $event)"
       >
         Fałsz
       </button>
@@ -105,8 +105,9 @@ export default {
     enableButtons() {
       this.buttonsDisabled = false;
     },
-    answer(a) {
-      this.answerQuestionOrEndQuiz(a);
+    answer(answer, event) {
+      this.answerQuestionOrEndQuiz(answer);
+      event.target.blur();
     },
     afterEnter() {
       this.enableButtons();
