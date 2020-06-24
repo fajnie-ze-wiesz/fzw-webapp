@@ -52,12 +52,12 @@
           </div>
           <div class="radio">
             <input
-              id="sport"
+              id="health"
               v-model="userInfo.category"
               type="radio"
-              value="sport"
+              value="health"
             >
-            <label for="sport">
+            <label for="health">
               <img
                 src="static/img/doctor.svg"
                 alt=""
