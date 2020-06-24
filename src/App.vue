@@ -106,7 +106,11 @@ li {
   border-radius: 1em;
   box-shadow: 0 0 0 .25em rgba(150,150,150,0.15);
 }
-@media screen and (min-aspect-ratio: 10/16) {
+/*
+ * Use 13/9 aspect ratio to avoid layout change when software keyboard pops up on mobile device:
+ * https://web.archive.org/web/20160509220835/http://blog.abouthalf.com/development/orientation-media-query-challenges-in-android-browsers/
+ */
+@media screen and (min-aspect-ratio: 13/9) {
   #app {
     width: calc(70vh/16*9);
     height: 70vh;
