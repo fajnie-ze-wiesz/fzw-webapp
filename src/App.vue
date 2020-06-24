@@ -93,6 +93,15 @@ li {
   flex-direction: column;
   position: relative;
 }
+.float-button {
+  position: fixed;
+  bottom: 18vh;
+  left: 1.5em;
+  width: calc(100% - 3em);
+}
+.spacer {
+  margin-bottom: 7vh;
+}
 #app > div {
   display: flex;
   flex-direction: column;
@@ -114,6 +123,13 @@ li {
   #app {
     width: calc(70vh/16*9);
     height: 70vh;
+  }
+
+  .float-button {
+    position: fixed;
+    bottom: 18vh;
+    left: calc(50% - ((70vh/16*9 - 40px) / 2));
+    width: calc(70vh/16*9 - 40px);
   }
 }
 

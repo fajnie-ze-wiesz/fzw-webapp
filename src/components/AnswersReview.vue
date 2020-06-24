@@ -22,10 +22,11 @@
     <quest-card :question="question" />
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="question.answerExplanationHTML" />
+    <div class="spacer"></div>
     <button
       type="button"
       name="button"
-      class="red"
+      class="red float-button"
       @click="goToNextAnswer()"
     >
       następny
