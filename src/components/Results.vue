@@ -22,6 +22,7 @@
       type="button"
       name="button"
       class="red"
+      to="/answers-review"
     >
       Sprawdź swoje odpowiedzi
     </router-link>
