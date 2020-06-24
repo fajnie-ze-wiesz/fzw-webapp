@@ -25,7 +25,7 @@
       </p>
     </div>
     <div class="buttons">
-      <a href="https://akademia.demagog.org.pl/">
+      <a href="https://akademia.demagog.org.pl/" target="_blank">
         <button
           type="button"
           name="button"
