@@ -65,8 +65,6 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.stopQuestionTimeout();
     this.stopTicker();
-    document.body.style.background = getComputedStyle(document.body)
-      .getPropertyValue('--color-gray');
     next();
   },
   data: () => ({

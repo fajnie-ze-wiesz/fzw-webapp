@@ -17,15 +17,13 @@
         </ul>
       </p>
     </div>
-    <router-link
-      tag="button"
-      type="button"
+    <button
       name="button"
       class="red"
-      to="/answers-review"
+      @click="goToReview($router)"
     >
       Sprawdź swoje odpowiedzi
-    </router-link>
+    </button>
   </div>
 </template>
 
@@ -121,6 +119,11 @@ export default {
         ManipulationCategory.fromName(categoryName),
       );
     },
+    goToReview(router) {
+      document.body.style.background = getComputedStyle(document.body)
+        .getPropertyValue('--color-gray');
+      router.push('answers-review');
+    }
   },
 };
 </script>
