@@ -25,6 +25,8 @@
         ref="prediction"
         v-model="userInfo.prediction"
         type="number"
+        inputmode="numeric"
+        pattern="[0-9]*"
         min="1"
         max="100"
         step="1"
