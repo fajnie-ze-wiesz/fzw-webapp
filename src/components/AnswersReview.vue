@@ -8,16 +8,13 @@
       to jest fałsz
     </h1>
     <h3
-      v-if="questionIsAnsweredCorrectly"
-      class="correct-answer"
+      :class="answerType.className"
     >
-      <span class="circle-icon correct-answer-circle">&check;</span>odpowiedziałeś dobrze
-    </h3>
-    <h3
-      v-else
-      class="wrong-answer"
-    >
-      <span class="circle-icon wrong-answer-circle">&times;</span>pomyliłeś się
+      <span :class="[answerType.iconClassName]">
+        {{ answerType.icon }}
+      </span>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <span v-text="answerType.text" />
     </h3>
     <quest-card :question="question" />
     <!-- eslint-disable-next-line vue/no-v-html -->
@@ -46,6 +43,26 @@ export default {
   data() {
     return {
       questionIndex: 0,
+      answerTypesDict: {
+        'nothing': {
+          className: 'no-answer',
+          text: 'nie odpowiedziałeś',
+          icon: '☹', // https://www.utf8icons.com/character/9785/white-frowning-face
+          iconClassName: 'no-answer',
+        },
+        'correct': {
+          className: 'correct-answer',
+          text: 'odpowiedziałeś dobrze',
+          icon: '✓',
+          iconClassName: 'circle-icon correct-answer-circle',
+        },
+        'wrong': {
+          className: 'wrong-answer',
+          text: 'pomyliłeś się',
+          icon: '×',
+          iconClassName: 'circle-icon wrong-answer-circle',
+        },
+      },
     };
   },
   computed: {
@@ -60,8 +77,16 @@ export default {
     answerExplanationHTML() {
       return Question.getAnswerExplanationHTML(this.question);
     },
-    questionIsAnsweredCorrectly() {
-      return Question.isAnsweredCorrectly(this.question);
+    answerType() {
+      let answerTypeString;
+      if (!Question.isAnswered(this.question)) {
+        answerTypeString = 'nothing';
+      } else if (Question.isAnsweredCorrectly(this.question)) {
+        answerTypeString = 'correct';
+      } else {
+        answerTypeString = 'wrong';
+      }
+      return this.answerTypesDict[answerTypeString];
     },
     question() {
       return this.questions[this.questionIndex];
@@ -114,6 +139,10 @@ h1 {
   width: 100%;
   box-shadow: 0 0 1em #10305F3D;
   margin: 1em 0;
+}
+
+.no-answer {
+  color: #617388;
 }
 
 .correct-answer {
