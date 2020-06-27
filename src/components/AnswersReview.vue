@@ -22,13 +22,7 @@
     <quest-card :question="question" />
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="question.answerExplanationHTML" />
-    <button
-      type="button"
-      name="button-transparent"
-      class="button-transparent"
-    >
-      następny
-    </button>
+    <div class="spacer" />
     <button
       type="button"
       name="button"
@@ -145,9 +139,8 @@ h1 {
   z-index: 10;
 }
 
-.button-transparent {
-  opacity: 0.0;
-  line-height: 3em;
+.spacer {
+    padding: 3em;
 }
 
 </style>
