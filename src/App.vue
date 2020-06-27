@@ -100,7 +100,7 @@ li {
   justify-content: space-between;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
   box-sizing: border-box;
   padding: 8%;
   border-radius: 1em;
