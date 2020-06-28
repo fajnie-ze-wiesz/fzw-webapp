@@ -36,6 +36,11 @@ import ManipulationCategory from '../data/manipulation_category';
 
 export default {
   name: 'Results',
+  beforeRouteLeave(to, from, next) {
+    document.body.style.background = getComputedStyle(document.body)
+      .getPropertyValue('--color-gray');
+    next();
+  },
   data() {
     return {
       emo: false,
@@ -120,11 +125,6 @@ export default {
         this.resultStats,
         ManipulationCategory.fromName(categoryName),
       );
-    },
-    beforeRouteLeave(to, from, next) {
-      document.body.style.background = getComputedStyle(document.body)
-        .getPropertyValue('--color-gray');
-      next();
     },
   },
 };
