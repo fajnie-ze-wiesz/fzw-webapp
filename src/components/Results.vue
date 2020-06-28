@@ -1,11 +1,27 @@
 <template>
   <div id="results">
     <div class="">
-      <h1>Twoja odporność na fake news to {{ percentTemp }}%</h1>
+      <h1>Twoja odporność na fake news to {{ correctnessPercent }}%</h1>
       <p>
-        Odpowiedziałeś poprawnie na {{ numOfCorrectAnswers }} z {{ numOfQuestions }} newsów.
-        Nie jest tak źle, ale zawsze może być lepiej zwłaszcza, że na początku oceniłeś się
-        na {{ correctnessEstimatePercent }}%. ;)
+        Udało Ci się odpowiedzieć prawidłowo na {{ numOfCorrectAnswers }}
+        z {{ numOfQuestions }} pytań.
+      </p>
+      <p v-if="correctnessPercent == 100">
+        Świetna robota! Na początku oceniłeś się na {{ correctnessEstimatePercent }}%,
+        dlatego powinieneś być z siebie dumny.
+      </p>
+      <p v-else-if="correctnessBetterThanEstimated && correctnessPercent < 50">
+        Jest lepiej niż Ci się wydaje, ale potrzebujesz jeszcze treningu.
+        Spróbuj zagrać jeszcze raz!
+      </p>
+      <p v-else-if="correctnessWorseThanEstimated && correctnessPercent < 50">
+        Zdecydowanie powinieneś zagrać jeszcze raz i poprawić swoją odporność na fake newsy.
+        Tym bardziej, że oceniłeś się na początku na {{ correctnessEstimatePercent }}%.
+      </p>
+      <p v-else-if="correctnessBetterThanEstimated && correctnessPercent > 50">
+        Dobra robota, jesteś już prawie odporny na fake newsy. Na początku oceniłeś
+        swoją odporność na {{ correctnessEstimatePercent }}%, może kolejnym razem pójdzie Ci
+        jeszcze lepiej.
       </p>
       <p>
         W ocenie braliśmy pod uwagę:
@@ -71,11 +87,20 @@ export default {
     resultStatsImgManip() {
       return this.getManipulationCategoryResultStats('image-manipulation');
     },
-    percentTemp() {
+    correctnessBetterThanEstimated() {
+      return this.correctness > this.correctnessEstimate;
+    },
+    correctnessWorseThanEstimated() {
+      return this.correctness < this.correctnessEstimate;
+    },
+    correctnessPercent() {
       return Math.floor(this.numOfCorrectAnswers / this.numOfQuestions * 100);
     },
     correctnessEstimatePercent() {
       return Math.floor(this.correctnessEstimate * 100);
+    },
+    correctness() {
+      return this.numOfCorrectAnswers / this.numOfQuestions;
     },
     correctnessEstimate() {
       return ResultStats.getCorrectnessEstimate(this.resultStats);
