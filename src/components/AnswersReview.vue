@@ -31,7 +31,7 @@
       class="button red"
       @click="goToNextAnswer()"
     >
-      następny
+      {{ nextAnswerText }}
     </button>
   </div>
 </template>
@@ -39,6 +39,9 @@
 <script>
 import QuestCard from '@/components/QuestCard';
 import Question from '../data/question';
+import {
+  ANSWERS_REVIEW_SCROLL_TOLERANCE,
+} from '../consts';
 
 export default {
   name: 'AnswersReview',
@@ -74,8 +77,14 @@ export default {
   },
   computed: {
     nextAnswerEnabled() {
-      let epsilon = 10; // allow for some scroll tolerance
-      return this.scrollOffset >= this.maxScrollOffset - epsilon;
+      return this.scrollOffset >= this.maxScrollOffset - ANSWERS_REVIEW_SCROLL_TOLERANCE;
+    },
+    nextAnswerText() {
+      if (this.nextAnswerEnabled) {
+        return 'następny';
+      } else {
+        return 'scrolluj dalej';
+      }
     },
     newsIsTrue() {
       if (this.question.expectedAnswer === 'yes') {
@@ -133,10 +142,15 @@ export default {
       container.scrollTo(0, 0);
     },
     goToNextAnswer() {
-      this.scrollToTop();
       this.questionIndex += 1;
       if (this.questionIndex >= this.$store.getters.numOfQuizQuestions) {
         this.goToShareResults();
+      } else {
+        this.scrollToTop();
+        this.$nextTick(() => {
+          // Update scrollData when changes are propagated to DOM just in case.
+          this.updateScrollData();
+        });
       }
     },
     goToShareResults() {
