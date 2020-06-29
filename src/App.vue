@@ -29,6 +29,7 @@ export default {
   --color-white: #FFFFFF;
   --color-gray: #ebf1f4;
   --color-gray-text: #9dabbc;
+  --color-dark-gray: #9dabbc;
 }
 html, option, input {
   font-family: 'Rubik', sans-serif;
