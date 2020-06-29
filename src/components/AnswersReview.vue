@@ -1,5 +1,9 @@
 <template>
-  <div id="answers-review">
+  <div
+    id="answers-review"
+    ref="container"
+    @scroll="updateScrollData"
+  >
     <div id="fog-effect" />
     <h1 v-if="newsIsTrue">
       to jest prawda
@@ -21,6 +25,7 @@
     <div v-html="question.answerExplanationHTML" />
     <div class="spacer" />
     <button
+      :disabled="!nextAnswerEnabled"
       type="button"
       name="button"
       class="button red"
@@ -43,6 +48,8 @@ export default {
   data() {
     return {
       questionIndex: 0,
+      scrollOffset: 0,
+      maxScrollOffset: 0,
       answerTypesDict: {
         'nothing': {
           className: 'no-answer',
@@ -66,6 +73,10 @@ export default {
     };
   },
   computed: {
+    nextAnswerEnabled() {
+      let epsilon = 10; // allow for some scroll tolerance
+      return this.scrollOffset >= this.maxScrollOffset - epsilon;
+    },
     newsIsTrue() {
       if (this.question.expectedAnswer === 'yes') {
         return true;
@@ -95,8 +106,34 @@ export default {
       return this.$store.getters.quizQuestions;
     },
   },
+  mounted() {
+    this.updateScrollData();
+  },
   methods: {
+    calculateScrollData() {
+      const container = this.$refs.container;
+      if (!container) {
+        return {scrollOffset: 0, maxScrollOffset: 0};
+      }
+      const containerHeight = container.getBoundingClientRect().height;
+      const scrollOffset = container.scrollTop - container.offsetTop;
+      const maxScrollOffset = container.scrollHeight - containerHeight;
+      return {scrollOffset, maxScrollOffset};
+    },
+    updateScrollData() {
+      const {scrollOffset, maxScrollOffset} = this.calculateScrollData();
+      this.scrollOffset = scrollOffset;
+      this.maxScrollOffset = maxScrollOffset;
+    },
+    scrollToTop() {
+      let container = this.$refs.container;
+      if (!container) {
+        return;
+      }
+      container.scrollTo(0, 0);
+    },
     goToNextAnswer() {
+      this.scrollToTop();
       this.questionIndex += 1;
       if (this.questionIndex >= this.$store.getters.numOfQuizQuestions) {
         this.goToShareResults();
@@ -166,6 +203,10 @@ h1 {
   width: 80%;
   bottom: 1.5em;
   z-index: 10;
+}
+.button:disabled,
+.button[disabled]{
+  background: var(--color-dark-gray);
 }
 
 .spacer {
