@@ -34,6 +34,13 @@ html, option, input {
   font-family: 'Rubik', sans-serif;
   user-select: none;
 }
+/*
+ * Allow text selection in particular cases so text inputs can work on Safari:
+ * https://stackoverflow.com/questions/20495827/text-field-not-working-in-safari
+ */
+input[type="text"], input[type="number"] {
+  user-select: text;
+}
 body {
   position: fixed;
   margin: 0;
