@@ -83,7 +83,7 @@ export default {
       if (this.nextAnswerEnabled) {
         return 'następny';
       } else {
-        return 'scrolluj dalej';
+        return 'scrolluj w dół';
       }
     },
     newsIsTrue() {
