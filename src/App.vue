@@ -9,6 +9,12 @@
 <script>
 export default {
   name: 'App',
+  mounted() {
+    // test for touch events support and if not supported, attach .no-touch class to the HTML tag.
+    if (!('ontouchstart' in document.documentElement)) {
+      document.documentElement.className += ' no-touch';
+    }
+  },
 };
 </script>
 
@@ -142,16 +148,16 @@ button.red {
     background: var(--color-orange);
 }
 
-button.blue:hover, button.red:hover{
+.no-touch button.blue:hover, .no-touch button.red:hover{
     box-shadow: none;
 }
 
-button.opaque-blue:hover {
+.no-touch button.opaque-blue:hover {
     background-color: var(--color-blue);
     color: white;
 }
 
-button.opaque-white:hover {
+.no-touch button.opaque-white:hover {
     background-color: white;
     color: var(--color-orange);
 }
