@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <img
-      id="logo"
-      src="static/img/icons/fzw_logo.svg"
-      alt="Fajnie, że wiesz! Logo"
-    >
     <transition name="fade">
       <router-view />
     </transition>
@@ -81,17 +76,6 @@ h4 {
 li {
   margin: 1em 0;
 }
-#logo {
-  position: absolute;
-  right: 0;
-  left: 0;
-  height: 20%;
-  top: -20%;
-  margin: auto;
-  z-index: -10;
-  padding: 1.5em;
-  box-sizing: border-box;
-}
 #app {
   border-radius: 1em;
   width: 100%;
@@ -120,8 +104,8 @@ li {
  */
 @media screen and (min-aspect-ratio: 13/9) {
   #app {
-    width: calc(70vh/16*9);
-    height: 70vh;
+    width: calc(90vh/16*9);
+    height: 90vh;
   }
 }
 
