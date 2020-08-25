@@ -1,39 +1,75 @@
 <template>
   <div id="intro">
     <div v-show="page === 1">
-      <h1><span class="circle-icon numbering">{{ page }}</span>Witaj!</h1>
-      <p>
-        Fajnie, że tu jesteś! Nauczymy Cię jak radzić sobie z fake newsami w naszej grze prawda
-        czy fałsz. :)
-        Ale najpierw… powiedz nam jak masz na imię?
-      </p>
-      <input
-        ref="name"
-        v-model="userInfo.name"
-        type="text"
-        placeholder="Imię"
+      <img
+        class="jumbotron"
+        src="static/img/hello.png"
+        alt="hello"
       >
+      <h1>
+        Fajnie, że tu jesteś!
+      </h1>
+      <p>
+        Dowiedź się czym są fake newsy i jak je rozpoznawać.
+      </p>
+      <p>
+        Poznaj kilka prostych wskazówek, dzięki którym odnajdziesz się w świecie
+        powszechnej dezinformacji i bez problemu poradzisz sobie z naszą grą.
+      </p>
     </div>
 
     <div v-show="page === 2">
-      <h1><span class="circle-icon numbering">{{ page }}</span>Oceń odporność</h1>
-      <p>
-        Na ile procent oceniasz swoją odporność na manipulacje w internecie? W polu niżej
-        wpisz wartość od 1 do maksymalnie 100. Unikaj liter i innych znaków.
-      </p>
-      <input
-        ref="prediction"
-        v-model="userInfo.prediction"
-        type="number"
-        min="1"
-        max="100"
-        step="1"
+      <img
+        class="jumbotron"
+        src="static/img/source.png"
+        alt="source"
       >
+      <h1>
+        Źródło
+      </h1>
+      <p>
+        Przeglądając wpisy i artykuły w mediach społecznościowych zawsze zwracaj uwagę na źródło.
+        Przyjrzyj się nazwie oraz logotypowi strony. Fałszywe strony często podszywają się
+        pod wiarygodne źródła lub mają charakter satyryczny.
+      </p>
     </div>
 
     <div v-show="page === 3">
+      <img
+        class="jumbotron"
+        src="static/img/graphics.png"
+        alt="graphics"
+      >
+      <h1>
+        Grafika
+      </h1>
+      <p>
+        Zdjęcie umieszczone w artykule lub mem również mogą być fake newsem. Zanim uznasz grafikę
+        za prawdziwą i podasz dalej, zastanów się, czy jest wykorzystana w odpowiednim kontekście,
+        czy cytat na grafice rzeczywiście jest prawdziwy.
+      </p>
+    </div>
+
+    <div v-show="page === 4">
+      <img
+        class="jumbotron"
+        src="static/img/emotions.png"
+        alt="emotions"
+      >
+      <h1>
+        Emocje
+      </h1>
+      <p>
+        Celem rozpowszechniania fałszywych informacji jest wywołanie w Tobie skrajnych emocji,
+        a następnie zachęcenie Cię do kliknięcia w link czy wpis. Po co? Aby na Tobie zarobić.
+        Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki, duże litery, dzięki temu
+        nie padniesz ofiarą manipulacji.
+      </p>
+    </div>
+
+    <div v-show="page === 5">
       <div id="category-selection">
-        <h1><span class="circle-icon numbering">{{ page }}</span>Wybierz temat</h1>
+        <h1>Wybierz temat przykładowych treści</h1>
         <p>Wybierz obszar tematyczny w którym chcesz się sprawdzić.</p>
         <div class="input">
           <div class="radio">
@@ -96,15 +132,20 @@
       </div>
     </div>
 
-    <div v-show="page === 4">
-      <h1><span class="circle-icon numbering">{{ page }}</span>Gotów?</h1>
+    <div v-show="page === 6">
+      <img
+        class="jumbotron"
+        src="static/img/lets_begin.png"
+        alt="let's begin"
+      >
+      <h1>Zaczynamy?</h1>
       <p>
-        Za chwilę zobaczysz {{ numOfQuizQuestions }} przykładów treści, które pojawiły się w sieci.
-        Oceń czy są prawdziwe czy fałszywe.
+        Czeka na Ciebie {{ numOfQuizQuestions }} przykładów treści, które pokazały się w internecie.
+        Oceń czy są fake newsem czy nie. Nie każdy przykład
+        masz {{ questionTimeoutInSeconds }} sekund.
       </p>
       <p>
-        Na każdy przykład masz {{ questionTimeoutInSeconds }} sekund aby dokonać wyboru. Cała zabawa
-        potrwa do 3 minut. To jak, gotów?
+        To jak, zaczynamy?
       </p>
     </div>
 
@@ -146,21 +187,7 @@ export default {
     ...mapGetters(['isQuizLoaded']),
     pageTransitions() {
       return {
-        1: {
-          canGoNext() {
-            return this.userInfo.name !== '';
-          },
-        },
-        2: {
-          canGoNext() {
-            if (isNaN(this.userInfo.prediction)) {
-              return false;
-            }
-            const prediction = parseInt(this.userInfo.prediction, 10);
-            return prediction >= 1 && prediction <= 100;
-          },
-        },
-        3: {
+        5: {
           canGoNext() {
             return this.userInfo.category !== '';
           },
@@ -169,7 +196,7 @@ export default {
             this.generateQuiz();
           },
         },
-        4: {
+        6: {
           canGoNext() {
             return this.isQuizLoaded;
           },
@@ -241,6 +268,10 @@ export default {
 #intro {
   color: var(--color-blue);
   background: #EBF1F4;
+}
+
+img.jumbotron {
+  width: 100%;
 }
 
 select {
