@@ -25,7 +25,7 @@ jobs:
 
     - name: deploy
       stage: deploy
-      if: branch = master OR branch = production
+      if: type = push AND branch IN (master, production)
       script: npm run build
       deploy:
         - provider: pages
