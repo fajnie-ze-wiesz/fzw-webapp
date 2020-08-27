@@ -4,31 +4,50 @@ node_js:
 cache:
   directories:
   - node_modules
-install:
-- "./.travis/install.sh"
-script:
-- "./.travis/run.sh"
-deploy:
-  - provider: pages
-    repo: test-fajnie-ze-wiesz/test-fajnie-ze-wiesz.github.io
-    fqdn: test-app.fajniezewiesz.pl
-    skip-cleanup: true
-    keep-history: false
-    target-branch: master
-    local-dir: dist/
-    github-token: $GITHUB_TOKEN
-    on:
-      branch: master
-  - provider: pages
-    repo: fajnie-ze-wiesz/fajnie-ze-wiesz.github.io
-    fqdn: aplikacja.fajniezewiesz.pl
-    skip-cleanup: true
-    keep-history: false
-    target-branch: master
-    local-dir: dist/
-    github-token: $GITHUB_TOKEN
-    on:
-      branch: production
+
+install: npm install
+
+stages:
+  - check
+  - deploy
+
+jobs:
+  fast_finish: true
+  include:
+    - name: lint
+      stage: check
+      script:
+        - npm run lint:config:strict
+        - npm run lint:strict
+    - name: build
+      stage: check
+      script: npm run build
+
+    - name: deploy
+      stage: deploy
+      if: branch = master OR branch = production
+      script: npm run build
+      deploy:
+        - provider: pages
+          repo: test-fajnie-ze-wiesz/test-fajnie-ze-wiesz.github.io
+          fqdn: test-app.fajniezewiesz.pl
+          cleanup: true
+          keep-history: false
+          target-branch: master
+          local-dir: dist/
+          github-token: $GITHUB_TOKEN
+          on:
+            branch: master
+        - provider: pages
+          repo: fajnie-ze-wiesz/fajnie-ze-wiesz.github.io
+          fqdn: aplikacja.fajniezewiesz.pl
+          cleanup: true
+          keep-history: false
+          target-branch: master
+          local-dir: dist/
+          github-token: $GITHUB_TOKEN
+          on:
+            branch: production
 
 notifications:
   email:
