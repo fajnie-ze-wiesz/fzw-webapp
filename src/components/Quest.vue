@@ -7,6 +7,8 @@
       :text-percent="false"
     />
 
+    <h1>Fake news?</h1>
+
     <transition
       v-for="(q, index) in questions"
       :key="q.newsId"
@@ -23,16 +25,16 @@
       <button
         :disabled="buttonsDisabled"
         class="opaque-white answer"
-        @click="answer('yes')"
+        @click="answerFalseNews()"
       >
-        Prawda
+        Tak
       </button>
       <button
         :disabled="buttonsDisabled"
         class="opaque-white answer"
-        @click="answer('no')"
+        @click="answerTrueNews()"
       >
-        Fałsz
+        Nie
       </button>
     </div>
   </div>
@@ -102,6 +104,12 @@ export default {
     },
     enableButtons() {
       this.buttonsDisabled = false;
+    },
+    answerTrueNews() {
+      this.answer('yes');
+    },
+    answerFalseNews() {
+      this.answer('no');
     },
     answer(a) {
       this.answerQuestionOrEndQuiz(a);
@@ -176,12 +184,18 @@ button.answer {
   width: 48%;
 }
 
+h1 {
+  position: absolute;
+  top: 20%;
+  color: white;
+}
+
 .card {
   position: absolute;
   max-width: calc(100% - 3em);
-  top: 20%;
+  top: 30%;
   background: white;
-  height: 65%;
+  height: 55%;
 }
 
 .buttons {

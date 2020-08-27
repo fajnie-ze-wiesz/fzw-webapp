@@ -48,10 +48,10 @@ export default {
     transition: all 1.5s ease;
   }
   .question-transition-leave-active.answer-true{
-    transform: translateX(-100vmin);
+    transform: translateX(100vmin);
   }
   .question-transition-leave-active.answer-false{
-    transform: translateX(100vmin);
+    transform: translateX(-100vmin);
   }
   .question-transition-leave-to {
     opacity: 0;
