@@ -1,10 +1,14 @@
 <template>
   <div id="share-results">
     <div>
-      <h1>Podziel się swoim wynikiem ze znajomymi</h1>
+      <h1>Dzięki za wspólny czas</h1>
+
+      <p>
+        Będziemy wdzięczni jeżeli udostępnisz info o naszej grze na swoim Facebooku
+      </p>
 
       <div class="share-box">
-        Twoja odporność na fake news to {{ correctnessPercent }}%
+        Udostępnij na na Facebooku
         <button
           class="share-button"
           type="button"
@@ -18,7 +22,6 @@
       <p>
         Jeśli chcesz dowiedzieć się o naszych działaniach w ramach edukacji medialnej
         poznaj Akademię Fact-Checkingu.
-        Organizujemy m.in. kursy dla szkół czy warsztaty dla organizacji pozarządowych.
       </p>
       <p>
         <strong>Możesz również zagrać jeszcze raz i zwiększać swoją odporność. Śmiało! :)</strong>
@@ -61,7 +64,12 @@ export default {
 
       const statsPayload = ResultStats.encode(this.resultStats);
       const url = `${protocol}//${host}/?results=${statsPayload}`;
-      console.log(url);
+      return url;
+    },
+    appUrl() {
+      const { protocol, host } = window.location;
+
+      const url = `${protocol}//${host}/`;
       return url;
     },
     correctnessPercent() {
@@ -76,17 +84,8 @@ export default {
   },
   methods: {
     shareResults() {
-      const url = this.resultsUrl;
-      let result;
-      if (this.numOfQuestions > 0) {
-        result = this.numOfCorrectAnswers / this.numOfQuestions;
-      } else {
-        result = 0;
-      }
-      const resultAsPercent = Math.round(result * 100);
-      const title = `Mój wynik to ${resultAsPercent}%`;
-      const fbShareUrl = `http://www.facebook.com/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(title)}`;
-      console.log(fbShareUrl);
+      const url = this.appUrl;
+      const fbShareUrl = `http://www.facebook.com/sharer.php?u=${encodeURIComponent(url)}`;
       window.open(fbShareUrl, 'sharer', 'toolbar=0,status=0,width=626,height=436');
     },
   },

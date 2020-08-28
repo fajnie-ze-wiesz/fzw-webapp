@@ -217,7 +217,7 @@ export default {
       return !this.incrementPageEnabled;
     },
     incrementPageText() {
-      if (this.page === 4 && !this.isQuizLoaded) {
+      if (this.page === 6 && !this.isQuizLoaded) {
         return 'czekaj...';
       }
       return 'dalej';
