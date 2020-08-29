@@ -4,6 +4,7 @@ import Intro from '@/components/Intro';
 import Quest from '@/components/Quest';
 import Results from '@/components/Results';
 import AnswersReview from '@/components/AnswersReview';
+import Summary from '@/components/Summary';
 import ShareResults from '@/components/ShareResults';
 
 Vue.use(Router);
@@ -32,6 +33,12 @@ export default new Router({
       path: '/answers-review',
       name: 'AnswersReview',
       component: AnswersReview,
+    },
+
+    {
+      path: '/summary',
+      name: 'Summary',
+      component: Summary,
     },
 
     {

@@ -144,7 +144,7 @@ export default {
     goToNextAnswer() {
       this.questionIndex += 1;
       if (this.questionIndex >= this.$store.getters.numOfQuizQuestions) {
-        this.goToShareResults();
+        this.goToSummary();
       } else {
         this.scrollToTop();
         this.$nextTick(() => {
@@ -153,8 +153,8 @@ export default {
         });
       }
     },
-    goToShareResults() {
-      this.$router.push('/share-results');
+    goToSummary() {
+      this.$router.push('/summary');
     },
   },
 };
