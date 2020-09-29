@@ -7,7 +7,8 @@
         alt="hello"
       >
       <h1>
-        Fajnie, że tu jesteś!
+        Cześć!<br>
+        Fajnie, że jesteś :)
       </h1>
       <p>
         Dowiedź się czym są fake newsy i jak je rozpoznawać.
@@ -25,7 +26,24 @@
         alt="source"
       >
       <h1>
-        Źródło
+        Fake news, czyli co?
+      </h1>
+      <p>
+        Fake news to fałszywa informacja udostępniona w sieci lub za pośrednictwem mediów
+        tradycyjnych, imitująca informację prawdziwą. Została stworzona dla realizacji konkretnego
+        celu finansowego, politycznego lub dla prestiżu.
+      </p>
+    </div>
+
+    <div v-show="page === 3">
+      <img
+        class="jumbotron"
+        src="static/img/source.png"
+        alt="graphics"
+      >
+      <h1>
+        Po pierwsze - <br>
+        Sprawdzaj źródła
       </h1>
       <p>
         Przeglądając wpisy i artykuły w mediach społecznościowych zawsze zwracaj uwagę na źródło.
@@ -34,14 +52,15 @@
       </p>
     </div>
 
-    <div v-show="page === 3">
+    <div v-show="page === 4">
       <img
         class="jumbotron"
         src="static/img/graphics.png"
-        alt="graphics"
+        alt="emotions"
       >
       <h1>
-        Grafika
+        Po drugie - <br>
+        Przyjrzyj się grafice
       </h1>
       <p>
         Zdjęcie umieszczone w artykule lub mem również mogą być fake newsem. Zanim uznasz grafikę
@@ -50,14 +69,15 @@
       </p>
     </div>
 
-    <div v-show="page === 4">
+    <div v-show="page === 5">
       <img
         class="jumbotron"
         src="static/img/emotions.png"
         alt="emotions"
       >
       <h1>
-        Emocje
+        Po trzecie - <br>
+        Czytaj, nie klikaj!
       </h1>
       <p>
         Celem rozpowszechniania fałszywych informacji jest wywołanie w Tobie skrajnych emocji,
@@ -67,7 +87,7 @@
       </p>
     </div>
 
-    <div v-show="page === 5">
+    <div v-show="page === 6">
       <div id="category-selection">
         <h1>Wybierz temat przykładowych treści</h1>
         <p>Wybierz obszar tematyczny w którym chcesz się sprawdzić.</p>
@@ -146,7 +166,7 @@
       </div>
     </div>
 
-    <div v-show="page === 6">
+    <div v-show="page === 7">
       <img
         class="jumbotron"
         src="static/img/lets_begin.png"
@@ -201,7 +221,7 @@ export default {
     ...mapGetters(['isQuizLoaded']),
     pageTransitions() {
       return {
-        5: {
+        6: {
           canGoNext() {
             return this.userInfo.category !== '';
           },
@@ -210,7 +230,7 @@ export default {
             this.generateQuiz();
           },
         },
-        6: {
+        7: {
           canGoNext() {
             return this.isQuizLoaded;
           },
@@ -231,7 +251,7 @@ export default {
       return !this.incrementPageEnabled;
     },
     incrementPageText() {
-      if (this.page === 6 && !this.isQuizLoaded) {
+      if (this.page === 7 && !this.isQuizLoaded) {
         return 'czekaj...';
       }
       return 'dalej';
