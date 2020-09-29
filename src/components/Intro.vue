@@ -89,8 +89,7 @@
 
     <div v-show="page === 6">
       <div id="category-selection">
-        <h1>Wybierz temat przykładowych treści</h1>
-        <p>Wybierz obszar tematyczny w którym chcesz się sprawdzić.</p>
+        <h1>Zanim zaczniemy - Wybierz ulubioną kategorię treści które pokażą się w quizie</h1>
         <div class="input">
           <div class="radio">
             <input
