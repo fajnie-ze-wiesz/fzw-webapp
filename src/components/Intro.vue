@@ -74,12 +74,26 @@
         <div class="input">
           <div class="radio">
             <input
-              id="rozrywka"
+              id="all"
+              v-model="userInfo.category"
+              type="radio"
+              value="all"
+            >
+            <label for="all">
+              <img
+                src="static/img/world.svg"
+                alt=""
+              >Wiedza ogólna
+            </label>
+          </div>
+          <div class="radio">
+            <input
+              id="entertainment"
               v-model="userInfo.category"
               type="radio"
               value="entertainment"
             >
-            <label for="rozrywka">
+            <label for="entertainment">
               <img
                 src="static/img/fireworks.svg"
                 alt=""

@@ -53,8 +53,12 @@ export default new Vuex.Store({
     },
     setUserInfo(state, userInfo) {
       User.setName(state.user, userInfo.name);
+      let topicCategory = null;
+      if (userInfo.category && userInfo.category !== 'all') {
+        topicCategory = TopicCategory.fromName(userInfo.category);
+      }
       QuizSetupInfo.setValues(state.quizSetupInfo, {
-        topicCategory: TopicCategory.fromName(userInfo.category),
+        topicCategory,
         correctnessEstimate: userInfo.prediction / 100,
       });
     },
