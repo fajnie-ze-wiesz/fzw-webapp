@@ -29,8 +29,11 @@
         Fake news, czyli co?
       </h1>
       <p>
-        Fake news to fałszywa informacja udostępniona w sieci lub za pośrednictwem mediów
-        tradycyjnych, imitująca informację prawdziwą. Została stworzona dla realizacji konkretnego
+        <b>
+          Fake news to fałszywa informacja udostępniona w sieci lub za pośrednictwem mediów
+          tradycyjnych, imitująca informację prawdziwą.
+        </b>
+        Została stworzona dla realizacji konkretnego
         celu finansowego, politycznego lub dla prestiżu.
       </p>
     </div>
@@ -47,8 +50,9 @@
       </h1>
       <p>
         Przeglądając wpisy i artykuły w mediach społecznościowych zawsze zwracaj uwagę na źródło.
-        Przyjrzyj się nazwie oraz logotypowi strony. Fałszywe strony często podszywają się
+        Fałszywe strony często podszywają się
         pod wiarygodne źródła lub mają charakter satyryczny.
+        <b>Przyjrzyj się nazwie oraz logotypowi strony.</b>
       </p>
     </div>
 
@@ -64,8 +68,11 @@
       </h1>
       <p>
         Zdjęcie umieszczone w artykule lub mem również mogą być fake newsem. Zanim uznasz grafikę
-        za prawdziwą i podasz dalej, zastanów się, czy jest wykorzystana w odpowiednim kontekście,
-        czy cytat na grafice rzeczywiście jest prawdziwy.
+        za prawdziwą i podasz dalej,
+        <b>
+          zastanów się, czy jest wykorzystana w odpowiednim kontekście,
+          czy cytat na grafice rzeczywiście jest prawdziwy.
+        </b>
       </p>
     </div>
 
@@ -82,8 +89,9 @@
       <p>
         Celem rozpowszechniania fałszywych informacji jest wywołanie w Tobie skrajnych emocji,
         a następnie zachęcenie Cię do kliknięcia w link czy wpis. Po co? Aby na Tobie zarobić.
-        Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki, duże litery, dzięki temu
-        nie padniesz ofiarą manipulacji.
+        <b>
+          Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki czy duże litery.
+        </b>
       </p>
     </div>
 
@@ -171,23 +179,25 @@
         src="static/img/lets_begin.png"
         alt="let's begin"
       >
-      <h1>Zaczynamy?</h1>
+      <h1>Jesteśmy prawie gotowi!</h1>
       <p>
-        Czeka na Ciebie {{ numOfQuizQuestions }} przykładów treści, które pokazały się w internecie.
-        Oceń czy są fake newsem czy nie. Nie każdy przykład
-        masz {{ questionTimeoutInSeconds }} sekund.
-      </p>
-      <p>
-        To jak, zaczynamy?
+        Czeka na Ciebie quiz z {{ numOfQuizQuestions }} przykładami treści, które zostały
+        opublikowane w sieci.
+        <b>
+          Zdecyduj, które z nich są fake newsami, a które nie poprzez klikanie
+          na przyciski "TAK" i "NIE".
+        </b>
+        Nie każdy przykład masz {{ questionTimeoutInSeconds }} sekund.
+        Po upływie czasu przykład zmieni się. To jak, zaczynamy?
       </p>
     </div>
 
     <button
       :disabled="incrementPageDisabled"
-      class="blue"
+      :class="incrementPageButtonClass"
       @click="incrementPage"
     >
-      {{ incrementPageText }}
+      {{ incrementPageButtonText }}
     </button>
   </div>
 </template>
@@ -249,11 +259,20 @@ export default {
     incrementPageDisabled() {
       return !this.incrementPageEnabled;
     },
-    incrementPageText() {
+    incrementPageButtonText() {
+      if (this.page === 1) {
+        return 'OK, pokażcie wskazówki';
+      }
       if (this.page === 7 && !this.isQuizLoaded) {
         return 'czekaj...';
       }
       return 'dalej';
+    },
+    incrementPageButtonClass() {
+      if (this.page === 7) {
+        return 'blue';
+      }
+      return 'opaque-blue';
     },
     questionTimeoutInSeconds() {
       return QUESTION_TIMEOUT / 1000;
