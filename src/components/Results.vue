@@ -6,12 +6,12 @@
         src="static/img/result.png"
         alt="source"
       >
-      <h1>Dobrze ci poszło</h1>
+      <h1>{{ title }}</h1>
       <p>
         {{ numOfCorrectAnswers }} z {{ numOfQuestions }} dobrych odpowiedzi
       </p>
       <p>
-        Jeszcze trochę i mistrzowsko będziesz rozbrajał fake newsy!
+        {{ description }}
       </p>
     </div>
     <router-link
@@ -123,6 +123,45 @@ export default {
 
     username() {
       return this.resultStats.username;
+    },
+
+    title() {
+      return this.titleAndDescription[0];
+    },
+    description() {
+      return this.titleAndDescription[1];
+    },
+
+    titleAndDescription() {
+      const ratio = this.numOfCorrectAnswers / this.numOfQuestions;
+
+      if (ratio >= 16 / 16) {
+        return [
+          'Rewelacyjnie Ci poszło!',
+          'Mistrzowsko odróżniasz prawdziwe informacje od fałszywych.',
+        ];
+      } else if (ratio >= 12 / 16) {
+        return [
+          'Dobrze Ci poszło!',
+          'Jeszcze trochę i mistrzowsko będziesz rozpoznawał fake newsy!',
+        ];
+      } else if (ratio >= 9 / 16) {
+        return [
+          'Nieźle Ci poszło',
+          'Nie zawsze potrafisz odróżnić fake newsy od prawdy. Potrenuj i zagraj jeszcze raz!',
+        ];
+      } else if (ratio >= 5 / 16) {
+        return [
+          'Mogło być lepiej',
+          ('Wiesz czym są fake newsy, jednak musisz popracować nad ich rozpoznawaniem.' +
+          ' Sprawdź swoje odpowiedzi i spróbuj jeszcze raz zagrać.'),
+        ];
+      }
+      return [
+        'Czas na lekcję krytycznego myślenia',
+        ('Niestety nie poszło Ci dobrze, sprawdź swoje odpowiedzi i zwróć uwagę na wyjaśnienia.' +
+        ' Zagraj jeszcze raz i popraw swój wynik.'),
+      ];
     },
   },
   methods: {
