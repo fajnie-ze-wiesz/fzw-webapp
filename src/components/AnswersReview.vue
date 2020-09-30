@@ -4,44 +4,27 @@
     ref="container"
     @scroll="updateScrollData"
   >
-    <div id="fog-effect" />
-    <h1 v-if="newsIsTrue">
-      to jest prawda
-    </h1>
-    <h1 v-else>
-      to jest fałsz
-    </h1>
-    <h3
-      :class="answerType.className"
-    >
-      <span :class="[answerType.iconClassName]">
-        {{ answerType.icon }}
-      </span>
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <span v-text="answerType.text" />
-    </h3>
+    <h1 v-text="answerType.text" />
     <quest-card :question="question" />
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="question.answerExplanationHTML" />
-    <div class="spacer" />
-    <button
-      :disabled="!nextAnswerEnabled"
-      type="button"
-      name="button"
-      class="button red"
-      @click="goToNextAnswer()"
-    >
-      {{ nextAnswerText }}
-    </button>
+    <div class="buttons">
+      <button
+        :disabled="!nextAnswerEnabled"
+        type="button"
+        name="button"
+        class="opaque-blue"
+        @click="goToNextAnswer()"
+      >
+        {{ nextAnswerText }}
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 import QuestCard from '@/components/QuestCard';
 import Question from '../data/question';
-import {
-  ANSWERS_REVIEW_SCROLL_TOLERANCE,
-} from '../consts';
 
 export default {
   name: 'AnswersReview',
@@ -62,13 +45,13 @@ export default {
         },
         'correct': {
           className: 'correct-answer',
-          text: 'odpowiedziałeś dobrze',
+          text: 'Dobra odpowiedź',
           icon: '✓',
           iconClassName: 'circle-icon correct-answer-circle',
         },
         'wrong': {
           className: 'wrong-answer',
-          text: 'pomyliłeś się',
+          text: 'Zła odpowiedź',
           icon: '×',
           iconClassName: 'circle-icon wrong-answer-circle',
         },
@@ -77,7 +60,7 @@ export default {
   },
   computed: {
     nextAnswerEnabled() {
-      return this.scrollOffset >= this.maxScrollOffset - ANSWERS_REVIEW_SCROLL_TOLERANCE;
+      return true;
     },
     nextAnswerText() {
       if (this.nextAnswerEnabled) {
