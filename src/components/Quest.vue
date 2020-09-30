@@ -186,14 +186,14 @@ button.answer {
 
 h1 {
   position: absolute;
-  top: 20%;
+  top: 80%;
   color: white;
 }
 
 .card {
   position: absolute;
   max-width: calc(100% - 3em);
-  top: 30%;
+  top: 20%;
   background: white;
   height: 55%;
 }
