@@ -4,8 +4,10 @@
       <h1>Fajnie że wiesz!</h1>
 
       <p>
-        Mamy nadzieję, że nauczyłeś/aś się czegoś wartościowego! no i nie zapomnij o najważniejszych
-        zasadach rozpoznawania fake newsów!
+        <b>
+          Mamy nadzieję, że nauczyłeś/aś się czegoś wartościowego! no i nie zapomnij
+          o najważniejszych zasadach rozpoznawania fake newsów!
+        </b>
       </p>
 
       <ol>

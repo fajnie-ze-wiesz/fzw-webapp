@@ -18,7 +18,7 @@
       tag="button"
       type="button"
       name="button"
-      class="red"
+      class="opaque-white"
       to="/answers-review"
     >
       Sprawdź odpowiedzi
