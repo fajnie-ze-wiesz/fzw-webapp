@@ -25,7 +25,7 @@
     <div v-show="page === 2">
       <img
         class="jumbotron"
-        src="static/img/source.png"
+        src="static/img/fake_news.png"
         alt="source"
       >
       <h1>

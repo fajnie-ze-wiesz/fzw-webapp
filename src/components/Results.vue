@@ -6,7 +6,7 @@
     <div class="">
       <img
         class="jumbotron"
-        src="static/img/result.png"
+        src="static/img/results.png"
         alt="source"
       >
       <h1>{{ title }}</h1>
