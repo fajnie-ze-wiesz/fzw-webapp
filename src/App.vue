@@ -243,4 +243,45 @@ input[type='text'], input[type='number']{
   color: white;
 }
 
+ol {
+  counter-reset: li; /* Initiate a counter */
+  margin-left: 0; /* Remove the default left margin */
+  padding-left: 0; /* Remove the default left padding */
+}
+ol > li {
+  position: relative; /* Create a positioning context */
+  margin: 0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+  padding: 4px 8px; /* Add some spacing around the content */
+  list-style: none; /* Disable the normal item numbering */
+}
+ol > li:before {
+  content: counter(li); /* Use the counter as content */
+  counter-increment: li; /* Increment the counter by 1 */
+  /* Position and style the number */
+  position: absolute;
+  top: 0.25em;
+  left: -2.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 75%;
+  width: 2em;
+  height: 2em;
+  /* Some space between the number and the content in browsers that support
+      generated content but not positioning it (Camino 2 is one example) */
+  margin-right: 8px;
+  padding: 0px;
+  color: #fff;
+  background: #EF420C;
+  text-align: center;
+  border-radius: 2em;
+}
+li ol,
+li ul {
+  margin-top: 6px;
+}
+ol ol li:last-child {
+  margin-bottom: 0;
+}
+
 </style>
