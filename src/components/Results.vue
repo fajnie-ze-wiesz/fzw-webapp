@@ -1,5 +1,8 @@
 <template>
-  <div id="results">
+  <div
+    id="results"
+    class="app-container content-container"
+  >
     <div class="">
       <img
         class="jumbotron"

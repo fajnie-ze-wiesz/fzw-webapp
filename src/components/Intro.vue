@@ -1,5 +1,8 @@
 <template>
-  <div id="intro">
+  <div
+    id="intro"
+    class="app-container content-container"
+  >
     <div v-show="page === 1">
       <img
         class="jumbotron"

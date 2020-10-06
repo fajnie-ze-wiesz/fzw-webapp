@@ -1,5 +1,8 @@
 <template>
-  <div id="summary">
+  <div
+    id="summary"
+    class="app-container content-container"
+  >
     <div>
       <h1>Fajnie że wiesz!</h1>
 
@@ -47,9 +50,6 @@ export default {
   color: var(--color-blue);
   background: #EBF1F4;
   position: relative;
-}
-button {
-  margin: .8em 0;
 }
 .buttons {
   display: flex;

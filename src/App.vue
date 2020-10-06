@@ -91,16 +91,20 @@ li {
   flex-direction: column;
   position: relative;
 }
-#app > div {
+.content-container {
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: space-between;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8%;
+}
+.app-container {
   height: 100%;
   width: 100%;
   overflow: auto;
-  box-sizing: border-box;
-  padding: 8%;
   border-radius: 1em;
   box-shadow: 0 0 0 .25em rgba(150,150,150,0.15);
 }

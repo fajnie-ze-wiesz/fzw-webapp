@@ -1,5 +1,8 @@
 <template>
-  <div id="quest">
+  <div
+    id="quest"
+    class="app-container content-container"
+  >
     <PieChart
       id="counter"
       :numerator="countdownSeconds"

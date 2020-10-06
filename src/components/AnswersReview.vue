@@ -2,22 +2,25 @@
   <div
     id="answers-review"
     ref="container"
+    class="app-container"
     @scroll="updateScrollData"
   >
-    <h1 v-text="answerType.text" />
-    <quest-card :question="question" />
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-html="question.answerExplanationHTML" />
-    <div class="buttons">
-      <button
-        :disabled="!nextAnswerEnabled"
-        type="button"
-        name="button"
-        class="opaque-blue"
-        @click="goToNextAnswer()"
-      >
-        {{ nextAnswerText }}
-      </button>
+    <div class="content-container">
+      <h1 v-text="answerType.text" />
+      <quest-card :question="question" />
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div v-html="question.answerExplanationHTML" />
+      <div class="buttons">
+        <button
+          :disabled="!nextAnswerEnabled"
+          type="button"
+          name="button"
+          class="opaque-blue"
+          @click="goToNextAnswer()"
+        >
+          {{ nextAnswerText }}
+        </button>
+      </div>
     </div>
   </div>
 </template>

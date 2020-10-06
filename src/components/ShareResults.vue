@@ -1,5 +1,8 @@
 <template>
-  <div id="share-results">
+  <div
+    id="share-results"
+    class="app-container content-container"
+  >
     <div>
       <h1>Dzięki za wspólny czas</h1>
 
@@ -120,7 +123,7 @@ export default {
     border-radius: .4em;
 }
 button {
-    margin: .8em 0;
+    margin: 1.6em 0 0 0;
 }
 .buttons {
     width: 100%;
