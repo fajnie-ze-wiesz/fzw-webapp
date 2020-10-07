@@ -2,6 +2,7 @@
   <div
     id="quest"
     class="app-container content-container"
+    style="overflow: hidden"
   >
     <PieChart
       id="counter"
