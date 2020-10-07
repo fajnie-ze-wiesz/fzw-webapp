@@ -15,8 +15,6 @@
       </h1>
       <p>
         Dowiedź się czym są fake newsy i jak je rozpoznawać.
-      </p>
-      <p>
         Poznaj kilka prostych wskazówek, dzięki którym odnajdziesz się w świecie
         powszechnej dezinformacji i bez problemu poradzisz sobie z naszą grą.
       </p>
@@ -55,7 +53,7 @@
         Przeglądając wpisy i artykuły w mediach społecznościowych zawsze zwracaj uwagę na źródło.
         Fałszywe strony często podszywają się
         pod wiarygodne źródła lub mają charakter satyryczny.
-        <b>Przyjrzyj się nazwie oraz logotypowi strony.</b>
+        <b>Przyglądaj się nazwie oraz logotypowi strony.</b>
       </p>
     </div>
 
@@ -91,7 +89,7 @@
       </h1>
       <p>
         Celem rozpowszechniania fałszywych informacji jest wywołanie w Tobie skrajnych emocji,
-        a następnie zachęcenie Cię do kliknięcia w link czy wpis. Po co? Aby na Tobie zarobić.
+        a następnie zachęcenie Cię do kliknięcia w link czy wpis. Po co? Aby na Tobie zarobić!
         <b>
           Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki czy duże litery.
         </b>
@@ -266,8 +264,12 @@ export default {
       if (this.page === 1) {
         return 'OK, pokażcie wskazówki';
       }
-      if (this.page === 7 && !this.isQuizLoaded) {
-        return 'czekaj...';
+      if (this.page === 7) {
+        if (this.isQuizLoaded) {
+          return 'tak, zaczynamy!';
+        } else {
+          return 'czekaj...';
+        }
       }
       return 'dalej';
     },

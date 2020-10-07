@@ -7,11 +7,11 @@
       <h1>Dzięki za wspólny czas</h1>
 
       <p>
-        Będziemy wdzięczni jeżeli udostępnisz info o naszej grze na swoim Facebooku
+        Będziemy wdzięczni jeżeli udostępnisz info o naszej grze na swoim Facebooku.
       </p>
 
       <div class="share-box">
-        Udostępnij na na Facebooku
+        Udostępnij na Facebooku
         <button
           class="share-button"
           type="button"
@@ -23,14 +23,22 @@
       </div>
 
       <p>
-        Jeśli chcesz dowiedzieć się o naszych działaniach w ramach edukacji medialnej
-        poznaj Akademię Fact-Checkingu.
+        Jeśli chcesz dowiedzieć się więcej o naszych działaniach w ramach walki
+        z dezinformacją, zapraszamy na stronę Akademii Fact-Checkingu.
       </p>
       <p>
         <strong>Możesz również zagrać jeszcze raz i zwiększać swoją odporność. Śmiało! :)</strong>
       </p>
     </div>
     <div class="buttons">
+      <a href="/">
+        <button
+          type="button"
+          name="button"
+          class="blue"
+        >zagraj jeszcze raz</button>
+      </a>
+
       <a
         href="https://akademia.demagog.org.pl/"
         target="_blank"
@@ -40,14 +48,6 @@
           name="button"
           class="opaque-blue"
         >poznaj akademię</button>
-      </a>
-
-      <a href="/">
-        <button
-          type="button"
-          name="button"
-          class="red"
-        >zagraj jeszcze raz</button>
       </a>
     </div>
   </div>

@@ -8,7 +8,7 @@
 
       <p>
         <b>
-          Mamy nadzieję, że nauczyłeś/aś się czegoś wartościowego! no i nie zapomnij
+          Mamy nadzieję, że nauczyłeś/aś się czegoś wartościowego! No i nie zapomnij
           o najważniejszych zasadach rozpoznawania fake newsów!
         </b>
       </p>
@@ -21,7 +21,8 @@
           Pamiętaj, że zdjęcie umieszczone w artykule lub mem również mogą być fake newsem.
         </li>
         <li>
-          Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki, pytajniki czy duże litery
+          Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki,
+          pytajniki czy duże litery.
         </li>
       </ol>
     </div>

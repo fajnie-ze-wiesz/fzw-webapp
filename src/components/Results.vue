@@ -11,7 +11,7 @@
       >
       <h1>{{ title }}</h1>
       <p>
-        {{ numOfCorrectAnswers }} z {{ numOfQuestions }} dobrych odpowiedzi
+        {{ numOfCorrectAnswers }} z {{ numOfQuestions }} prawidłowych odpowiedzi
       </p>
       <p>
         {{ description }}

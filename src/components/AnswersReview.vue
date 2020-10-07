@@ -48,13 +48,13 @@ export default {
         },
         'correct': {
           className: 'correct-answer',
-          text: 'Dobra odpowiedź',
+          text: 'Dobra odpowiedź!',
           icon: '✓',
           iconClassName: 'circle-icon correct-answer-circle',
         },
         'wrong': {
           className: 'wrong-answer',
-          text: 'Zła odpowiedź',
+          text: 'Zła odpowiedź!',
           icon: '×',
           iconClassName: 'circle-icon wrong-answer-circle',
         },
