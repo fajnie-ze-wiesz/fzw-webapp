@@ -4,11 +4,12 @@
     class="app-container content-container"
   >
     <div class="">
-      <img
-        class="jumbotron"
-        src="static/img/results.png"
-        alt="source"
-      >
+      <div class="jumbotron">
+        <img
+          src="static/img/results.png"
+          alt="source"
+        >
+      </div>
       <h1>{{ title }}</h1>
       <p>
         {{ numOfCorrectAnswers }} z {{ numOfQuestions }} prawidłowych odpowiedzi
@@ -179,19 +180,23 @@ export default {
 </script>
 
 <style scoped>
-  #results {
-    overflow: auto;
-    background: var(--color-blue);
-    color: white;
-  }
-  img.jumbotron {
-    width: 100%;
-  }
-  ul {
-      padding-left: 1em;
-      margin: 0;
-  }
-  li {
-      margin: 0;
-  }
+#results {
+  overflow: auto;
+  background: var(--color-blue);
+  color: white;
+}
+div.jumbotron {
+  text-align: center;
+}
+div.jumbotron img {
+  width: 85%;
+  padding: 0 auto 0 auto;
+}
+ul {
+    padding-left: 1em;
+    margin: 0;
+}
+li {
+    margin: 0;
+}
 </style>

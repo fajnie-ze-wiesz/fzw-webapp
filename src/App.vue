@@ -54,7 +54,7 @@ body {
   overflow: hidden;
   line-height: 1.6em;
   background: var(--color-gray);
-  font-size: 16px;
+  font-size: 15px;
   transition: background .5s;
 }
 h1, h2, h3, h4, h5 {

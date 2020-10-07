@@ -4,11 +4,12 @@
     class="app-container content-container"
   >
     <div v-show="page === 1">
-      <img
-        class="jumbotron"
-        src="static/img/hello.png"
-        alt="hello"
-      >
+      <div class="jumbotron">
+        <img
+          src="static/img/hello.png"
+          alt="hello"
+        >
+      </div>
       <h1>
         Cześć!<br>
         Fajnie, że jesteś :)
@@ -21,11 +22,12 @@
     </div>
 
     <div v-show="page === 2">
-      <img
-        class="jumbotron"
-        src="static/img/fake_news.png"
-        alt="source"
-      >
+      <div class="jumbotron">
+        <img
+          src="static/img/fake_news.png"
+          alt="fake news"
+        >
+      </div>
       <h1>
         Fake news, czyli co?
       </h1>
@@ -40,11 +42,12 @@
     </div>
 
     <div v-show="page === 3">
-      <img
-        class="jumbotron"
-        src="static/img/source.png"
-        alt="graphics"
-      >
+      <div class="jumbotron">
+        <img
+          src="static/img/source.png"
+          alt="source"
+        >
+      </div>
       <h1>
         Po pierwsze - <br>
         Sprawdzaj źródła
@@ -58,11 +61,12 @@
     </div>
 
     <div v-show="page === 4">
-      <img
-        class="jumbotron"
-        src="static/img/graphics.png"
-        alt="emotions"
-      >
+      <div class="jumbotron">
+        <img
+          src="static/img/graphics.png"
+          alt="graphics"
+        >
+      </div>
       <h1>
         Po drugie - <br>
         Przyjrzyj się grafice
@@ -78,11 +82,12 @@
     </div>
 
     <div v-show="page === 5">
-      <img
-        class="jumbotron"
-        src="static/img/emotions.png"
-        alt="emotions"
-      >
+      <div class="jumbotron">
+        <img
+          src="static/img/emotions.png"
+          alt="emotions"
+        >
+      </div>
       <h1>
         Po trzecie - <br>
         Czytaj, nie klikaj!
@@ -175,11 +180,12 @@
     </div>
 
     <div v-show="page === 7">
-      <img
-        class="jumbotron"
-        src="static/img/lets_begin.png"
-        alt="let's begin"
-      >
+      <div class="jumbotron">
+        <img
+          src="static/img/lets_begin.png"
+          alt="let's begin"
+        >
+      </div>
       <h1>Jesteśmy prawie gotowi!</h1>
       <p>
         Czeka na Ciebie quiz z {{ numOfQuizQuestions }} przykładami treści, które zostały
@@ -327,8 +333,12 @@ export default {
   background: #EBF1F4;
 }
 
-img.jumbotron {
-  width: 100%;
+div.jumbotron {
+  text-align: center;
+}
+div.jumbotron img {
+  width: 85%;
+  padding: 0 auto 0 auto;
 }
 
 select {
