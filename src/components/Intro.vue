@@ -194,7 +194,7 @@
           Zdecyduj, które z nich są fake newsami, a które nie poprzez klikanie
           na przyciski "TAK" i "NIE".
         </b>
-        Nie każdy przykład masz {{ questionTimeoutInSeconds }} sekund.
+        Na każdy przykład masz {{ questionTimeoutInSeconds }} sekund.
         Po upływie czasu przykład zmieni się. To jak, zaczynamy?
       </p>
     </div>
