@@ -11,7 +11,7 @@
       :text-percent="false"
     />
 
-    <h1>Fake news?</h1>
+    <h1>&nbsp;</h1>
 
     <transition
       v-for="(q, index) in questions"
@@ -31,14 +31,14 @@
         class="opaque-white answer"
         @click="answerFalseNews()"
       >
-        Tak
+        Fake
       </button>
       <button
         :disabled="buttonsDisabled"
         class="opaque-white answer"
         @click="answerTrueNews()"
       >
-        Nie
+        Prawda
       </button>
     </div>
   </div>
