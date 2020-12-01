@@ -40,14 +40,14 @@
       </a>
 
       <a
-        href="https://akademia.demagog.org.pl/"
+        href="https://demagog.org.pl"
         target="_blank"
       >
         <button
           type="button"
           name="button"
           class="opaque-blue"
-        >poznaj akademię</button>
+        >Poznaj Demagoga</button>
       </a>
     </div>
   </div>
