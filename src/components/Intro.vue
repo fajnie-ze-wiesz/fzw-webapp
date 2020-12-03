@@ -321,7 +321,7 @@ export default {
       }
     },
     startQuiz() {
-      this.$router.push('/quest');
+      this.$router.push('/quiz');
     },
   },
 };

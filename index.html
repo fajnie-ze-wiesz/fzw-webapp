@@ -42,7 +42,10 @@
         gtag('js', new Date());
 
         gtag('config', '<%= process.env.GOOGLE_ANALYTICS_TRACKER_ID %>');
-    </script> <% } %>
+    </script> <% } else { %>
+    <script>
+        function gtag(){console.log('gtag', arguments);}
+    </script><% } %>
   </head>
   <body>
     <noscript>

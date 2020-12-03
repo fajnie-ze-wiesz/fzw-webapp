@@ -9,7 +9,7 @@ import ShareResults from '@/components/ShareResults';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: 'abstract',
   routes: [
     {
@@ -18,8 +18,8 @@ export default new Router({
       component: Intro,
     },
     {
-      path: '/quest',
-      name: 'Quest',
+      path: '/quiz',
+      name: 'Quiz',
       component: Quest,
     },
 
@@ -48,3 +48,16 @@ export default new Router({
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  const fakePath = `/#${to.path}`;
+  // eslint-disable-next-line no-undef
+  gtag('event', 'page_view', {
+    page_title: to.name,
+    page_path: fakePath,
+  });
+
+  next();
+});
+
+export default router;
