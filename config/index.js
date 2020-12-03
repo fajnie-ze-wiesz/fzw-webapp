@@ -3,9 +3,16 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 const path = require('path')
 
+const buildEnv = (function() {
+  if (process.env.BUILD_ENV === '"staging"') {
+    return require('./staging.env');
+  }
+  return require('./prod.env');
+})()
+
 module.exports = {
   build: {
-    env: require('./prod.env'),
+    env: buildEnv,
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
