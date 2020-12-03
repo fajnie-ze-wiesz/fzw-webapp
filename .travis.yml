@@ -23,10 +23,10 @@ jobs:
       stage: check
       script: npm run build
 
-    - name: deploy
+    - name: deploy to staging
       stage: deploy
-      if: type = push AND branch IN (master, production)
-      script: npm run build
+      if: type = push AND branch = master
+      script: BUILD_ENV='"staging"' npm run build
       deploy:
         - provider: pages
           repo: test-fajnie-ze-wiesz/test-fajnie-ze-wiesz.github.io
@@ -38,6 +38,12 @@ jobs:
           github_token: $GITHUB_TOKEN
           on:
             branch: master
+
+    - name: deploy to production
+      stage: deploy
+      if: type = push AND branch = production
+      script: npm run build
+      deploy:
         - provider: pages
           repo: fajnie-ze-wiesz/fajnie-ze-wiesz.github.io
           fqdn: aplikacja.fajniezewiesz.pl
