@@ -25,6 +25,8 @@ export default {
   --color-orange: #EF420C;
   --color-green: #61bd4f;
   --color-blue: #10305F;
+  --color-lblue: #E4EDF2;
+  --color-border-blue: #C2CBD6;
   --color-light-blue: #4368a0;
   --color-lgray: #F3F3F3;
   --color-white: #FFFFFF;
@@ -53,10 +55,14 @@ body {
   width: 100%;
   overflow: hidden;
   line-height: 1.6em;
-  background: var(--color-gray);
+  background: url(/static/img/bg_light.png) no-repeat top 120px center var(--color-gray);
   font-size: 2.2vh;
   transition: background .5s;
 }
+body.dark {
+  background: url(/static/img/bg_dark.png) no-repeat top 120px center var(--color-blue);
+}
+
 h1, h2, h3, h4, h5 {
     margin: 0;
     margin-bottom: 1em;

@@ -103,7 +103,7 @@
 
     <div v-show="page === 6">
       <div id="category-selection">
-        <h1>Zanim zaczniemy - Wybierz ulubioną kategorię treści które pokażą się w quizie</h1>
+        <h1>Wybierz ulubiony temat treści które pokażą się w quizie</h1>
         <div class="input">
           <div class="radio">
             <input
@@ -113,10 +113,12 @@
               value="all"
             >
             <label for="all">
-              <img
-                src="static/img/world.svg"
-                alt=""
-              >Wiedza ogólna
+              <div class="icon">
+                <img
+                  src="static/img/world.svg"
+                  alt=""
+                >
+              </div><div>Wiedza ogólna</div>
             </label>
           </div>
           <div class="radio">
@@ -127,10 +129,12 @@
               value="entertainment"
             >
             <label for="entertainment">
-              <img
-                src="static/img/fireworks.svg"
-                alt=""
-              >Rozrywka
+              <div class="icon">
+                <img
+                  src="static/img/fireworks.svg"
+                  alt=""
+                >
+              </div><div>Rozrywka</div>
             </label>
           </div>
           <div class="radio">
@@ -141,10 +145,12 @@
               value="health"
             >
             <label for="health">
-              <img
-                src="static/img/doctor.svg"
-                alt=""
-              >Zdrowie
+              <div class="icon">
+                <img
+                  src="static/img/doctor.svg"
+                  alt=""
+                >
+              </div><div>Zdrowie</div>
             </label>
           </div>
           <div class="radio">
@@ -155,10 +161,12 @@
               value="science"
             >
             <label for="nauka">
-              <img
-                src="static/img/atom.svg"
-                alt=""
-              >Nauka
+              <div class="icon">
+                <img
+                  src="static/img/atom.svg"
+                  alt=""
+                >
+              </div><div>Nauka</div>
             </label>
           </div>
           <div class="radio">
@@ -169,10 +177,12 @@
               value="politics"
             >
             <label for="polityka">
-              <img
-                src="static/img/white-house.svg"
-                alt=""
-              >Polityka
+              <div class="icon">
+                <img
+                  src="static/img/white-house.svg"
+                  alt=""
+                >
+              </div><div>Polityka</div>
             </label>
           </div>
         </div>
@@ -333,6 +343,10 @@ export default {
   background: #EBF1F4;
 }
 
+#category-selection h1 {
+  margin-bottom:2.5em;
+}
+
 div.jumbotron {
   text-align: center;
 }
@@ -351,19 +365,78 @@ select {
 }
 
 label img {
-  height: 1.5em;
+  height: 1.375em;
   width: auto;
-  margin: 0 1em;
+}
+
+label .icon {
+  width:3em;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 
 label {
   text-align: center;
   display: flex;
   align-items: center;
+  background: var(--color-lblue);
+  border-radius:0.5em;
+  padding:0.75em 0.95em;
+  width: 100%;
+  margin-bottom: 0.75em;
+  position: relative;
+  transition-duration: 0.3s;
+}
+
+label:before {
+  height: 1.25em;
+  width:1.25em;
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+  right:1.0625em;
+  box-sizing: border-box;
+  border-radius: 50%;
+  content:'';
+  border: 0.125em solid var(--color-border-blue);
+  transition-duration: 0.2s;
+}
+
+label:after {
+  height:0.75em;
+  width:0.75em;
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+  right:1.3125em;
+  border-radius: 50%;
+  content:'';
+  background: var(--color-orange);
+  transition-duration: 0.2s;
+  opacity: 0;
 }
 
 .radio {
   width: 100%;
+}
+
+.radio input {
+  position: absolute;
+  z-index: -9999;
+}
+
+.radio input:checked + label {
+  background: #fff;
+  box-shadow: 0px 0.25em 1.125em #DEE6EA98;
+}
+
+.radio input:checked + label:before {
+  border-color: var(--color-orange);
+}
+
+.radio input:checked + label:after {
+  opacity:1;
 }
 
 .numbering {

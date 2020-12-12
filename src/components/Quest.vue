@@ -2,7 +2,7 @@
   <div
     id="quest"
     class="app-container content-container"
-    style="overflow: hidden"
+    style="overflow: hidden; background-image:url('static/img/question-bg.png')"
   >
     <PieChart
       id="counter"
@@ -11,7 +11,13 @@
       :text-percent="false"
     />
 
-    <h1>&nbsp;</h1>
+    <ul class="progress">
+      <li
+        v-for="(q, index) in questions"
+        :key="q.newsId"
+        :class="{ active: index === questionIndex }"
+      />
+    </ul>
 
     <transition
       v-for="(q, index) in questions"
@@ -61,8 +67,7 @@ export default {
     QuestCard,
   },
   beforeRouteEnter(to, from, next) {
-    document.body.style.background = getComputedStyle(document.body)
-      .getPropertyValue('--color-blue');
+    document.body.classList.add('dark');
     next((vm) => {
       vm.startQuestionTimeout();
       vm.startTicker();
@@ -171,7 +176,11 @@ export default {
 
 <style scoped>
 #quest {
-  background: var(--color-blue);
+  background-color: var(--color-blue);
+  background-position: top center;
+  background-size:100% auto;
+  background-repeat:no-repeat;
+  background-size: 100% auto;
   position: relative;
   align-items: center;
 }
@@ -179,7 +188,7 @@ export default {
 #counter {
   display: flex;
   justify-content: flex-start;
-  height: 15%;
+  height: 16%;
   z-index: 10;
 }
 
@@ -196,8 +205,8 @@ h1 {
 
 .card {
   position: absolute;
-  max-width: calc(100% - 3em);
-  top: 20%;
+  max-width: 84%;
+  top: 28%;
   background: white;
   height: 55%;
 }
@@ -207,5 +216,37 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+}
+
+.progress {
+  display: flex;
+  justify-content: space-between;
+  margin:0;
+  padding: 0;
+  list-style-type: none;
+  width: 84%;
+  top: 23%;
+  position: absolute;
+  left:8%;
+  right:8%;
+}
+
+.progress li {
+  height: 0.25em;
+  width: 100%;
+  border-radius: 0.125em;
+  background: #23467A;
+  margin:0 0.2em;
+  transition-duration: 0.2s;
+}
+.progress li:first-child {
+  margin-left: 0;
+}
+.progress li:last-child {
+  margin-right: 0;
+}
+.progress li.active {
+  background: var(--color-orange);
+  width: 150%;
 }
 </style>

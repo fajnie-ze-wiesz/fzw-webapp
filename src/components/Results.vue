@@ -38,8 +38,7 @@ import ManipulationCategory from '../data/manipulation_category';
 export default {
   name: 'Results',
   beforeRouteLeave(to, from, next) {
-    document.body.style.background = getComputedStyle(document.body)
-      .getPropertyValue('--color-gray');
+    document.body.classList.add('dark');
     next();
   },
   data() {

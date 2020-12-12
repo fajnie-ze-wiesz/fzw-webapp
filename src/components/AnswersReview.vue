@@ -6,10 +6,18 @@
     @scroll="updateScrollData"
   >
     <div class="content-container">
+      <ul class="progress">
+        <li
+          v-for="(q, index) in questions"
+          :key="q.newsId"
+          :class="{ active: index === questionIndex }"
+        />
+      </ul>
       <h1 v-text="answerType.text" />
       <quest-card :question="question" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="question.answerExplanationHTML" />
+
       <div class="buttons">
         <button
           :disabled="!nextAnswerEnabled"
@@ -212,5 +220,49 @@ h1 {
 .spacer {
     padding: 3em;
 }
+.progress {
+  display: flex;
+  justify-content: space-between;
+  margin:0;
+  padding: 0;
+  list-style-type: none;
+  width:100%;
+  margin-bottom: 1.25em;
+}
 
+.progress li {
+  height: 0.25em;
+  width: 100%;
+  border-radius: 0.125em;
+  background: var(--color-border-blue);
+  margin:0 0.2em;
+  transition-duration: 0.2s;
+}
+.progress li:first-child {
+  margin-left: 0;
+}
+.progress li:last-child {
+  margin-right: 0;
+}
+.progress li.active {
+  background: var(--color-orange);
+  width: 150%;
+}
+
+ol li h2,
+ol li h3 {
+  margin:0.215em 0 1.2em;
+  font-size: 1em;
+  line-height: 1.25em;
+  font-weight: 500;
+  color: var(--color-blue);
+  text-transform: none;
+}
+
+ol li p {
+  margin:0 0 1.2em;
+  font-size: 0.875em;
+  line-height: 1.25em;
+  color: var(--color-blue);
+}
 </style>

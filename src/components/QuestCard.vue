@@ -42,10 +42,10 @@ export default {
     transform: translateY(100vmax);
   }
   .question-transition-enter-active {
-    transition: all 1.5s ease;
+    transition: all 1s ease;
   }
   .question-transition-leave-active {
-    transition: all 1.5s ease;
+    transition: all 1s ease;
   }
   .question-transition-leave-active.answer-true{
     transform: translateX(100vmin);

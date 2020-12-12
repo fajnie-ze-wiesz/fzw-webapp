@@ -15,7 +15,7 @@ const router = new Router({
     {
       path: '/',
       name: 'Intro',
-      component: Intro,
+      component: ShareResults,
     },
     {
       path: '/quiz',
@@ -44,7 +44,7 @@ const router = new Router({
     {
       path: '/share-results',
       name: 'ShareResults',
-      component: ShareResults,
+      component: Intro,
     },
   ],
 });
