@@ -4,12 +4,12 @@
     class="app-container content-container"
   >
     <div>
-      <h1>Fajnie że wiesz!</h1>
+      <h1>Fajnie, że wiesz!</h1>
 
       <p>
         <b>
-          Mamy nadzieję, że nauczyłeś/aś się czegoś wartościowego! No i nie zapomnij
-          o najważniejszych zasadach rozpoznawania fake newsów!
+          Mamy nadzieję, że teraz już wiesz jak rozpoznawać fake newsy.
+          Czytając informacje w internecie pamiętaj o najważniejszych zasadach!
         </b>
       </p>
 
