@@ -96,14 +96,14 @@
         Celem rozpowszechniania fałszywych informacji jest wywołanie w Tobie skrajnych emocji,
         a następnie zachęcenie Cię do kliknięcia w link czy wpis. Po co? Aby na Tobie zarobić!
         <b>
-          Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki czy duże litery.
+          Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki czy duże litery w tytule.
         </b>
       </p>
     </div>
 
     <div v-show="page === 6">
       <div id="category-selection">
-        <h1>Wybierz ulubiony temat treści które pokażą się w quizie</h1>
+        <h1>Wybierz ulubioną tematykę treści, które pokażą się w quizie</h1>
         <div class="input">
           <div class="radio">
             <input
@@ -198,14 +198,14 @@
       </div>
       <h1>Jesteśmy prawie gotowi!</h1>
       <p>
-        Czeka na Ciebie quiz z {{ numOfQuizQuestions }} przykładami treści, które zostały
-        opublikowane w sieci.
+        Czeka na Ciebie quiz z {{ numOfQuizQuestions }} przykładami treści,
+        które zostały opublikowane w sieci.
         <b>
-          Zdecyduj, które z nich są fake newsami, a które nie poprzez klikanie
-          na przyciski "Fake" i "Prawda".
+          Kieruj się intuicją i zdecyduj, które z nich są fake newsami,
+          po przez klikanie na przyciski „Fake” i „Prawda”.
         </b>
         Na każdy przykład masz {{ questionTimeoutInSeconds }} sekund.
-        Po upływie czasu przykład zmieni się. To jak, zaczynamy?
+        Po upływie czasu przykład się zmieni. To jak, zaczynamy?
       </p>
     </div>
 
