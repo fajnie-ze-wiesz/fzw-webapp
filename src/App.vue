@@ -292,5 +292,8 @@ li ul {
 ol ol li:last-child {
   margin-bottom: 0;
 }
+ol > li > p {
+  margin-top: 0;
+}
 
 </style>
