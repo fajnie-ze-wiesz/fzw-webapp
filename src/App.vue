@@ -88,6 +88,9 @@ h4 {
 li {
   margin: 1em 0;
 }
+small {
+  color:var(--color-gray-text);
+}
 #app {
   border-radius: 1em;
   width: 100%;
