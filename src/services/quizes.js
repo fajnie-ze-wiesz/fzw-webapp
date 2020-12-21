@@ -8,6 +8,7 @@ function parseQuestion(data) {
   return Question.create({
     newsId: data.news_id,
     imageUrl: data.image_url,
+    sourceName: data.source_name,
     type: data.manipulation_category_name,
     answerExplanationHTML: data.answer_explanation_html,
     expectedAnswer: data.expected_answer,

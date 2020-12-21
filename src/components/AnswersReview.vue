@@ -17,6 +17,12 @@
       <quest-card :question="question" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="question.answerExplanationHTML" />
+      <div
+        v-if="sourceNameIsDefined"
+        class="news-source"
+      >
+        Źródło: {{ sourceName }}
+      </div>
 
       <div class="buttons">
         <button
@@ -101,6 +107,12 @@ export default {
         answerTypeString = 'wrong';
       }
       return this.answerTypesDict[answerTypeString];
+    },
+    sourceName() {
+      return Question.getSourceName(this.question);
+    },
+    sourceNameIsDefined() {
+      return this.sourceName !== '';
     },
     question() {
       return this.questions[this.questionIndex];
@@ -204,6 +216,11 @@ h1 {
 
 .wrong-answer-circle {
   background: var(--color-orange);
+}
+
+.news-source {
+  font-size: 80%;
+  margin-bottom: 1em;
 }
 
 .button {

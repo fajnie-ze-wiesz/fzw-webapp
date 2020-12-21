@@ -1,7 +1,10 @@
-export const create = ({newsId, imageUrl, type, answerExplanationHTML, expectedAnswer}) => {
+export const create = ({
+  newsId, imageUrl, sourceName = '', type, answerExplanationHTML, expectedAnswer,
+}) => {
   return {
     newsId,
     imageUrl,
+    sourceName,
     type,
     answer: null,
     answerExplanationHTML,
@@ -12,6 +15,8 @@ export const create = ({newsId, imageUrl, type, answerExplanationHTML, expectedA
 export const getAnswerExplanationHTML = (q) => q.answerExplanationHTML;
 
 export const getImageUrl = (q) => q.imageUrl;
+
+export const getSourceName = (q) => q.sourceName;
 
 export const isTrueNews = (q) => q.expectedAnswer === 'yes';
 
@@ -33,6 +38,7 @@ const Question = {
   create,
   getAnswerExplanationHTML,
   getImageUrl,
+  getSourceName,
   isTrueNews,
   isFalseNews,
   isAnswered,
