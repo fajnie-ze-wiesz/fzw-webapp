@@ -48,6 +48,10 @@ export default {
   components: {
     QuestCard,
   },
+  beforeRouteEnter(to, from, next) {
+    document.body.classList.remove('dark');
+    next();
+  },
   data() {
     return {
       questionIndex: 0,
