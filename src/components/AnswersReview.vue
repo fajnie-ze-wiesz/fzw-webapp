@@ -18,10 +18,17 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="question.answerExplanationHTML" />
       <div
-        v-if="sourceNameIsDefined"
+        v-if="sourceName"
         class="news-source"
       >
-        Źródło: {{ sourceName }}
+        Źródło:
+        <span v-if="sourceUrl">
+          <a
+            :href="sourceUrl"
+            target="_blank"
+          >{{ sourceName }}</a>
+        </span>
+        <span v-else>{{ sourceName }}</span>
       </div>
 
       <div class="buttons">
@@ -115,8 +122,8 @@ export default {
     sourceName() {
       return Question.getSourceName(this.question);
     },
-    sourceNameIsDefined() {
-      return this.sourceName !== '';
+    sourceUrl() {
+      return Question.getSourceUrl(this.question);
     },
     question() {
       return this.questions[this.questionIndex];
