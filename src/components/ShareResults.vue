@@ -74,9 +74,7 @@
         Chcesz więcej?
       </h3>
       <p>
-        Dowiedz się o naszych działaniach w ramach
-        walki z dezinformacją na Demagog.org.pl
-        lub zagraj jeszcze raz!
+        Dowiedz się więcej o tym, jak powstają fake news lub zagraj jeszcze raz!
       </p>
       <div class="buttons-row">
         <a href="/">
