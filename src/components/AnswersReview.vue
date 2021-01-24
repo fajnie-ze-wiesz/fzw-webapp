@@ -232,6 +232,11 @@ h1 {
 .news-source {
   font-size: 80%;
   margin-bottom: 1em;
+  color: var(--color-gray-text);
+}
+
+.news-source a, .news-source a:visited {
+  color: var(--color-gray-text);
 }
 
 .button {
