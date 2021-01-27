@@ -4,4 +4,6 @@ module.exports = {
   GOOGLE_ANALYTICS_TRACKER_ID: '"UA-156092120-1"',
   BACKEND_HOST: '"fzw-backend.herokuapp.com"',
   BACKEND_HTTP_SCHEME: '"https"',
+  APP_HOST: '"aplikacja.fajniezewiesz.pl"',
+  APP_HTTP_SCHEME: '"https"',
 }
