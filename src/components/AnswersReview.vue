@@ -17,27 +17,17 @@
       <quest-card :question="question" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="question.answerExplanationHTML" />
-      <div
-        v-if="sourceName"
-        class="news-source"
-      >
-        Źródło:
-        <span v-if="sourceUrl">
-          <a
-            :href="sourceUrl"
-            target="_blank"
-          >{{ sourceName }}</a>
-        </span>
-        <span v-else>{{ sourceName }}</span>
-      </div>
-      <div
-        v-if="analysisUrl"
-        class="news-analysis"
-      >
-        <a
-          :href="analysisUrl"
-          target="_blank"
-        >Analiza</a>
+      <div class="foot-link-notes">
+        <foot-link-note
+          name="Źrodło"
+          :link-name="sourceName"
+          :link-url="sourceUrl"
+        />
+        <foot-link-note
+          name="Analiza"
+          :link-name="analysisName"
+          :link-url="analysisUrl"
+        />
       </div>
 
       <div class="buttons">
@@ -57,12 +47,14 @@
 
 <script>
 import QuestCard from '@/components/QuestCard';
+import FootLinkNote from '@/components/FootLinkNote';
 import Question from '../data/question';
 
 export default {
   name: 'AnswersReview',
   components: {
     QuestCard,
+    FootLinkNote,
   },
   beforeRouteEnter(to, from, next) {
     document.body.classList.remove('dark');
@@ -128,14 +120,17 @@ export default {
       }
       return this.answerTypesDict[answerTypeString];
     },
-    sourceName() {
-      return Question.getSourceName(this.question);
-    },
     sourceUrl() {
       return Question.getSourceUrl(this.question);
     },
+    sourceName() {
+      return Question.getSourceName(this.question);
+    },
     analysisUrl() {
       return Question.getAnalysisUrl(this.question);
+    },
+    analysisName() {
+      return Question.getAnalysisName(this.question);
     },
     question() {
       return this.questions[this.questionIndex];
@@ -241,19 +236,8 @@ h1 {
   background: var(--color-orange);
 }
 
-.news-source,
-.news-analysis {
-  font-size: 80%;
+.foot-link-notes {
   margin-bottom: 1em;
-}
-
-.news-source,
-.news-source a,
-.news-source a:visited,
-.news-analysis,
-.news-analysis a,
-.news-analysis a:visited {
-  color: var(--color-gray-text);
 }
 
 .button {

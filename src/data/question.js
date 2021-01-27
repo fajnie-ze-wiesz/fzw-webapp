@@ -1,5 +1,7 @@
 export const create = ({
-  newsId, imageUrl, sourceName = '', sourceUrl = '', analysisUrl = '',
+  newsId, imageUrl,
+  sourceName = '', sourceUrl = '',
+  analysisName = '', analysisUrl = '',
   type, answerExplanationHTML, expectedAnswer,
 }) => {
   return {
@@ -7,6 +9,7 @@ export const create = ({
     imageUrl,
     sourceName,
     sourceUrl,
+    analysisName,
     analysisUrl,
     type,
     answer: null,
@@ -22,6 +25,8 @@ export const getImageUrl = (q) => q.imageUrl;
 export const getSourceName = (q) => q.sourceName;
 
 export const getSourceUrl = (q) => q.sourceUrl;
+
+export const getAnalysisName = (q) => q.analysisName;
 
 export const getAnalysisUrl = (q) => q.analysisUrl;
 
@@ -47,6 +52,7 @@ const Question = {
   getImageUrl,
   getSourceName,
   getSourceUrl,
+  getAnalysisName,
   getAnalysisUrl,
   isTrueNews,
   isFalseNews,
