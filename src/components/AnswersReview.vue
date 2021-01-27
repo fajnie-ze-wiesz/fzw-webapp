@@ -30,6 +30,15 @@
         </span>
         <span v-else>{{ sourceName }}</span>
       </div>
+      <div
+        v-if="analysisUrl"
+        class="news-analysis"
+      >
+        <a
+          :href="analysisUrl"
+          target="_blank"
+        >Analiza</a>
+      </div>
 
       <div class="buttons">
         <button
@@ -124,6 +133,9 @@ export default {
     },
     sourceUrl() {
       return Question.getSourceUrl(this.question);
+    },
+    analysisUrl() {
+      return Question.getAnalysisUrl(this.question);
     },
     question() {
       return this.questions[this.questionIndex];
@@ -229,13 +241,18 @@ h1 {
   background: var(--color-orange);
 }
 
-.news-source {
+.news-source,
+.news-analysis {
   font-size: 80%;
   margin-bottom: 1em;
-  color: var(--color-gray-text);
 }
 
-.news-source a, .news-source a:visited {
+.news-source,
+.news-source a,
+.news-source a:visited,
+.news-analysis,
+.news-analysis a,
+.news-analysis a:visited {
   color: var(--color-gray-text);
 }
 

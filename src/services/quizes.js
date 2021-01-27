@@ -10,6 +10,7 @@ function parseQuestion(data) {
     imageUrl: data.image_url,
     sourceName: data.source_name,
     sourceUrl: data.source_url,
+    analysisUrl: data.analysis_url,
     type: data.manipulation_category_name,
     answerExplanationHTML: data.answer_explanation_html,
     expectedAnswer: data.expected_answer,
