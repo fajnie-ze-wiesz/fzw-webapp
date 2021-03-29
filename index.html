@@ -6,12 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fajnie, że wiesz!</title>
 
-    <meta property="og:title" content="Fajnie, że wiesz!" />
-    <meta property="og:description" content="Coraz więcej słyszysz o fake newsach, ale nie wiesz jak się przed nimi bronić? Naucz się tego z naszą edukacyjną grą „Fajnie, że wiesz”!" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://aplikacja.fajniezewiesz.pl/" />
-    <meta property="og:image" content="http://aplikacja.fajniezewiesz.pl/static/img/screenshot_fzw.png" />
+    <meta property="og:title" content="Fajnie, że wiesz!">
+    <meta property="og:description" content="Coraz więcej słyszysz o fake newsach, ale nie wiesz jak się przed nimi bronić? Naucz się tego z naszą edukacyjną grą „Fajnie, że wiesz”!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= process.env.APP_HTTP_SCHEME %>://<%= process.env.APP_HOST %>/">
+    <meta property="og:image" content="http://<%= process.env.APP_HOST %>/static/img/og_share.jpg">
+    <meta property="fb:app_id" content="3589564597786832">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@DemagogPL">
+    <meta property="twitter:creator" content="@DemagogPL">
+    <meta property="twitter:title" content="Fajnie, że wiesz!">
+    <meta property="twitter:description" content="Coraz więcej słyszysz o fake newsach, ale nie wiesz jak się przed nimi bronić? Naucz się tego z naszą edukacyjną grą „Fajnie, że wiesz”!">
+    <meta property="twitter:image" content="<%= process.env.APP_HTTP_SCHEME %>://<%= process.env.APP_HOST %>/static/img/og_share.jpg">
 
+    <meta name="description" content="Coraz więcej słyszysz o fake newsach, ale nie wiesz jak się przed nimi bronić? Naucz się tego z naszą edukacyjną grą „Fajnie, że wiesz”!">
+    <meta name="keywords" content="Fake news, Fact checking, Quiz, Demagog">
+    <meta name="author" content="Stowarzyszenie Demagog">
 
     <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/fzw_logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/fzw_logo.png">

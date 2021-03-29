@@ -14,4 +14,6 @@ try {
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
   GOOGLE_ANALYTICS_TRACKER_ID: 'null',
+  APP_HOST: '"localhost:8080"',
+  APP_HTTP_SCHEME: '"http"',
 }, devLocalEnv)

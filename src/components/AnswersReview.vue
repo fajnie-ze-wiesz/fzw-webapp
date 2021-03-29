@@ -17,6 +17,18 @@
       <quest-card :question="question" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="question.answerExplanationHTML" />
+      <div class="foot-link-notes">
+        <foot-link-note
+          name="Źrodło"
+          :link-name="sourceName"
+          :link-url="sourceUrl"
+        />
+        <foot-link-note
+          name="Analiza"
+          :link-name="analysisName"
+          :link-url="analysisUrl"
+        />
+      </div>
 
       <div class="buttons">
         <button
@@ -35,12 +47,18 @@
 
 <script>
 import QuestCard from '@/components/QuestCard';
+import FootLinkNote from '@/components/FootLinkNote';
 import Question from '../data/question';
 
 export default {
   name: 'AnswersReview',
   components: {
     QuestCard,
+    FootLinkNote,
+  },
+  beforeRouteEnter(to, from, next) {
+    document.body.classList.remove('dark');
+    next();
   },
   data() {
     return {
@@ -101,6 +119,18 @@ export default {
         answerTypeString = 'wrong';
       }
       return this.answerTypesDict[answerTypeString];
+    },
+    sourceUrl() {
+      return Question.getSourceUrl(this.question);
+    },
+    sourceName() {
+      return Question.getSourceName(this.question);
+    },
+    analysisUrl() {
+      return Question.getAnalysisUrl(this.question);
+    },
+    analysisName() {
+      return Question.getAnalysisName(this.question);
     },
     question() {
       return this.questions[this.questionIndex];
@@ -204,6 +234,10 @@ h1 {
 
 .wrong-answer-circle {
   background: var(--color-orange);
+}
+
+.foot-link-notes {
+  margin-bottom: 1em;
 }
 
 .button {

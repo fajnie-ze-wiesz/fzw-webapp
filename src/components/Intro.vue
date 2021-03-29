@@ -202,7 +202,7 @@
         które zostały opublikowane w sieci.
         <b>
           Kieruj się intuicją i zdecyduj, które z nich są fake newsami,
-          po przez klikanie na przyciski „Fake” i „Prawda”.
+          poprzez klikanie na przyciski „Fake” i „Prawda”.
         </b>
         Na każdy przykład masz {{ questionTimeoutInSeconds }} sekund.
         Po upływie czasu przykład się zmieni. To jak, zaczynamy?
