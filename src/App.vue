@@ -195,10 +195,9 @@ button.opaque-blue {
 
 .input{
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
+  flex-wrap:wrap;
 }
 .radio{
   display: flex;
