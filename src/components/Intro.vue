@@ -347,6 +347,7 @@ export default {
       }
     },
     startQuiz() {
+      localStorage.setItem('category', this.userInfo.category);
       this.$router.push('/quiz');
     },
   },
