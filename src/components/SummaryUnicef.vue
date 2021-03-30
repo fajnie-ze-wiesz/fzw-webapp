@@ -4,7 +4,10 @@
     class="app-container content-container"
   >
     <div>
-      <h1>Podpisz apel UNICEF Polska do Ministra Zdrowia i pomóż chronić dzieci przed groźnymi chorobami zakaźnymi!</h1>
+      <h1>
+        Podpisz apel UNICEF Polska do Ministra Zdrowia
+        i pomóż chronić dzieci przed groźnymi chorobami zakaźnymi!
+      </h1>
 
       <p>
         <b>
@@ -30,9 +33,9 @@
         href="https://unicef.pl/chce-pomoc/podpisz-apel/spadek-liczby-szczepien"
       >
         <button
-        type="button"
-        name="button"
-        class="opaque-blue"
+          type="button"
+          name="button"
+          class="opaque-blue"
         >Podpisz apel</button>
       </a>
       <router-link
