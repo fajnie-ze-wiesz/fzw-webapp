@@ -178,7 +178,12 @@ export default {
       }
     },
     goToSummary() {
-      this.$router.push('/summary');
+      let path = '/summary';
+      if(window.localStorage.getItem('category') === 'vaccinations') {
+        path = '/unicef';
+      }
+
+      this.$router.push(path);
     },
   },
 };
