@@ -179,7 +179,7 @@ export default {
     },
     goToSummary() {
       let path = '/summary';
-      if(window.localStorage.getItem('category') === 'vaccinations') {
+      if (window.localStorage.getItem('category') === 'vaccinations') {
         path = '/unicef';
       }
 
