@@ -195,7 +195,7 @@
             <label for="szczepienia">
               <div class="icon">
                 <img
-                  src="static/img/unicef.svg"
+                  src="static/img/vaccinations.svg"
                   alt=""
                 >
               </div><div>Szczepienia dzieci</div>
