@@ -185,6 +185,22 @@
               </div><div>Polityka</div>
             </label>
           </div>
+          <div class="radio">
+            <input
+              id="szczepienia"
+              v-model="userInfo.category"
+              type="radio"
+              value="vaccinations"
+            >
+            <label for="szczepienia">
+              <div class="icon">
+                <img
+                  src="static/img/vaccinations.svg"
+                  alt=""
+                >
+              </div><div>Szczepienia dzieci</div>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -331,6 +347,7 @@ export default {
       }
     },
     startQuiz() {
+      localStorage.setItem('category', this.userInfo.category);
       this.$router.push('/quiz');
     },
   },
@@ -365,24 +382,29 @@ select {
 }
 
 label img {
-  height: 1.375em;
+  height: 1.8em;
   width: auto;
+  max-width: 80%;
 }
 
 label .icon {
-  width:3em;
+  margin-bottom: 0.6em;
   display: flex;
   align-items: center;
   justify-content: center
 }
 
+label .icon + div {
+  line-height: 1.1em;
+  font-size: 0.85em;
+  min-height: 2.2em;
+}
+
 label {
   text-align: center;
-  display: flex;
-  align-items: center;
   background: var(--color-lblue);
   border-radius:0.5em;
-  padding:0.75em 0.95em;
+  padding:1.5em 0.95em 0.65em 0.95em;
   width: 100%;
   margin-bottom: 0.75em;
   position: relative;
@@ -393,9 +415,8 @@ label:before {
   height: 1.25em;
   width:1.25em;
   position: absolute;
-  top:50%;
-  transform:translateY(-50%);
-  right:1.0625em;
+  top:0.75em;
+  left:0.75em;
   box-sizing: border-box;
   border-radius: 50%;
   content:'';
@@ -407,9 +428,8 @@ label:after {
   height:0.75em;
   width:0.75em;
   position: absolute;
-  top:50%;
-  transform:translateY(-50%);
-  right:1.3125em;
+  top:1em;
+  left:1em;
   border-radius: 50%;
   content:'';
   background: var(--color-orange);
@@ -418,7 +438,7 @@ label:after {
 }
 
 .radio {
-  width: 100%;
+  width: calc(50% - 10px);
 }
 
 .radio input {

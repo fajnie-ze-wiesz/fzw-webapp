@@ -5,6 +5,7 @@ import Quest from '@/components/Quest';
 import Results from '@/components/Results';
 import AnswersReview from '@/components/AnswersReview';
 import Summary from '@/components/Summary';
+import SummaryUnicef from '@/components/SummaryUnicef';
 import ShareResults from '@/components/ShareResults';
 
 Vue.use(Router);
@@ -39,6 +40,12 @@ const router = new Router({
       path: '/summary',
       name: 'Summary',
       component: Summary,
+    },
+
+    {
+      path: '/unicef',
+      name: 'Unicef',
+      component: SummaryUnicef,
     },
 
     {
