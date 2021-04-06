@@ -30,7 +30,7 @@
     <div class="buttons-row">
       <a
         targt="_blank"
-        href="https://unicef.pl/chce-pomoc/podpisz-apel/spadek-liczby-szczepien?utm_source=Demagog&utm_medium=quiz&utm_campaign=apel_szczepienia"
+        href="https://unicef.pl/chce-pomoc/podpisz-apel/spadek-liczby-szczepien"
       >
         <button
           type="button"
