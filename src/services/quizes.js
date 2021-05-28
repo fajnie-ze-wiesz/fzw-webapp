@@ -25,13 +25,16 @@ function parseQuiz(data) {
   });
 }
 
-export async function generateQuiz({topicCategory = null}) {
+export async function generateQuiz({topicCategory = null, language = null}) {
   const data = {};
   if (process.env.NUM_OF_QUIZ_QUESTIONS) {
     data['num_of_questions'] = process.env.NUM_OF_QUIZ_QUESTIONS;
   }
   if (topicCategory) {
     data['topic_category_name'] = TopicCategory.getName(topicCategory);
+  }
+  if (language) {
+    data['language'] = language;
   }
   const response = await apiAxios.post('quiz/', data);
   return parseQuiz(response.data);
