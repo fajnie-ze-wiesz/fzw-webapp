@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { QUESTION_LANGUAGE } from '../consts';
 import { generateQuiz, loadQuizImages } from '../services/quizes';
 import { ping } from '../services/ping';
 import ManipulationCategoryService from '../services/manipulation_category';
@@ -27,8 +28,9 @@ export default new Vuex.Store({
       });
     },
     async generateQuiz(context) {
+      const language = QUESTION_LANGUAGE;
       const topicCategory = QuizSetupInfo.getTopicCategory(context.state.quizSetupInfo);
-      const quiz = await generateQuiz({topicCategory});
+      const quiz = await generateQuiz({topicCategory, language});
       const images = await loadQuizImages(quiz);
       context.commit('loadQuiz', {
         quiz, images,
