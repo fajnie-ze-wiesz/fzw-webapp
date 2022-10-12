@@ -15,7 +15,7 @@
         Fajnie, że jesteś :)
       </h1>
       <p>
-        Dowiedź się czym są fake newsy i jak je rozpoznawać.
+        Dowiedz się, czym są fake newsy, i jak je rozpoznawać.
         Poznaj kilka prostych wskazówek, dzięki którym odnajdziesz się w świecie
         powszechnej dezinformacji i bez problemu poradzisz sobie z naszą grą.
       </p>
@@ -53,7 +53,7 @@
         Sprawdzaj źródła
       </h1>
       <p>
-        Przeglądając wpisy i artykuły w mediach społecznościowych zawsze zwracaj uwagę na źródło.
+        Przeglądając wpisy i artykuły w mediach społecznościowych, zawsze zwracaj uwagę na źródło.
         Fałszywe strony często podszywają się
         pod wiarygodne źródła lub mają charakter satyryczny.
         <b>Przyglądaj się nazwie oraz logotypowi strony.</b>
@@ -201,11 +201,49 @@
               </div><div>Szczepienia dzieci</div>
             </label>
           </div>
+          <div class="radio">
+            <input
+              id="ue"
+              v-model="userInfo.category"
+              type="radio"
+              value="ue"
+            >
+            <label for="ue">
+              <div class="icon">
+                <img
+                  src="static/img/ue.svg"
+                  alt=""
+                >
+              </div><div>Unia Europejska</div>
+            </label>
+          </div>
         </div>
       </div>
     </div>
 
     <div v-show="page === 7">
+      <h1 style="text-align:center">
+        Partner kategorii
+      </h1>
+      <div>
+        <img
+          src="static/img/parlament.png"
+          alt=""
+          style="width:340px;max-width:100%;mix-blend-mode:multiply;margin:0 auto;display:block;"
+        >
+        <img
+          src="static/img/komisja.png"
+          alt=""
+          style="width:200px;max-width:100%;margin:-20px auto 40px;display:block;"
+        >
+      </div>
+      <p style="text-align:center;">
+        Projekt Przedstawicielstwa Komisji Europejskiej w Polsce oraz Biura
+        Parlamentu Europejskiego w Polsce realizowany przez Stowarzyszenie Demagog.
+      </p>
+    </div>
+
+    <div v-show="page === 8">
       <div class="jumbotron">
         <img
           src="static/img/lets_begin.png"
@@ -272,7 +310,7 @@ export default {
             this.generateQuiz();
           },
         },
-        7: {
+        8: {
           canGoNext() {
             return this.isQuizLoaded;
           },
@@ -296,7 +334,7 @@ export default {
       if (this.page === 1) {
         return 'OK, pokażcie wskazówki';
       }
-      if (this.page === 7) {
+      if (this.page === 8) {
         if (this.isQuizLoaded) {
           return 'tak, zaczynamy!';
         } else {
@@ -306,7 +344,7 @@ export default {
       return 'dalej';
     },
     incrementPageButtonClass() {
-      if (this.page === 7) {
+      if (this.page === 8) {
         return 'blue';
       }
       return 'opaque-blue';
@@ -342,6 +380,9 @@ export default {
     incrementPage() {
       const pageTransition = this.pageTransitions[this.page];
       ++this.page;
+      if (this.userInfo.category !== 'ue' && this.page === 7) {
+        ++this.page;
+      }
       if (pageTransition && pageTransition.next) {
         pageTransition.next.call(this);
       }
@@ -361,7 +402,8 @@ export default {
 }
 
 #category-selection h1 {
-  margin-bottom:2.5em;
+  font-size: 120%;
+  margin-bottom:1.5em;
 }
 
 div.jumbotron {
@@ -404,9 +446,9 @@ label {
   text-align: center;
   background: var(--color-lblue);
   border-radius:0.5em;
-  padding:1.5em 0.95em 0.65em 0.95em;
+  padding:1em 0.95em 0.65em 0.95em;
   width: 100%;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.70em;
   position: relative;
   transition-duration: 0.3s;
 }

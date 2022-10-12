@@ -8,7 +8,7 @@
 
       <p>
         <!-- eslint-disable-next-line -->
-        <strong>Będziemy wdzięczni jeżeli udostępnisz informacje o naszej grze na Facebooku oraz ocenisz ją gwiazdkami tak jak uważasz za słuszne. :)</strong>
+        <strong>Będziemy wdzięczni, jeżeli udostępnisz informacje o naszej grze na Facebooku, oraz ocenisz ją gwiazdkami, tak jak uważasz za słuszne. :)</strong>
       </p>
 
       <button
@@ -74,7 +74,7 @@
         Chcesz więcej?
       </h3>
       <p>
-        Dowiedz się więcej o tym, jak powstają fake news lub zagraj jeszcze raz!
+        Dowiedz się więcej o tym, jak powstają fake newsy, lub zagraj jeszcze raz!
       </p>
       <div class="buttons-row">
         <a href="/">
