@@ -156,8 +156,8 @@ export default {
       } else if (ratio >= 5 / 16) {
         return [
           'Mogło być lepiej',
-          ('Wiesz czym są fake newsy, jednak musisz popracować nad ich rozpoznawaniem.' +
-          ' Sprawdź swoje odpowiedzi i spróbuj jeszcze raz zagrać.'),
+          ('Wiesz, czym są fake newsy, jednak musisz popracować nad ich rozpoznawaniem.' +
+          ' Sprawdź swoje odpowiedzi i spróbuj zagrać jeszcze raz.'),
         ];
       }
       return [

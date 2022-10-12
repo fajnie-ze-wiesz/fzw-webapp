@@ -8,8 +8,8 @@
 
       <p>
         <b>
-          Mamy nadzieję, że teraz już wiesz jak rozpoznawać fake newsy.
-          Czytając informacje w internecie pamiętaj o najważniejszych zasadach!
+          Mamy nadzieję, że teraz już wiesz jak, rozpoznawać fake newsy.
+          Czytając informacje w internecie, pamiętaj o najważniejszych zasadach!
         </b>
       </p>
 
@@ -18,7 +18,7 @@
           Zwracaj uwagę na podejrzane i nieznane źródło informacji.
         </li>
         <li>
-          Pamiętaj, że zdjęcie umieszczone w artykule lub mem również mogą być fake newsem.
+          Pamiętaj, że zdjęcie umieszczone w artykule lub mem również może być fake newsem.
         </li>
         <li>
           Zwracaj uwagę na wpisy skrajnie emocjonalne, liczne wykrzykniki,

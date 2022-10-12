@@ -15,7 +15,7 @@
         Fajnie, że jesteś :)
       </h1>
       <p>
-        Dowiedź się czym są fake newsy i jak je rozpoznawać.
+        Dowiedz się, czym są fake newsy, i jak je rozpoznawać.
         Poznaj kilka prostych wskazówek, dzięki którym odnajdziesz się w świecie
         powszechnej dezinformacji i bez problemu poradzisz sobie z naszą grą.
       </p>
@@ -53,7 +53,7 @@
         Sprawdzaj źródła
       </h1>
       <p>
-        Przeglądając wpisy i artykuły w mediach społecznościowych zawsze zwracaj uwagę na źródło.
+        Przeglądając wpisy i artykuły w mediach społecznościowych, zawsze zwracaj uwagę na źródło.
         Fałszywe strony często podszywają się
         pod wiarygodne źródła lub mają charakter satyryczny.
         <b>Przyglądaj się nazwie oraz logotypowi strony.</b>

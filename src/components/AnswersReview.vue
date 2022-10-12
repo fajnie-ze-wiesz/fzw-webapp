@@ -107,7 +107,7 @@ export default {
       return null;
     },
     answerExplanationHTML() {
-      return Question.getAnswerExplanationHTML(this.question);
+      return -.getAnswerExplanationHTML(this.question);
     },
     answerType() {
       let answerTypeString;
