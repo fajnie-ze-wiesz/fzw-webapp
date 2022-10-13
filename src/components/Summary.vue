@@ -8,7 +8,7 @@
 
       <p>
         <b>
-          Mamy nadzieję, że teraz już wiesz jak, rozpoznawać fake newsy.
+          Mamy nadzieję, że teraz już wiesz, jak rozpoznawać fake newsy.
           Czytając informacje w internecie, pamiętaj o najważniejszych zasadach!
         </b>
       </p>
