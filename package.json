@@ -42,7 +42,7 @@
     "copy-webpack-plugin": "^4.6.0",
     "cross-env": "^5.0.5",
     "cross-spawn": "^5.1.0",
-    "css-loader": "^0.28.9",
+    "css-loader": "^6.7.3",
     "cssnano": "^5.1.13",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^10.2.1",
