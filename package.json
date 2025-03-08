@@ -19,7 +19,7 @@
     "lint:fix": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs --fix"
   },
   "dependencies": {
-    "axios": "^1.6.0",
+    "axios": "^1.8.2",
     "vue": "^3.5.12",
     "vue-axios": "^2.1.1",
     "vue-router": "^3.0.1",
